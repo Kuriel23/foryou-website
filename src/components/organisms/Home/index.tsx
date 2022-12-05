@@ -1,6 +1,7 @@
 import { Flex, Heading, Text, Button } from '@chakra-ui/react';
-
+import { signIn, useSession } from 'next-auth/react';
 export function Home(): JSX.Element {
+  const { data: session } = useSession();
   return (
     <Flex
       w="100%"
@@ -18,19 +19,30 @@ export function Home(): JSX.Element {
       >
         <Flex w="100%" flexDir="column" align="flex-start" maxW={400} gap={6}>
           <Heading fontWeight={900} sx={{ span: { color: 'green.300' } }}>
-            Lorem <span>ipsum dolor</span> sit amet consectetur
+            Um <span>simples</span> bot <span>otaku</span> do Discord
           </Heading>
 
           <Text>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure,
-            quas! Voluptate dolore hic aliquid omnis. Autem, amet soluta vitae
-            totam architecto provident magnam nam commodi error, ullam
-            consectetur doloribus cumque!
+            A simplicidade, o amor e o carinho num só bot. Feito especialmente
+            para os mais diversos otakus do servidor Animes Online Games, com um
+            sistema de economia e reputação viciantes.
           </Text>
 
-          <Button px={10} width="150px" borderRadius={12} bgColor="green.200">
-            Entrar
-          </Button>
+          {session ? (
+            <Button px={10} width="150px" borderRadius={12} bgColor="green.200">
+              Se aventurar
+            </Button>
+          ) : (
+            <Button
+              px={10}
+              width="150px"
+              borderRadius={12}
+              bgColor="green.200"
+              onClick={() => signIn('discord')}
+            >
+              Entrar
+            </Button>
+          )}
         </Flex>
       </Flex>
     </Flex>
