@@ -1,5 +1,5 @@
-import { Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 export function Footer(): JSX.Element {
-  return <Text>Footer</Text>;
+  return <Flex>Footer</Flex>;
 }

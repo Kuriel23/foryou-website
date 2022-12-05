@@ -11,7 +11,9 @@ export function DefaultLayout({ children }: PropsWithChildren): JSX.Element {
 
       {children}
 
-      <Footer />
+      {/* 
+
+      <Footer /> */}
     </Flex>
   );
 }
