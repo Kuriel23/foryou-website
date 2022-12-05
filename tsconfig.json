@@ -19,7 +19,8 @@
       "@components/*": ["components/*"],
       "@theme": ["theme/index"],
       "@theme/*": ["theme/*"],
-    }
+    },
+    "typeRoots": ["src/@types", "node_modules/@types"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
