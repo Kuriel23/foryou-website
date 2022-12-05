@@ -1,7 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import { PropsWithChildren } from 'react';
 
-import { Footer } from '@components/molecules/Footer';
 import { Header } from '@components/molecules/Header';
 
 export function DefaultLayout({ children }: PropsWithChildren): JSX.Element {
@@ -10,10 +9,6 @@ export function DefaultLayout({ children }: PropsWithChildren): JSX.Element {
       <Header />
 
       {children}
-
-      {/* 
-
-      <Footer /> */}
     </Flex>
   );
 }

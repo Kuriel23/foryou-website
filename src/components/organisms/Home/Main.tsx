@@ -31,7 +31,12 @@ export function Main(): JSX.Element {
             </Button>
           </Flex>
 
-          <Img src="blob.svg" alt="blob" height="400px" position="relative" />
+          <Img
+            src="/images/illustrations/undraw_artificial_intelligence_re_enpp.svg"
+            alt="blob"
+            height="240px"
+            position="relative"
+          />
         </Flex>
       </Flex>
     </Flex>
