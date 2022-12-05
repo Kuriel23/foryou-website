@@ -32,7 +32,7 @@ export function Header(): JSX.Element {
       w="100%"
       h={20}
       maxW={1240}
-      px={48}
+      px={10}
       m="0 auto"
       align="center"
       justify="space-between"
