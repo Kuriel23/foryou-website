@@ -13,14 +13,12 @@ export function Information(): JSX.Element {
           textAlign="center"
         >
           <Heading as="h2" size="xl">
-            Dolore hic aliquid omnis consectetur ait
+            Mais sobre mim...
           </Heading>
 
           <Text maxW="800px">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-            autem accusantium sint enim molestias harum animi velit recusandae
-            dolor, aut cupiditate. Dolorum repudiandae corrupti voluptatibus
-            quod quam facere dolore modi..
+            Deixe contar um pouco mais da minha história e planeamento de
+            funções que aconteceram!
           </Text>
         </Flex>
 
@@ -37,19 +35,20 @@ export function Information(): JSX.Element {
             textAlign="center"
           >
             <Img
-              src="/images/illustrations/undraw_having_fun_re_vj4h.svg"
+              src="/images/illustrations/undraw_engineering_team_a7n2.svg"
               alt="blob"
               height="200px"
               position="relative"
             />
 
             <Heading as="h3" size="lg" sx={{ span: { color: 'green.300' } }}>
-              Dolore hic <span>aliquid omnis</span> consectetur ait
+              O <span>início</span> de tudo
             </Heading>
 
             <Text maxW="800px">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatem autem accusantium sint enim molestias.
+              Inicialmente criado em 25 de Junho de 2020, fui feito para
+              facilitar anúncios de lançamento de animes, mas os otakus sempre
+              queriam mais que isso.
             </Text>
           </Flex>
 
@@ -65,19 +64,19 @@ export function Information(): JSX.Element {
             textAlign="center"
           >
             <Img
-              src="/images/illustrations/undraw_into_the_night_vumi.svg"
+              src="/images/illustrations/undraw_going_up_re_86kg.svg"
               alt="blob"
               height="200px"
               position="relative"
             />
 
             <Heading as="h3" size="lg" sx={{ span: { color: 'green.300' } }}>
-              Dolore hic <span>aliquid omnis</span> consectetur ait
+              A <span>expansão</span> <Heading as="s">de domínio</Heading>
             </Heading>
 
             <Text maxW="800px">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatem autem accusantium sint enim molestias.
+              Ao longo do tempo, fui sendo melhorado e com mais funções, um
+              bem-vindo, economia, busca de informações do website e muito mais.
             </Text>
           </Flex>
         </Flex>
