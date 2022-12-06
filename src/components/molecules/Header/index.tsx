@@ -1,5 +1,5 @@
 import {
-  Box,
+  Image,
   Button,
   Flex,
   Heading,
@@ -38,10 +38,10 @@ export function Header(): JSX.Element {
       justify="space-between"
     >
       <Flex align="center" gap={3}>
-        <Box w={8} h={8} borderRadius="full" bgColor="green.200" />
+        <Image src="/logo.png" w={8} h={8} borderRadius="full" bgColor="green.200" />
 
         <Heading fontWeight={600} fontSize="3xl">
-          aog
+          AOG
         </Heading>
       </Flex>
 
