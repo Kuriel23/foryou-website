@@ -1,3 +1,6 @@
 {
-  "extends": "@muoosic/eslint-config"
+  "extends": "@muoosic/eslint-config",
+  "rules": {
+    "prettier/prettier": "off"
+  }
 }
