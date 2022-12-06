@@ -1,5 +1,5 @@
 import { Flex, Heading, Text, SimpleGrid, useTheme } from '@chakra-ui/react';
-import { Alien, AndroidLogo, Basketball } from 'phosphor-react';
+import { Info, Bank, Cat } from 'phosphor-react';
 
 export function Categories(): JSX.Element {
   const { colors } = useTheme();
@@ -16,10 +16,10 @@ export function Categories(): JSX.Element {
       >
         <Flex flexDir="column" gap={2}>
           <Heading as="h3" size="lg">
-            Dolore hic aliquid omnis consectetur ait
+            Quer saber mais?
           </Heading>
 
-          <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</Text>
+          <Text>Veja algumas funções que contenho abaixo.</Text>
         </Flex>
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
@@ -32,16 +32,17 @@ export function Categories(): JSX.Element {
               justify="center"
               bgColor="orange.300"
             >
-              <Basketball size={32} color={colors.white} />
+              <Cat size={32} color={colors.white} />
             </Flex>
 
             <Heading as="h4" size="md">
-              Sit amet consectetur
+              Entretenimento
             </Heading>
 
             <Text fontSize="sm">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
-              voluptates non nemo.
+              Tenha o seu entretenimento todo em apenas simples comandos no
+              servidor onde me encontro, veja gatos e várias outras coisas para
+              a sua diversão.
             </Text>
           </Flex>
 
@@ -54,16 +55,17 @@ export function Categories(): JSX.Element {
               justify="center"
               bgColor="blue.300"
             >
-              <AndroidLogo size={32} color={colors.white} />
+              <Bank size={32} color={colors.white} />
             </Flex>
 
             <Heading as="h4" size="md">
-              Sit amet consectetur
+              Economia
             </Heading>
 
             <Text fontSize="sm">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
-              voluptates non nemo.
+              Experiencie uma economia altamente viciante com os mais variados
+              comandos totalmente gratuitos como roletas, e com esse dinheiro
+              compre novos produtos como assinaturas.
             </Text>
           </Flex>
 
@@ -76,16 +78,17 @@ export function Categories(): JSX.Element {
               justify="center"
               bgColor="purple.300"
             >
-              <Alien size={32} color={colors.white} />
+              <Info size={32} color={colors.white} />
             </Flex>
 
             <Heading as="h4" size="md">
-              Sit amet consectetur
+              Informações
             </Heading>
 
             <Text fontSize="sm">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
-              voluptates non nemo.
+              Informação é mais que tudo e como este se trata de um bot para um
+              servidor com suporte a site de animes, facilitamos as informações
+              sobre animes, tempo e entre outros.
             </Text>
           </Flex>
         </SimpleGrid>
