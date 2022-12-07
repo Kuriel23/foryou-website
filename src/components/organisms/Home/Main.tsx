@@ -17,7 +17,7 @@ export function Main(): JSX.Element {
   };
 
   return (
-    <Flex w="100%" maxW={1240} p={10} m="0 auto">
+    <Flex w="100%" maxW={1240} px={10} pb={10} m="0 auto">
       <Flex
         w="100%"
         flexDir="column"

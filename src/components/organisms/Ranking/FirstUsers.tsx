@@ -1,18 +1,11 @@
-import { chakra, Box, Flex, Avatar, Text, useTheme } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { Box, Flex, Avatar, Text, useTheme } from '@chakra-ui/react';
 import { CrownSimple } from 'phosphor-react';
 
 import type { RankingType, GetUsersRanking } from 'services/getUsersRanking';
 
-const _BoxAnimated = chakra(motion.div);
-
 interface FirstUsersProps {
   rankingType: RankingType;
-  firstUsers: GetUsersRanking<{
-    animecoins: string;
-    level: string;
-    rep: string;
-  }>;
+  firstUsers: GetUsersRanking;
 }
 
 export function FirstUsers({

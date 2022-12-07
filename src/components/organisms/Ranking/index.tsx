@@ -17,7 +17,7 @@ export function Ranking({
   firstUsers,
   allUsers,
   rankingType,
-  setRankingType,
+  setRankingType: _,
 }: RankingProps): JSX.Element {
   return (
     <Flex w="100%" h="100%" flexDir="column">
