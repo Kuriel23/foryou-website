@@ -7,8 +7,8 @@ export function Information(): JSX.Element {
   };
 
   return (
-    <Flex w="100%" maxW={1240} m="0 auto " justify="space-between">
-      <Flex w="100%" flexDir="column" p={12} gap={8}>
+    <Flex w="100%" maxW={1240} m="0 auto">
+      <Flex w="100%" flexDir="column" p={10} gap={8}>
         <Flex
           w="100%"
           flexDir="column"
@@ -17,11 +17,11 @@ export function Information(): JSX.Element {
           gap={8}
           textAlign="center"
         >
-          <Heading as="h2" size="xl">
+          <Heading as="h2" size="xl" color={theme.textColor}>
             Mais sobre mim...
           </Heading>
 
-          <Text maxW="800px">
+          <Text maxW="800px" color={theme.textColor}>
             Deixe contar um pouco mais da minha história e planeamento de
             funções que aconteceram!
           </Text>

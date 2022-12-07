@@ -30,8 +30,10 @@ import {
 import { Navigation } from './Navigation';
 
 export function Header(): JSX.Element {
-  const { data: session } = useSession();
   const router = useRouter();
+
+  const { data: session } = useSession();
+
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
