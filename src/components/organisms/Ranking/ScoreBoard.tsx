@@ -1,15 +1,32 @@
-import { Flex, Text, Avatar, Heading, Progress } from '@chakra-ui/react';
+import {
+  Flex,
+  Text,
+  Avatar,
+  Heading,
+  Progress,
+  Menu,
+  MenuButton,
+  IconButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useTheme,
+  Icon,
+  MenuGroup,
+} from '@chakra-ui/react';
+import { ChartLineUp, Coins, Funnel, Medal } from 'phosphor-react';
 
-import type { RankingType, GetUsersRanking } from 'services/getUsersRanking';
+import { useRanking } from '@hooks/useRanking';
+import type { GetUsersRanking } from '@services/getUsersRanking';
 
 interface ScoreBoardProps {
-  rankingType: RankingType;
   allUsers: GetUsersRanking;
 }
-export function ScoreBoard({
-  rankingType,
-  allUsers,
-}: ScoreBoardProps): JSX.Element {
+export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
+  const { colors } = useTheme();
+
+  const { rankingType, onChangeRankingType } = useRanking();
+
   return (
     <Flex w="100%" maxW={1240} px={28} py={12} m="0 auto">
       <Flex w="100%" flexDir="column" align="center" gap={8}>
@@ -27,14 +44,12 @@ export function ScoreBoard({
                   {user.username}
                 </Heading>
 
-                <Text>#{user.discriminator}</Text>
-
                 {rankingType === 'coins' && (
                   <Flex align="center" gap={1}>
-                    <Text fontWeight={900}>
+                    <Text fontWeight={600}>
                       {user.helpers.animecoins.toLocaleString()}
                     </Text>
-                    <Text>Coins</Text>
+                    <Text fontWeight={400}>Coins</Text>
                   </Flex>
                 )}
 
@@ -53,6 +68,87 @@ export function ScoreBoard({
           </Flex>
         ))}
       </Flex>
+
+      <Menu isLazy>
+        {({ isOpen }) => (
+          <>
+            <MenuButton
+              as={Flex}
+              isActive={isOpen}
+              position="relative"
+              top="-70px"
+              right="-60px"
+            >
+              <IconButton
+                aria-label="Change Ranking Type"
+                icon={<Funnel size={28} color={colors.white} />}
+                size="lg"
+                bgColor="gray.700"
+                _hover={{}}
+                _active={{}}
+                _focus={{}}
+              />
+            </MenuButton>
+
+            <MenuList>
+              <MenuGroup title="Filtrar por">
+                <MenuDivider />
+
+                <MenuItem
+                  gap="0.3rem"
+                  onClick={() => onChangeRankingType('coins')}
+                >
+                  <Icon
+                    as={Coins}
+                    w="25px"
+                    h="25px"
+                    weight="fill"
+                    color="yellow.200"
+                  />
+
+                  <Text as="span" fontWeight="300">
+                    Coins
+                  </Text>
+                </MenuItem>
+
+                <MenuItem
+                  gap="0.3rem"
+                  onClick={() => onChangeRankingType('level')}
+                >
+                  <Icon
+                    as={ChartLineUp}
+                    w="25px"
+                    h="25px"
+                    weight="fill"
+                    color="blue.200"
+                  />
+
+                  <Text as="span" fontWeight="300">
+                    Níveis
+                  </Text>
+                </MenuItem>
+
+                <MenuItem
+                  gap="0.3rem"
+                  onClick={() => onChangeRankingType('rep')}
+                >
+                  <Icon
+                    as={Medal}
+                    w="25px"
+                    h="25px"
+                    weight="fill"
+                    color="red.200"
+                  />
+
+                  <Text as="span" fontWeight="300">
+                    Reputações
+                  </Text>
+                </MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </>
+        )}
+      </Menu>
     </Flex>
   );
 }

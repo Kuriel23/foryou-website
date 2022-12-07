@@ -20,6 +20,10 @@
       "@theme": ["theme/index"],
       "@theme/*": ["theme/*"],
       "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
+      "@services/*": ["services/*"],
+      "@contexts/*": ["contexts/*"],
+      "@hooks/*": ["hooks/*"]
     },
     "typeRoots": ["src/@types", "node_modules/@types"]
   },

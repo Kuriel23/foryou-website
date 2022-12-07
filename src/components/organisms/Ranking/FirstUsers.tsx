@@ -1,167 +1,86 @@
+/* eslint-disable no-nested-ternary */
+
 import { Box, Flex, Avatar, Text, useTheme } from '@chakra-ui/react';
 import { CrownSimple } from 'phosphor-react';
 
-import type { RankingType, GetUsersRanking } from 'services/getUsersRanking';
+import type { GetUsersRanking } from '@services/getUsersRanking';
+import { reduceString } from '@utils/string';
 
 interface FirstUsersProps {
-  rankingType: RankingType;
   firstUsers: GetUsersRanking;
 }
 
-export function FirstUsers({
-  rankingType,
-  firstUsers,
-}: FirstUsersProps): JSX.Element {
-  const { colors } = useTheme();
+function getColor(index: number): string {
+  return index === 1 ? 'yellow.200' : index === 2 ? 'gray.200' : 'orange.200';
+}
 
-  const [firstUser, secondUser, thridUser] = firstUsers;
+export function FirstUsers({ firstUsers }: FirstUsersProps): JSX.Element {
+  const { colors } = useTheme();
 
   return (
     <Box bgColor="green.200">
       <Flex w="100%" maxW={1240} px={10} m="0 auto">
         <Flex w="100%" h="450px" align="flex-end" justify="center" gap={20}>
-          <Flex flexDir="column" align="center" position="relative">
-            <Flex
-              flexDir="column"
-              align="center"
-              gap={2}
-              position="absolute"
-              top="-140px"
-            >
-              <Text fontSize="2xl" fontWeight={900} color="gray.700">
-                2
-              </Text>
+          {firstUsers.map((user, index) => {
+            const position = index + 1;
 
-              <Text fontSize="sm" color="gray.700">
-                {secondUser.username}
-              </Text>
+            return (
+              <Flex key={user.id} flexDir="column" align="center" gap={2}>
+                <Flex flexDir="column" align="center" gap={2}>
+                  <Flex flexDir="column" align="center" position="relative">
+                    <Flex
+                      w="30px"
+                      h="30px"
+                      borderRadius="full"
+                      justify="center"
+                      align="center"
+                      bgColor={getColor(position)}
+                      position="absolute"
+                      top="-25px"
+                    >
+                      <Text fontSize="md" fontWeight={900} color="gray.700">
+                        {position}
+                      </Text>
+                    </Flex>
 
-              <Avatar
-                w="100px"
-                h="100px"
-                src={secondUser.avatar}
-                borderWidth="5px"
-                borderStyle="solid"
-                borderColor="gray.200"
-              />
-            </Flex>
+                    <Avatar
+                      w="100px"
+                      h="100px"
+                      src={user.avatar}
+                      borderWidth="5px"
+                      borderStyle="solid"
+                      borderColor={getColor(position)}
+                    />
+                  </Flex>
 
-            <Flex
-              w="90px"
-              h="150px"
-              align="center"
-              justify="center"
-              bgColor="gray.200"
-            >
-              {rankingType === 'coins' && (
-                <Flex flexDir="column" align="center">
-                  <Text fontWeight={900} color="gray.700">
-                    {secondUser.helpers.animecoins.toLocaleString()}
+                  <Text fontSize="sm" color="gray.700">
+                    {reduceString(user.username)}
                   </Text>
-                  <Text color="gray.700">Coins</Text>
+
+                  <Flex align="center" color="gray.700" gap={1}>
+                    <Text fontWeight={600}>
+                      {user.helpers.animecoins.toLocaleString()}
+                    </Text>
+                    <Text fontWeight={400}>Coins</Text>
+                  </Flex>
                 </Flex>
-              )}
-            </Flex>
-          </Flex>
 
-          <Flex flexDir="column" align="center" position="relative">
-            <Flex
-              flexDir="column"
-              align="center"
-              gap={2}
-              position="absolute"
-              top="-180px"
-            >
-              <Text fontSize="2xl" fontWeight={900} color="gray.700">
-                1
-              </Text>
-
-              <Text fontSize="sm" color="gray.700">
-                {firstUser.username}
-              </Text>
-
-              <CrownSimple
-                size={32}
-                weight="fill"
-                color={colors.yellow['200']}
-              />
-
-              <Avatar
-                w="100px"
-                h="100px"
-                src={firstUser.avatar}
-                borderWidth="5px"
-                borderStyle="solid"
-                borderColor="yellow.200"
-              />
-            </Flex>
-
-            <Flex
-              w="90px"
-              h="220px"
-              align="center"
-              justify="center"
-              bgColor="yellow.200"
-            >
-              {rankingType === 'coins' && (
-                <Flex flexDir="column" align="center">
-                  <Text fontWeight={900} color="gray.700">
-                    {firstUser.helpers.animecoins.toLocaleString()}
-                  </Text>
-                  <Text color="gray.700">Coins</Text>
-                </Flex>
-              )}
-            </Flex>
-          </Flex>
-
-          <Flex flexDir="column" align="center" position="relative">
-            <Flex
-              flexDir="column"
-              align="center"
-              gap={4}
-              position="absolute"
-              top="-160px"
-            >
-              <Text fontSize="2xl" fontWeight={900} color="gray.700">
-                3
-              </Text>
-
-              <Text fontSize="sm" color="gray.700">
-                {thridUser.username}
-              </Text>
-
-              <Avatar
-                w="100px"
-                h="100px"
-                src={thridUser.avatar}
-                borderWidth="5px"
-                borderStyle="solid"
-                borderColor="orange.200"
-              />
-            </Flex>
-
-            <Flex
-              w="90px"
-              h="100px"
-              align="center"
-              justify="center"
-              bgColor="orange.200"
-            >
-              {rankingType === 'coins' && (
                 <Flex
-                  flexDir="column"
+                  w="90px"
+                  h={
+                    position === 1 ? '200px' : position === 2 ? '140px' : '80px'
+                  }
                   align="center"
-                  position="absolute"
-                  top="40px"
+                  justify="center"
+                  bgColor={getColor(position)}
                 >
-                  <Text lineHeight="1" fontWeight={900} color="gray.700">
-                    {thridUser.helpers.animecoins.toLocaleString()}
+                  <Text fontSize="xl" fontWeight={900} color="gray.700">
+                    {position}
                   </Text>
-                  <Text color="gray.700">Coins</Text>
                 </Flex>
-              )}
-            </Flex>
-          </Flex>
+              </Flex>
+            );
+          })}
         </Flex>
       </Flex>
     </Box>

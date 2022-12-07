@@ -1,14 +1,13 @@
 import type { GetStaticProps } from 'next';
-import { useState } from 'react';
 
 import { SEO } from '@components/atoms/SEO';
 import { Ranking } from '@components/organisms/Ranking';
 import { DefaultLayout } from '@components/templates/DefaultLayout';
+import { RankingProvider } from '@contexts/RankingContext';
 import {
   getUsersRanking,
-  type RankingType,
   type GetUsersRanking,
-} from 'services/getUsersRanking';
+} from '@services/getUsersRanking';
 
 interface RankingPageProps {
   firstUsers: GetUsersRanking;
@@ -31,18 +30,13 @@ export default function RankingPage({
   firstUsers,
   allUsers,
 }: RankingPageProps): JSX.Element {
-  const [rankingType, setRankingType] = useState<RankingType>('coins');
-
   return (
     <DefaultLayout>
       <SEO />
 
-      <Ranking
-        firstUsers={firstUsers}
-        allUsers={allUsers}
-        rankingType={rankingType}
-        setRankingType={setRankingType}
-      />
+      <RankingProvider>
+        <Ranking firstUsers={firstUsers} allUsers={allUsers} />
+      </RankingProvider>
     </DefaultLayout>
   );
 }
