@@ -1,4 +1,4 @@
-import { HStack, Text } from '@chakra-ui/react';
+import { HStack, Link } from '@chakra-ui/react';
 
 const navigation = [
   {
@@ -22,7 +22,7 @@ export function Navigation(): JSX.Element {
   return (
     <HStack spacing={6}>
       {navigation.map(item => (
-        <Text key={item.name}>{item.title}</Text>
+        <Link href={item.href || item.tag} key={item.name} _hover={{ color: "green.200" }}>{item.title}</Link>
       ))}
     </HStack>
   );
