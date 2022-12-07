@@ -69,7 +69,7 @@ export function Header(): JSX.Element {
               </MenuButton>
 
               <MenuList maxW="160px">
-                <MenuItem gap="0.3rem">
+                <MenuItem onClick={() => { location.href = "/profile/" }} gap="0.3rem">
                   <Icon as={UserCircle} w="25px" h="25px" />
 
                   <Text as="span" fontWeight="300">
