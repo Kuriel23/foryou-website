@@ -1,7 +1,6 @@
 import {
   Box,
   Text,
-  HStack,
   VStack,
   Avatar,
   Heading,
@@ -21,15 +20,15 @@ export function Information(): JSX.Element {
   return (
     <VStack maxW={1240} px={10} m="0 auto " justify="space-between">
       <Box bg="green.200" w="1240px" p={12} borderRadius={12}>
-        <HStack justify="center" mb="10">
-          <Avatar size="lg" />
-          <Text color={theme.color} size="xl" as="b" align="center">
-            Kuriel#1411
-          </Text>
-        </HStack>
         <Heading color={theme.color} textAlign="center" as="h3" size="lg">
           Informações do Usuário
         </Heading>
+        <VStack justify="center" mt="10" mb="10">
+          <Avatar size="xl" />
+          <Text color={theme.color} size="xl" as="b" align="center">
+            Kuriel#1411
+          </Text>
+        </VStack>
         <SimpleGrid columns={2} mt="5" mb="5" spacing="40px">
           <VStack>
             <Flex
