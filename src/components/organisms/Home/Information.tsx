@@ -71,7 +71,10 @@ export function Information(): JSX.Element {
             />
 
             <Heading as="h3" size="lg" sx={{ span: { color: 'green.300' } }}>
-              A <span>expansão</span> <Heading as="s">de domínio</Heading>
+              A <span>expansão</span>{' '}
+              <Heading as="s" size="lg">
+                de domínio
+              </Heading>
             </Heading>
 
             <Text maxW="800px">
