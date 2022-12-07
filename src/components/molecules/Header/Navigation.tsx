@@ -22,7 +22,13 @@ export function Navigation(): JSX.Element {
   return (
     <HStack spacing={6}>
       {navigation.map(item => (
-        <Link href={item.href || item.tag} key={item.name} _hover={{ color: "green.200" }}>{item.title}</Link>
+        <Link
+          href={item.href || '/' + item.tag}
+          key={item.name}
+          _hover={{ color: 'green.200' }}
+        >
+          {item.title}
+        </Link>
       ))}
     </HStack>
   );
