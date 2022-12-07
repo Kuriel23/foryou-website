@@ -16,16 +16,17 @@ type GetUsersLevelList = {
 
 export async function getUsersLevelList(): Promise<GetUsersLevelList> {
   const usersData = await prisma.levels.findMany({
-    take: 10,
     select: {
       id: true,
       level: true,
       userID: true,
       xp: true,
     },
+    orderBy: {
+      level: 'desc',
+    },
+    take: 20,
   });
-
-  usersData.sort((a, b) => Number(b.level) - Number(a.level));
 
   const usersLevelList = await Promise.all(
     usersData.map(async userData => {

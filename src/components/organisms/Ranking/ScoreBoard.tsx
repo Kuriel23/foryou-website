@@ -31,7 +31,9 @@ export function ScoreBoard({
 
                 {rankingType === 'coins' && (
                   <Flex align="center" gap={1}>
-                    <Text fontWeight={900}>{user.helpers.animecoins}</Text>
+                    <Text fontWeight={900}>
+                      {user.helpers.animecoins.toLocaleString()}
+                    </Text>
                     <Text>Coins</Text>
                   </Flex>
                 )}

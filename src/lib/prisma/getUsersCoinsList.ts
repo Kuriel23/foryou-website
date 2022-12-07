@@ -15,14 +15,15 @@ type GetUsersCoinsList = {
 
 export async function getUsersCoinsList(): Promise<GetUsersCoinsList> {
   const usersData = await prisma.users.findMany({
-    take: 10,
     select: {
       id: true,
       animecoins: true,
     },
+    orderBy: {
+      animecoins: 'desc',
+    },
+    take: 20,
   });
-
-  usersData.sort((a, b) => Number(b.animecoins) - Number(a.animecoins));
 
   const usersRepList = await Promise.all(
     usersData.map(async userData => {

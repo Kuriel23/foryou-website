@@ -100,7 +100,7 @@ model guilds {
   repschedule     GuildsRepschedule[]
   robschedule     GuildsRobschedule[]
   /// Could not determine type: the field only had null or empty values in the sample set.
-  workschedule    Json?
+  workschedule    Int?
   ytdata          String
 }
 
@@ -124,29 +124,23 @@ model users {
   id                String           @id @map("_id")
   v                 Int              @map("__v")
   /// Multiple data types found: Float: 9.5%, Int: 90.5% out of 599 sampled entries
-  animecoins        Json
+  animecoins        Int
   biografia         String
   casado            String[]
   /// Multiple data types found: Float: 17.1%, Int: 82.9% out of 345 sampled entries
-  clonaCooldown     Json?
+  clonaCooldown     Int?
   config            UsersConfig
   cor               String?
   coratm            String?
-  /// Multiple data types found: Float: 29.3%, Int: 70.7% out of 345 sampled entries
-  crimeCooldown     Json?
-  /// Multiple data types found: Float: 28.4%, Int: 71.6% out of 599 sampled entries
-  dailyCooldown     Json
-  /// Multiple data types found: Float: 0.6%, Int: 99.4% out of 345 sampled entries
-  dinsujo           Json?
+  crimeCooldown     Int?
+  dailyCooldown     Int
+  dinsujo           Int?
   equipado          String
   loja              UsersLoja
   medalhas          UsersMedalhas?
   punishments       UsersPunishments
   rep               Int
-  /// Multiple data types found: Float: 23.2%, Int: 76.8% out of 599 sampled entries
-  repCooldown       Json
-  /// Multiple data types found: Float: 34.1%, Int: 65.9% out of 599 sampled entries
-  roubarCooldown    Json
-  /// Multiple data types found: Float: 33.4%, Int: 66.6% out of 599 sampled entries
-  trabalharCooldown Json
+  repCooldown       Int
+  roubarCooldown    Int
+  trabalharCooldown Int
 }

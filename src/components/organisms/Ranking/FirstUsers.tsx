@@ -33,7 +33,7 @@ export function FirstUsers({
               </Text>
 
               <Text fontSize="sm" color="gray.700">
-                {secondUser.tag}
+                {secondUser.username}
               </Text>
 
               <Avatar
@@ -56,7 +56,7 @@ export function FirstUsers({
               {rankingType === 'coins' && (
                 <Flex flexDir="column" align="center">
                   <Text fontWeight={900} color="gray.700">
-                    {secondUser.helpers.animecoins}
+                    {secondUser.helpers.animecoins.toLocaleString()}
                   </Text>
                   <Text color="gray.700">Coins</Text>
                 </Flex>
@@ -77,7 +77,7 @@ export function FirstUsers({
               </Text>
 
               <Text fontSize="sm" color="gray.700">
-                {firstUser.tag}
+                {firstUser.username}
               </Text>
 
               <CrownSimple
@@ -106,7 +106,7 @@ export function FirstUsers({
               {rankingType === 'coins' && (
                 <Flex flexDir="column" align="center">
                   <Text fontWeight={900} color="gray.700">
-                    {firstUser.helpers.animecoins}
+                    {firstUser.helpers.animecoins.toLocaleString()}
                   </Text>
                   <Text color="gray.700">Coins</Text>
                 </Flex>
@@ -127,7 +127,7 @@ export function FirstUsers({
               </Text>
 
               <Text fontSize="sm" color="gray.700">
-                {thridUser.tag}
+                {thridUser.username}
               </Text>
 
               <Avatar
@@ -155,7 +155,7 @@ export function FirstUsers({
                   top="40px"
                 >
                   <Text lineHeight="1" fontWeight={900} color="gray.700">
-                    {thridUser.helpers.animecoins}
+                    {thridUser.helpers.animecoins.toLocaleString()}
                   </Text>
                   <Text color="gray.700">Coins</Text>
                 </Flex>

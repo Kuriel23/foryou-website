@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { firstUsers, allUsers },
-    revalidate: 60,
+    revalidate: 10,
   };
 };
 

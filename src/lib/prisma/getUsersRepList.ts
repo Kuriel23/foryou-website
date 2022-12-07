@@ -15,14 +15,15 @@ export type GetUsersRepList = {
 
 export async function getUsersRepList(): Promise<GetUsersRepList> {
   const usersData = await prisma.users.findMany({
-    take: 10,
     select: {
       id: true,
       rep: true,
     },
+    orderBy: {
+      rep: 'desc',
+    },
+    take: 20,
   });
-
-  usersData.sort((a, b) => Number(b.rep) - Number(a.rep));
 
   const usersRepList = await Promise.all(
     usersData.map(async userData => {
