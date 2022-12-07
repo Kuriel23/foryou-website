@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
   CaretDown,
   CaretUp,
@@ -30,7 +31,7 @@ import { Navigation } from './Navigation';
 
 export function Header(): JSX.Element {
   const { data: session } = useSession();
-
+  const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -83,7 +84,7 @@ export function Header(): JSX.Element {
               <MenuList maxW="160px">
                 <MenuItem
                   onClick={() => {
-                    location.href = '/profile/';
+                    router.push('/profile/');
                   }}
                   gap="0.3rem"
                 >
