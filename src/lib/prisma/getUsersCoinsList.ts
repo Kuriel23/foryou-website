@@ -8,7 +8,6 @@ type GetUsersCoinsList = {
   discriminator: string;
   avatar: string;
   helpers: {
-    id: string;
     animecoins: number;
   };
 }[];
@@ -34,7 +33,6 @@ export async function getUsersCoinsList(): Promise<GetUsersCoinsList> {
         discriminator: userInfo.discriminator,
         avatar: userInfo.displayAvatar,
         helpers: {
-          id: userData.id,
           animecoins: userData.animecoins as number,
         },
       };
