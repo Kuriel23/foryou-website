@@ -10,4 +10,13 @@ export const theme = extendTheme({
   config,
   fonts,
   styles,
+  components: {
+    Progress: {
+      baseStyle: {
+        filledTrack: {
+          bg: 'green.200',
+        },
+      },
+    },
+  },
 });
