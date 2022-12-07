@@ -6,8 +6,8 @@ import { Options } from './Options';
 export function Ranking(): JSX.Element {
   return (
     <Flex flexDir="column" gap={6}>
-          <Options />
-          <Listings />
+      <Options />
+      <Listings />
     </Flex>
   );
 }

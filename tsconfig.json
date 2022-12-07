@@ -19,6 +19,7 @@
       "@components/*": ["components/*"],
       "@theme": ["theme/index"],
       "@theme/*": ["theme/*"],
+      "@lib/*": ["lib/*"],
     },
     "typeRoots": ["src/@types", "node_modules/@types"]
   },

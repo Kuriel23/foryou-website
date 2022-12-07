@@ -1,15 +1,16 @@
-import { HStack, Link } from '@chakra-ui/react';
+import { HStack, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const navigation = [
   {
     name: 'blog',
     title: 'Blog',
-    tag: '#blog',
+    href: '/blog',
   },
   {
     name: 'about',
     title: 'Sobre',
-    tag: '#about',
+    href: '/about',
   },
   {
     name: 'rank',
@@ -22,12 +23,10 @@ export function Navigation(): JSX.Element {
   return (
     <HStack spacing={6}>
       {navigation.map(item => (
-        <Link
-          href={item.href || '/' + item.tag}
-          key={item.name}
-          _hover={{ color: 'green.200' }}
-        >
-          {item.title}
+        <Link href={item.href} key={item.name}>
+          <Text transition="0.2s all" _hover={{ color: 'green.200' }}>
+            {item.title}
+          </Text>
         </Link>
       ))}
     </HStack>

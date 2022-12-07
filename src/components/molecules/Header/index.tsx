@@ -13,14 +13,8 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import {
-  CaretDown,
-  CaretUp,
-  SignOut,
-  User,
-  UserCircle,
-  Gear,
-} from 'phosphor-react';
+import Link from 'next/link';
+import { CaretDown, CaretUp, SignOut, UserCircle, Gear } from 'phosphor-react';
 
 import { Navigation } from './Navigation';
 
@@ -37,19 +31,21 @@ export function Header(): JSX.Element {
       align="center"
       justify="space-between"
     >
-      <Flex align="center" gap={3}>
-        <Image
-          src="/logo.png"
-          w={8}
-          h={8}
-          borderRadius="full"
-          bgColor="green.200"
-        />
+      <Link href="/">
+        <Flex align="center" gap={3}>
+          <Image
+            src="/logo.png"
+            w={8}
+            h={8}
+            borderRadius="full"
+            bgColor="green.200"
+          />
 
-        <Heading fontWeight={600} fontSize="3xl">
-          AOG
-        </Heading>
-      </Flex>
+          <Heading fontWeight={600} fontSize="3xl">
+            AOG
+          </Heading>
+        </Flex>
+      </Link>
 
       <Navigation />
 
