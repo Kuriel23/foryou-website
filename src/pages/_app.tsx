@@ -20,8 +20,6 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <ChakraProvider theme={theme}>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <title>Animes Online Games - Discord Bot</title>
         <Component {...pageProps} />
       </ChakraProvider>
     </SessionProvider>
