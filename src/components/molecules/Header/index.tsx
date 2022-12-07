@@ -10,16 +10,28 @@ import {
   MenuList,
   MenuItem,
   Avatar,
+  Switch,
   MenuDivider,
+  useColorMode,
 } from '@chakra-ui/react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { CaretDown, CaretUp, SignOut, UserCircle, Gear } from 'phosphor-react';
+import {
+  CaretDown,
+  CaretUp,
+  SignOut,
+  UserCircle,
+  Gear,
+  Moon,
+  Sun,
+} from 'phosphor-react';
 
 import { Navigation } from './Navigation';
 
 export function Header(): JSX.Element {
   const { data: session } = useSession();
+
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex
@@ -83,6 +95,35 @@ export function Header(): JSX.Element {
                   <Text as="span" fontWeight="300">
                     Configurações
                   </Text>
+                </MenuItem>
+
+                <MenuDivider />
+
+                <MenuItem
+                  alignItems="center"
+                  justifyContent="space-between"
+                  _selected={{}}
+                  _focus={{}}
+                  _hover={{}}
+                  _active={{}}
+                  onClick={toggleColorMode}
+                >
+                  <Flex gap="0.3rem">
+                    <Icon
+                      as={colorMode === 'dark' ? Moon : Sun}
+                      w="25px"
+                      h="25px"
+                    />
+
+                    <Text as="span" fontWeight="300">
+                      {colorMode === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                    </Text>
+                  </Flex>
+
+                  <Switch
+                    defaultChecked={colorMode === 'dark'}
+                    onFocus={() => toggleColorMode()}
+                  />
                 </MenuItem>
 
                 <MenuDivider />
