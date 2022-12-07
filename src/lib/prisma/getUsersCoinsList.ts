@@ -6,6 +6,7 @@ type GetUsersCoinsList = {
   id: string;
   username: string;
   discriminator: string;
+  tag: string;
   avatar: string;
   helpers: {
     animecoins: number;
@@ -31,6 +32,7 @@ export async function getUsersCoinsList(): Promise<GetUsersCoinsList> {
         id: userInfo.id,
         username: userInfo.username,
         discriminator: userInfo.discriminator,
+        tag: userInfo.tag,
         avatar: userInfo.displayAvatar,
         helpers: {
           animecoins: userData.animecoins as number,

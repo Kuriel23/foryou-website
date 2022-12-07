@@ -6,6 +6,7 @@ type GetUsersLevelList = {
   id: string;
   username: string;
   discriminator: string;
+  tag: string;
   avatar: string;
   helpers: {
     level: number;
@@ -34,6 +35,7 @@ export async function getUsersLevelList(): Promise<GetUsersLevelList> {
         id: userInfo.id,
         username: userInfo.username,
         discriminator: userInfo.discriminator,
+        tag: userInfo.tag,
         avatar: userInfo.displayAvatar,
         helpers: {
           level: userData.level,

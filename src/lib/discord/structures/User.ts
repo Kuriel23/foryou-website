@@ -26,9 +26,7 @@ export class User {
   private get avatarURL(): string | null {
     if (!this.avatar) return null;
 
-    const avatarHash = this.avatar.startsWith('a_') ? '.gif' : `.png?size=256`;
-
-    return cdn.avatar(this.id, avatarHash);
+    return cdn.avatar(this.id, this.avatar);
   }
 
   private get defaultAvatarURL(): string {

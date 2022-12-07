@@ -1,13 +1,28 @@
 import { Flex } from '@chakra-ui/react';
+import { Dispatch, SetStateAction } from 'react';
 
-import { Leading } from './Leading';
+import { FirstUsers } from './FirstUsers';
 import { ScoreBoard } from './ScoreBoard';
 
-export function Ranking(): JSX.Element {
+import type { RankingType, GetUsersRanking } from 'services/getUsersRanking';
+
+interface RankingProps {
+  firstUsers: GetUsersRanking;
+  allUsers: GetUsersRanking;
+  rankingType: RankingType;
+  setRankingType: Dispatch<SetStateAction<RankingType>>;
+}
+
+export function Ranking({
+  firstUsers,
+  allUsers,
+  rankingType,
+  setRankingType,
+}: RankingProps): JSX.Element {
   return (
     <Flex w="100%" h="100%" flexDir="column">
-      <Leading />
-      <ScoreBoard />
+      <FirstUsers rankingType={rankingType} firstUsers={firstUsers} />
+      <ScoreBoard rankingType={rankingType} allUsers={allUsers} />
     </Flex>
   );
 }
