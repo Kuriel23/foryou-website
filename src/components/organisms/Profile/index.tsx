@@ -1,8 +1,8 @@
 import { Flex } from '@chakra-ui/react';
 
+import { Banner } from './Banner';
 import { Information } from './Information';
 import { Married } from './Married';
-import { Banner } from './Banner';
 
 export function Profile(): JSX.Element {
   return (
