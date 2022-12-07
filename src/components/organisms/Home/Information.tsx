@@ -2,7 +2,8 @@ import { Flex, Heading, Img, Text, useColorModeValue } from '@chakra-ui/react';
 
 export function Information(): JSX.Element {
   const theme = {
-    color: useColorModeValue('white', 'gray.700'),
+    cardBackground: useColorModeValue('gray.100', 'gray.700'),
+    textColor: useColorModeValue('gray.700', 'white'),
   };
 
   return (
@@ -32,7 +33,7 @@ export function Information(): JSX.Element {
             flexDir="column"
             p={12}
             borderRadius={12}
-            bgColor="gray.200"
+            bgColor={theme.cardBackground}
             align="center"
             justify="center"
             gap={4}
@@ -48,13 +49,13 @@ export function Information(): JSX.Element {
             <Heading
               as="h3"
               size="lg"
-              color={theme.color}
+              color={theme.textColor}
               sx={{ span: { color: 'green.300' } }}
             >
               O <span>início</span> de tudo
             </Heading>
 
-            <Text maxW="800px" color={theme.color}>
+            <Text maxW="800px" color={theme.textColor}>
               Inicialmente criado em 25 de Junho de 2020, fui feito para
               facilitar anúncios de lançamento de animes, mas os otakus sempre
               queriam mais que isso.
@@ -66,7 +67,7 @@ export function Information(): JSX.Element {
             flexDir="column"
             p={12}
             borderRadius={12}
-            bgColor="gray.200"
+            bgColor={theme.cardBackground}
             align="center"
             justify="center"
             gap={4}
@@ -82,16 +83,16 @@ export function Information(): JSX.Element {
             <Heading
               as="h3"
               size="lg"
-              color={theme.color}
+              color={theme.textColor}
               sx={{ span: { color: 'green.300' } }}
             >
               A <span>expansão</span>{' '}
-              <Heading as="s" size="lg" color={theme.color}>
+              <Heading as="s" size="lg" color={theme.textColor}>
                 de domínio
               </Heading>
             </Heading>
 
-            <Text maxW="800px" color={theme.color}>
+            <Text maxW="800px" color={theme.textColor}>
               Ao longo do tempo, fui sendo melhorado e com mais funções, um
               bem-vindo, economia, busca de informações do website e muito mais.
             </Text>
