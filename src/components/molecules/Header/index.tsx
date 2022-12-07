@@ -38,7 +38,13 @@ export function Header(): JSX.Element {
       justify="space-between"
     >
       <Flex align="center" gap={3}>
-        <Image src="/logo.png" w={8} h={8} borderRadius="full" bgColor="green.200" />
+        <Image
+          src="/logo.png"
+          w={8}
+          h={8}
+          borderRadius="full"
+          bgColor="green.200"
+        />
 
         <Heading fontWeight={600} fontSize="3xl">
           AOG
@@ -53,7 +59,12 @@ export function Header(): JSX.Element {
             <>
               <MenuButton as={Flex} isActive={isOpen}>
                 <Flex align="center" gap={2}>
-                  <Avatar w={10} h={10} bgColor="green.200" icon={<User />} />
+                  <Avatar
+                    src={session.user?.image?.toString()}
+                    w={10}
+                    h={10}
+                    bgColor="green.200"
+                  />
 
                   <Text fontWeight={600}>{session.user?.name}</Text>
 
