@@ -1,8 +1,19 @@
-import { Flex, Heading, Text, Button, Img } from '@chakra-ui/react';
+import {
+  Flex,
+  Heading,
+  Text,
+  Button,
+  Img,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { useSession } from 'next-auth/react';
 
 export function Main(): JSX.Element {
   const { data: session } = useSession();
+
+  const theme = {
+    containerBackground: useColorModeValue('gray.100', 'gray.700'),
+  };
 
   return (
     <Flex w="100%" maxW={1240} px={10} m="0 auto" justify="space-between">
@@ -12,7 +23,7 @@ export function Main(): JSX.Element {
         px={12}
         py={32}
         borderRadius={12}
-        bgColor="gray.100"
+        bgColor={theme.containerBackground}
       >
         <Flex w="100%" h="100%" align="center" justify="space-between">
           <Flex flexDir="column" align="flex-start" maxW={400} gap={6}>
@@ -26,7 +37,13 @@ export function Main(): JSX.Element {
               um sistema de economia e reputação viciantes.
             </Text>
 
-            <Button px={10} width="150px" borderRadius={12} bgColor="green.200">
+            <Button
+              px={10}
+              width="150px"
+              borderRadius={12}
+              bgColor="green.200"
+              color="gray.800"
+            >
               {session ? 'Se aventurar' : 'Entrar'}
             </Button>
           </Flex>

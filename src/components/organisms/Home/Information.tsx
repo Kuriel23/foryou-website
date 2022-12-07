@@ -1,6 +1,10 @@
-import { Flex, Heading, Img, Text } from '@chakra-ui/react';
+import { Flex, Heading, Img, Text, useColorModeValue } from '@chakra-ui/react';
 
 export function Information(): JSX.Element {
+  const theme = {
+    color: useColorModeValue('white', 'gray.700'),
+  };
+
   return (
     <Flex w="100%" maxW={1240} m="0 auto " justify="space-between">
       <Flex w="100%" flexDir="column" p={12} gap={8}>
@@ -41,11 +45,16 @@ export function Information(): JSX.Element {
               position="relative"
             />
 
-            <Heading as="h3" size="lg" sx={{ span: { color: 'green.300' } }}>
+            <Heading
+              as="h3"
+              size="lg"
+              color={theme.color}
+              sx={{ span: { color: 'green.300' } }}
+            >
               O <span>início</span> de tudo
             </Heading>
 
-            <Text maxW="800px">
+            <Text maxW="800px" color={theme.color}>
               Inicialmente criado em 25 de Junho de 2020, fui feito para
               facilitar anúncios de lançamento de animes, mas os otakus sempre
               queriam mais que isso.
@@ -70,14 +79,19 @@ export function Information(): JSX.Element {
               position="relative"
             />
 
-            <Heading as="h3" size="lg" sx={{ span: { color: 'green.300' } }}>
+            <Heading
+              as="h3"
+              size="lg"
+              color={theme.color}
+              sx={{ span: { color: 'green.300' } }}
+            >
               A <span>expansão</span>{' '}
-              <Heading as="s" size="lg">
+              <Heading as="s" size="lg" color={theme.color}>
                 de domínio
               </Heading>
             </Heading>
 
-            <Text maxW="800px">
+            <Text maxW="800px" color={theme.color}>
               Ao longo do tempo, fui sendo melhorado e com mais funções, um
               bem-vindo, economia, busca de informações do website e muito mais.
             </Text>
