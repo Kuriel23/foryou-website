@@ -8,7 +8,6 @@ export type GetUsersRepList = {
   discriminator: string;
   avatar: string;
   helpers: {
-    id: string;
     rep: number;
   };
 }[];
@@ -34,7 +33,6 @@ export async function getUsersRepList(): Promise<GetUsersRepList> {
         discriminator: userInfo.discriminator,
         avatar: userInfo.displayAvatar,
         helpers: {
-          id: userData.id,
           rep: userData.rep as number,
         },
       };

@@ -9,7 +9,6 @@ type GetUsersLevelList = {
   avatar: string;
   helpers: {
     level: number;
-    userID: string;
     xp: number;
   };
 }[];
@@ -38,7 +37,6 @@ export async function getUsersLevelList(): Promise<GetUsersLevelList> {
         avatar: userInfo.displayAvatar,
         helpers: {
           level: userData.level,
-          userID: userData.userID,
           xp: userData.xp,
         },
       };
