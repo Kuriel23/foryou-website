@@ -35,11 +35,11 @@ export function FirstUsers({
               position="absolute"
               top="-140px"
             >
-              <Text fontSize="2xl" fontWeight={900} color="white">
+              <Text fontSize="2xl" fontWeight={900} color="gray.700">
                 2
               </Text>
 
-              <Text fontSize="sm" color="white">
+              <Text fontSize="sm" color="gray.700">
                 {secondUser.tag}
               </Text>
 
@@ -62,8 +62,10 @@ export function FirstUsers({
             >
               {rankingType === 'coins' && (
                 <Flex flexDir="column" align="center">
-                  <Text fontWeight={900}>{secondUser.helpers.animecoins}</Text>
-                  <Text>Coins</Text>
+                  <Text fontWeight={900} color="gray.700">
+                    {secondUser.helpers.animecoins}
+                  </Text>
+                  <Text color="gray.700">Coins</Text>
                 </Flex>
               )}
             </Flex>
@@ -77,11 +79,11 @@ export function FirstUsers({
               position="absolute"
               top="-180px"
             >
-              <Text fontSize="2xl" fontWeight={900} color="white">
+              <Text fontSize="2xl" fontWeight={900} color="gray.700">
                 1
               </Text>
 
-              <Text fontSize="sm" color="white">
+              <Text fontSize="sm" color="gray.700">
                 {firstUser.tag}
               </Text>
 
@@ -110,8 +112,10 @@ export function FirstUsers({
             >
               {rankingType === 'coins' && (
                 <Flex flexDir="column" align="center">
-                  <Text fontWeight={900}>{firstUser.helpers.animecoins}</Text>
-                  <Text>Coins</Text>
+                  <Text fontWeight={900} color="gray.700">
+                    {firstUser.helpers.animecoins}
+                  </Text>
+                  <Text color="gray.700">Coins</Text>
                 </Flex>
               )}
             </Flex>
@@ -125,11 +129,11 @@ export function FirstUsers({
               position="absolute"
               top="-160px"
             >
-              <Text fontSize="2xl" fontWeight={900} color="white">
+              <Text fontSize="2xl" fontWeight={900} color="gray.700">
                 3
               </Text>
 
-              <Text fontSize="sm" color="white">
+              <Text fontSize="sm" color="gray.700">
                 {thridUser.tag}
               </Text>
 
@@ -157,10 +161,10 @@ export function FirstUsers({
                   position="absolute"
                   top="40px"
                 >
-                  <Text lineHeight="1" fontWeight={900}>
+                  <Text lineHeight="1" fontWeight={900} color="gray.700">
                     {thridUser.helpers.animecoins}
                   </Text>
-                  <Text>Coins</Text>
+                  <Text color="gray.700">Coins</Text>
                 </Flex>
               )}
             </Flex>
