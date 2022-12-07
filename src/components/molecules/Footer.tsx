@@ -17,7 +17,7 @@ export function Footer(): JSX.Element {
         justify="space-between"
       >
         <Text as="p">
-          Site desenvolvidor com muito ❤️ por{' '}
+          Site desenvolvido com muito ❤️ por{' '}
           <Link href="https://izak.tech/" fontWeight="bold" isExternal>
             Izak
           </Link>{' '}
@@ -28,8 +28,8 @@ export function Footer(): JSX.Element {
         </Text>
 
         <Text as="p">
-          Copyright © 2020 - {new Date().getFullYear()} Panda. Todos os direitos
-          reservados.
+          Copyright © 2020 - {new Date().getFullYear()} Animes Online Games.
+          Todos os direitos reservados.
         </Text>
       </Flex>
     </Box>
