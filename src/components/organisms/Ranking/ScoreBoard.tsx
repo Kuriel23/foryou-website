@@ -13,6 +13,7 @@ import {
   useTheme,
   Icon,
   MenuGroup,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { ChartLineUp, Coins, Funnel, Medal } from 'phosphor-react';
 
@@ -26,6 +27,10 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
   const { colors } = useTheme();
 
   const { rankingType, onChangeRankingType } = useRanking();
+
+  const theme = {
+    filterBackground: useColorModeValue('gray.400', 'gray.700'),
+  };
 
   return (
     <Flex w="100%" maxW={1240} px={28} py={12} m="0 auto">
@@ -91,7 +96,7 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
                 aria-label="Change Ranking Type"
                 icon={<Funnel size={28} color={colors.white} />}
                 size="lg"
-                bgColor="gray.700"
+                bgColor={theme.filterBackground}
                 _hover={{}}
                 _active={{}}
                 _focus={{}}
