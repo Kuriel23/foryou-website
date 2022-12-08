@@ -3,11 +3,11 @@ import {
   Text,
   Avatar,
   Heading,
-  Progress,
   Menu,
   MenuButton,
   IconButton,
   MenuList,
+  Box,
   MenuItem,
   MenuDivider,
   useTheme,
@@ -54,14 +54,22 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
                 )}
 
                 {rankingType === 'level' && (
-                  <Progress
-                    mt={2}
-                    w="200px"
-                    value={20}
-                    size="sm"
-                    color="green.200"
-                    bgColor="gray.200"
-                  />
+                  <Flex align="center" gap={1}>
+                    <Text fontWeight={600}>
+                      {user.helpers.xp}/
+                      {user.helpers.xp * user.helpers.xp * 100}
+                    </Text>
+                    <Text fontWeight={400}>Níveis</Text>
+                  </Flex>
+                )}
+
+                {rankingType === 'rep' && (
+                  <Flex align="center" gap={1}>
+                    <Text fontWeight={600}>{user.helpers.rep}</Text>
+                    <Text fontWeight={400}>
+                      {user.helpers.rep < 1 ? 'Reputação' : 'Reputações'}
+                    </Text>
+                  </Flex>
                 )}
               </Flex>
             </Flex>
@@ -95,54 +103,90 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
                 <MenuDivider />
 
                 <MenuItem
-                  gap="0.3rem"
+                  alignItems="center"
+                  justifyContent="space-between"
                   onClick={() => onChangeRankingType('coins')}
                 >
-                  <Icon
-                    as={Coins}
-                    w="25px"
-                    h="25px"
-                    weight="fill"
-                    color="yellow.200"
-                  />
+                  <Flex gap="0.3rem">
+                    <Icon
+                      as={Coins}
+                      w="25px"
+                      h="25px"
+                      weight="fill"
+                      color="yellow.200"
+                    />
 
-                  <Text as="span" fontWeight="300">
-                    Coins
-                  </Text>
+                    <Text as="span" fontWeight="300">
+                      Coins
+                    </Text>
+                  </Flex>
+
+                  {rankingType === 'coins' && (
+                    <Box
+                      w="10px"
+                      h="10px"
+                      borderRadius="full"
+                      bgColor="red.200"
+                    />
+                  )}
                 </MenuItem>
 
                 <MenuItem
-                  gap="0.3rem"
+                  alignItems="center"
+                  justifyContent="space-between"
                   onClick={() => onChangeRankingType('level')}
                 >
-                  <Icon
-                    as={ChartLineUp}
-                    w="25px"
-                    h="25px"
-                    weight="fill"
-                    color="blue.200"
-                  />
+                  <Flex gap="0.3rem">
+                    <Icon
+                      as={ChartLineUp}
+                      w="25px"
+                      h="25px"
+                      weight="fill"
+                      color="blue.200"
+                    />
 
-                  <Text as="span" fontWeight="300">
-                    Níveis
-                  </Text>
+                    <Text as="span" fontWeight="300">
+                      Níveis
+                    </Text>
+                  </Flex>
+
+                  {rankingType === 'level' && (
+                    <Box
+                      w="10px"
+                      h="10px"
+                      borderRadius="full"
+                      bgColor="red.200"
+                    />
+                  )}
                 </MenuItem>
 
                 <MenuItem
-                  gap="0.3rem"
+                  alignItems="center"
+                  justifyContent="space-between"
                   onClick={() => onChangeRankingType('rep')}
                 >
-                  <Icon
-                    as={Medal}
-                    w="25px"
-                    h="25px"
-                    weight="fill"
-                    color="red.200"
-                  />
+                  <Flex gap="0.3rem">
+                    <Icon
+                      as={Medal}
+                      w="25px"
+                      h="25px"
+                      weight="fill"
+                      color="red.200"
+                    />
 
-                  <Text as="span" fontWeight="300">
-                    Reputações
-                  </Text>
+                    <Text as="span" fontWeight="300">
+                      Reputações
+                    </Text>
+                  </Flex>
+
+                  {rankingType === 'rep' && (
+                    <Box
+                      w="10px"
+                      h="10px"
+                      borderRadius="full"
+                      bgColor="red.200"
+                    />
+                  )}
                 </MenuItem>
               </MenuGroup>
             </MenuList>

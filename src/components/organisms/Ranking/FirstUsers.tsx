@@ -1,8 +1,9 @@
 /* eslint-disable no-nested-ternary */
 
-import { Box, Flex, Avatar, Text, useTheme } from '@chakra-ui/react';
+import { Box, Flex, Avatar, Text, useTheme, Icon } from '@chakra-ui/react';
 import { CrownSimple } from 'phosphor-react';
 
+import { useRanking } from '@hooks/useRanking';
 import type { GetUsersRanking } from '@services/getUsersRanking';
 import { reduceString } from '@utils/string';
 
@@ -17,10 +18,12 @@ function getColor(index: number): string {
 export function FirstUsers({ firstUsers }: FirstUsersProps): JSX.Element {
   const { colors } = useTheme();
 
+  const { rankingType } = useRanking();
+
   return (
     <Box bgColor="green.200">
       <Flex w="100%" maxW={1240} px={10} m="0 auto">
-        <Flex w="100%" h="450px" align="flex-end" justify="center" gap={20}>
+        <Flex w="100%" h="500px" align="flex-end" justify="center" gap={20}>
           {firstUsers.map((user, index) => {
             const position = index + 1;
 
@@ -28,6 +31,18 @@ export function FirstUsers({ firstUsers }: FirstUsersProps): JSX.Element {
               <Flex key={user.id} flexDir="column" align="center" gap={2}>
                 <Flex flexDir="column" align="center" gap={2}>
                   <Flex flexDir="column" align="center" position="relative">
+                    {position === 1 && (
+                      <Icon
+                        as={CrownSimple}
+                        w="32px"
+                        h="32px"
+                        position="absolute"
+                        top="-65px"
+                        weight="fill"
+                        color={colors.yellow['200']}
+                      />
+                    )}
+
                     <Flex
                       w="30px"
                       h="30px"
@@ -57,12 +72,43 @@ export function FirstUsers({ firstUsers }: FirstUsersProps): JSX.Element {
                     {reduceString(user.username)}
                   </Text>
 
-                  <Flex align="center" color="gray.700" gap={1}>
-                    <Text fontWeight={600}>
-                      {user.helpers.animecoins.toLocaleString()}
-                    </Text>
-                    <Text fontWeight={400}>Coins</Text>
-                  </Flex>
+                  {rankingType === 'coins' && (
+                    <Flex
+                      flexDir="column"
+                      align="center"
+                      color="gray.700"
+                      gap={1}
+                    >
+                      <Text fontWeight={600}>
+                        {user.helpers.animecoins.toLocaleString()}
+                      </Text>
+                      <Text fontWeight={400}>Coins</Text>
+                    </Flex>
+                  )}
+
+                  {rankingType === 'level' && (
+                    <Flex
+                      flexDir="column"
+                      align="center"
+                      color="gray.700"
+                      gap={1}
+                    >
+                      <Text fontWeight={600}>{user.helpers.level}</Text>
+                      <Text fontWeight={400}>Níveis</Text>
+                    </Flex>
+                  )}
+
+                  {rankingType === 'rep' && (
+                    <Flex
+                      flexDir="column"
+                      align="center"
+                      color="gray.700"
+                      gap={1}
+                    >
+                      <Text fontWeight={600}>{user.helpers.rep}</Text>
+                      <Text fontWeight={400}>Reputações</Text>
+                    </Flex>
+                  )}
                 </Flex>
 
                 <Flex
