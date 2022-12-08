@@ -14,18 +14,19 @@ import { ChatText, Door, Money, ShieldCheck, UserPlus } from 'phosphor-react';
 export function Information(): JSX.Element {
   const { colors } = useTheme();
   const theme = {
+    cardBackground: useColorModeValue('gray.700', 'gray.200'),
     color: useColorModeValue('white', 'gray.700'),
   };
 
   return (
     <VStack maxW={1240} px={10} m="0 auto " justify="space-between">
       <Box bg="green.200" w="1240px" p={12} borderRadius={12}>
-        <Heading color={theme.color} textAlign="center" as="h3" size="lg">
+        <Heading color="gray.700" textAlign="center" as="h3" size="lg">
           Informações do Usuário
         </Heading>
         <VStack justify="center" mt="10" mb="10">
           <Avatar size="xl" />
-          <Text color={theme.color} size="xl" as="b" align="center">
+          <Text color="gray.700" size="xl" as="b" align="center">
             Kuriel#1411
           </Text>
         </VStack>
@@ -41,10 +42,10 @@ export function Information(): JSX.Element {
             >
               <UserPlus size={32} color={colors.white} />
             </Flex>
-            <Heading color={theme.color} textAlign="left" as="h4" size="md">
+            <Heading color="gray.700" textAlign="left" as="h4" size="md">
               Conta criada em:
             </Heading>
-            <Box bg="gray.200" p={3} borderRadius={12}>
+            <Box bg={theme.cardBackground} p={3} borderRadius={12}>
               <Text color={theme.color}>25 de Junho de 2020</Text>
             </Box>
           </VStack>
@@ -59,10 +60,10 @@ export function Information(): JSX.Element {
             >
               <Door size={32} color={colors.white} />
             </Flex>
-            <Heading color={theme.color} textAlign="left" as="h4" size="md">
+            <Heading color="gray.700" textAlign="left" as="h4" size="md">
               Conta entrou a:
             </Heading>
-            <Box bg="gray.200" p={3} borderRadius={12}>
+            <Box bg={theme.cardBackground} p={3} borderRadius={12}>
               <Text color={theme.color}>25 de Junho de 2020</Text>
             </Box>
           </VStack>
@@ -77,10 +78,10 @@ export function Information(): JSX.Element {
             >
               <Money size={32} color={colors.white} />
             </Flex>
-            <Heading color={theme.color} textAlign="left" as="h4" size="md">
+            <Heading color="gray.700" textAlign="left" as="h4" size="md">
               Dinheiro:
             </Heading>
-            <Box bg="gray.200" p={3} borderRadius={12}>
+            <Box bg={theme.cardBackground} p={3} borderRadius={12}>
               <Text color={theme.color}>100.000 animecoins</Text>
             </Box>
           </VStack>
@@ -95,10 +96,10 @@ export function Information(): JSX.Element {
             >
               <ShieldCheck size={32} color={colors.white} />
             </Flex>
-            <Heading color={theme.color} textAlign="left" as="h4" size="md">
+            <Heading color="gray.700" textAlign="left" as="h4" size="md">
               Reputação:
             </Heading>
-            <Box bg="gray.200" p={3} borderRadius={12}>
+            <Box bg={theme.cardBackground} p={3} borderRadius={12}>
               <Text color={theme.color}>100</Text>
             </Box>
           </VStack>
@@ -114,10 +115,10 @@ export function Information(): JSX.Element {
           >
             <ChatText size={32} color={colors.white} />
           </Flex>
-          <Heading color={theme.color} textAlign="center" as="h4" size="md">
+          <Heading color="gray.700" textAlign="center" as="h4" size="md">
             Biografia:
           </Heading>
-          <Box bg="gray.200" w="95%" p={12} borderRadius={12}>
+          <Box bg={theme.cardBackground} w="95%" p={12} borderRadius={12}>
             <Text color={theme.color}>
               Inicialmente criado em 25 de Junho de 2020, fui feito para
               facilitar anúncios de lançamento de animes, mas os otakus sempre
