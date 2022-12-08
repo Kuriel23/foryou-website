@@ -25,7 +25,7 @@ export async function getUsersLevelList(): Promise<GetUsersLevelList> {
     orderBy: {
       level: 'desc',
     },
-    take: 20,
+    take: 10,
   });
 
   const usersLevelList = await Promise.all(

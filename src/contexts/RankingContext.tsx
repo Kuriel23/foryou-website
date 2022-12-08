@@ -10,7 +10,7 @@ import { RankingType } from '@services/getUsersRanking';
 
 export interface RankingContextData {
   rankingType: RankingType;
-  onChangeRankingType: (type: RankingType) => void;
+  updateRankingType: (type: RankingType) => void;
 }
 
 export const RankingContext = createContext<RankingContextData>(
@@ -20,16 +20,16 @@ export const RankingContext = createContext<RankingContextData>(
 export function RankingProvider({ children }: PropsWithChildren): JSX.Element {
   const [rankingType, setRankingType] = useState<RankingType>('coins');
 
-  const onChangeRankingType = useCallback((type: RankingType) => {
+  const updateRankingType = useCallback((type: RankingType) => {
     setRankingType(type);
   }, []);
 
   const value = useMemo(
     () => ({
       rankingType,
-      onChangeRankingType,
+      updateRankingType,
     }),
-    [rankingType, onChangeRankingType],
+    [rankingType, updateRankingType],
   );
 
   return (

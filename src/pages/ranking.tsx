@@ -10,32 +10,41 @@ import {
 } from '@services/getUsersRanking';
 
 interface RankingPageProps {
-  firstUsers: GetUsersRanking;
-  allUsers: GetUsersRanking;
+  usersCoinsRanking: GetUsersRanking;
+  usersLevelRanking: GetUsersRanking;
+  usersRepRanking: GetUsersRanking;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const usersRanking = await getUsersRanking('coins');
-
-  const firstUsers = usersRanking.slice(0, 3);
-  const allUsers = usersRanking.slice(3, usersRanking.length);
+  const usersCoinsRanking = await getUsersRanking('coins');
+  const usersLevelRanking = await getUsersRanking('level');
+  const usersRepRanking = await getUsersRanking('rep');
 
   return {
-    props: { firstUsers, allUsers },
-    revalidate: 10,
+    props: {
+      usersCoinsRanking,
+      usersLevelRanking,
+      usersRepRanking,
+    },
+    revalidate: 60,
   };
 };
 
 export default function RankingPage({
-  firstUsers,
-  allUsers,
+  usersCoinsRanking,
+  usersLevelRanking,
+  usersRepRanking,
 }: RankingPageProps): JSX.Element {
   return (
     <DefaultLayout>
       <SEO />
 
       <RankingProvider>
-        <Ranking firstUsers={firstUsers} allUsers={allUsers} />
+        <Ranking
+          usersCoinsRanking={usersCoinsRanking}
+          usersLevelRanking={usersLevelRanking}
+          usersRepRanking={usersRepRanking}
+        />
       </RankingProvider>
     </DefaultLayout>
   );

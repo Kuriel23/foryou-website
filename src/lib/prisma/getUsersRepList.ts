@@ -22,7 +22,7 @@ export async function getUsersRepList(): Promise<GetUsersRepList> {
     orderBy: {
       rep: 'desc',
     },
-    take: 20,
+    take: 10,
   });
 
   const usersRepList = await Promise.all(

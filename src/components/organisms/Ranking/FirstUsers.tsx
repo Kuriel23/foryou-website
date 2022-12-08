@@ -87,14 +87,11 @@ export function FirstUsers({ firstUsers }: FirstUsersProps): JSX.Element {
                   )}
 
                   {rankingType === 'level' && (
-                    <Flex
-                      flexDir="column"
-                      align="center"
-                      color="gray.700"
-                      gap={1}
-                    >
-                      <Text fontWeight={600}>{user.helpers.level}</Text>
-                      <Text fontWeight={400}>Níveis</Text>
+                    <Flex align="center" color="gray.700" gap={1}>
+                      <Text fontWeight={400}>Nível</Text>
+                      <Text fontSize="xl" fontWeight={600}>
+                        {user.helpers.level}
+                      </Text>
                     </Flex>
                   )}
 
@@ -105,7 +102,9 @@ export function FirstUsers({ firstUsers }: FirstUsersProps): JSX.Element {
                       color="gray.700"
                       gap={1}
                     >
-                      <Text fontWeight={600}>{user.helpers.rep}</Text>
+                      <Text fontSize="xl" fontWeight={600}>
+                        {user.helpers.rep.toLocaleString()}
+                      </Text>
                       <Text fontWeight={400}>Reputações</Text>
                     </Flex>
                   )}
@@ -120,7 +119,7 @@ export function FirstUsers({ firstUsers }: FirstUsersProps): JSX.Element {
                   justify="center"
                   bgColor={getColor(position)}
                 >
-                  <Text fontSize="xl" fontWeight={900} color="gray.700">
+                  <Text fontSize="2xl" fontWeight={900} color="gray.700">
                     {position}
                   </Text>
                 </Flex>

@@ -26,7 +26,7 @@ interface ScoreBoardProps {
 export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
   const { colors } = useTheme();
 
-  const { rankingType, onChangeRankingType } = useRanking();
+  const { rankingType, updateRankingType } = useRanking();
 
   const theme = {
     filterBackground: useColorModeValue('gray.400', 'gray.700'),
@@ -60,11 +60,8 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
 
                 {rankingType === 'level' && (
                   <Flex align="center" gap={1}>
-                    <Text fontWeight={600}>
-                      {user.helpers.xp}/
-                      {user.helpers.xp * user.helpers.xp * 100}
-                    </Text>
-                    <Text fontWeight={400}>Níveis</Text>
+                    <Text fontWeight={400}>Nível</Text>
+                    <Text fontWeight={600}>{user.helpers.level}</Text>
                   </Flex>
                 )}
 
@@ -110,7 +107,7 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
                 <MenuItem
                   alignItems="center"
                   justifyContent="space-between"
-                  onClick={() => onChangeRankingType('coins')}
+                  onClick={() => updateRankingType('coins')}
                 >
                   <Flex gap="0.3rem">
                     <Icon
@@ -139,7 +136,7 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
                 <MenuItem
                   alignItems="center"
                   justifyContent="space-between"
-                  onClick={() => onChangeRankingType('level')}
+                  onClick={() => updateRankingType('level')}
                 >
                   <Flex gap="0.3rem">
                     <Icon
@@ -168,7 +165,7 @@ export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
                 <MenuItem
                   alignItems="center"
                   justifyContent="space-between"
-                  onClick={() => onChangeRankingType('rep')}
+                  onClick={() => updateRankingType('rep')}
                 >
                   <Flex gap="0.3rem">
                     <Icon

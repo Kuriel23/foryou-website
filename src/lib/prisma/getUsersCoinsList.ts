@@ -22,7 +22,7 @@ export async function getUsersCoinsList(): Promise<GetUsersCoinsList> {
     orderBy: {
       animecoins: 'desc',
     },
-    take: 20,
+    take: 10,
   });
 
   const usersRepList = await Promise.all(
