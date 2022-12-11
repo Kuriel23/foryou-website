@@ -29,31 +29,21 @@ export async function getUsersLevelList(): Promise<UsersLevelList> {
   });
 
   const usersLevelList = await Promise.all(
-    usersData.map(
-      async ({
-        userID,
-        xp,
-        level,
-      }: {
-        userID: string;
-        xp: number;
-        level: number;
-      }) => {
-        const userInfo = await getUserInfo(userID);
+    usersData.map(async userData => {
+      const userInfo = await getUserInfo(userData.userID);
 
-        return {
-          id: userInfo.id,
-          username: userInfo.username,
-          discriminator: userInfo.discriminator,
-          tag: userInfo.tag,
-          avatar: userInfo.displayAvatar,
-          helpers: {
-            level,
-            xp,
-          },
-        };
-      },
-    ),
+      return {
+        id: userInfo.id,
+        username: userInfo.username,
+        discriminator: userInfo.discriminator,
+        tag: userInfo.tag,
+        avatar: userInfo.displayAvatar,
+        helpers: {
+          level: userData.level,
+          xp: userData.xp,
+        },
+      };
+    }),
   );
 
   return usersLevelList;
