@@ -1,3 +1,5 @@
+import { Prisma } from '@prisma/client';
+
 import { prisma } from './getPrisma';
 
 import { getUserInfo } from '@lib/discord/getUserInfo';
@@ -26,20 +28,28 @@ export async function getUsersCoinsList(): Promise<UsersCoinsList> {
   });
 
   const usersRepList = await Promise.all(
-    usersData.map(async ({ id, animecoins }: { id: string; animecoins: number }) => {
-      const userInfo = await getUserInfo(id);
+    usersData.map(
+      async ({
+        id,
+        animecoins,
+      }: {
+        id: string;
+        animecoins: Prisma.JsonValue;
+      }) => {
+        const userInfo = await getUserInfo(id);
 
-      return {
-        id: userInfo.id,
-        username: userInfo.username,
-        discriminator: userInfo.discriminator,
-        tag: userInfo.tag,
-        avatar: userInfo.displayAvatar,
-        helpers: {
-          animecoins: animecoins as number,
-        },
-      };
-    }),
+        return {
+          id: userInfo.id,
+          username: userInfo.username,
+          discriminator: userInfo.discriminator,
+          tag: userInfo.tag,
+          avatar: userInfo.displayAvatar,
+          helpers: {
+            animecoins: animecoins as number,
+          },
+        };
+      },
+    ),
   );
 
   return usersRepList;

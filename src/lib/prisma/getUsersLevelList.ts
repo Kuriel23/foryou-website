@@ -29,7 +29,16 @@ export async function getUsersLevelList(): Promise<UsersLevelList> {
   });
 
   const usersLevelList = await Promise.all(
-    usersData.map(async ({ userID, xp, level }: { userID: string; xp: number; level: number; }) => {
+    usersData.map(
+      async ({
+        userID,
+        xp,
+        level,
+      }: {
+        userID: string;
+        xp: number;
+        level: number;
+      }) => {
         const userInfo = await getUserInfo(userID);
 
         return {
@@ -39,11 +48,12 @@ export async function getUsersLevelList(): Promise<UsersLevelList> {
           tag: userInfo.tag,
           avatar: userInfo.displayAvatar,
           helpers: {
-            level: level,
-            xp: xp,
+            level,
+            xp,
           },
         };
-      }),
+      },
+    ),
   );
 
   return usersLevelList;
