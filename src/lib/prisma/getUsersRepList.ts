@@ -26,8 +26,8 @@ export async function getUsersRepList(): Promise<UsersRepList> {
   });
 
   const usersRepList = await Promise.all(
-    usersData.map(async userData => {
-      const userInfo = await getUserInfo(userData.id);
+    usersData.map(async ({ id, rep }: { id: string; rep: number }) => {
+      const userInfo = await getUserInfo(id);
 
       return {
         id: userInfo.id,
@@ -36,7 +36,7 @@ export async function getUsersRepList(): Promise<UsersRepList> {
         tag: userInfo.tag,
         avatar: userInfo.displayAvatar,
         helpers: {
-          rep: userData.rep as number,
+          rep: rep as number,
         },
       };
     }),
