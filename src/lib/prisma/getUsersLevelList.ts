@@ -2,7 +2,7 @@ import { prisma } from './getPrisma';
 
 import { getUserInfo } from '@lib/discord/getUserInfo';
 
-type GetUsersLevelList = {
+type UsersLevelList = {
   id: string;
   username: string;
   discriminator: string;
@@ -14,7 +14,7 @@ type GetUsersLevelList = {
   };
 }[];
 
-export async function getUsersLevelList(): Promise<GetUsersLevelList> {
+export async function getUsersLevelList(): Promise<UsersLevelList> {
   const usersData = await prisma.levels.findMany({
     select: {
       id: true,

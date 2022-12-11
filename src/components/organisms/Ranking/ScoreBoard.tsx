@@ -18,10 +18,10 @@ import {
 import { ChartLineUp, Coins, Funnel, Medal } from 'phosphor-react';
 
 import { useRanking } from '@hooks/useRanking';
-import type { GetUsersRanking } from '@services/getUsersRanking';
+import type { UsersRanking } from '@services/getUsersRanking';
 
 interface ScoreBoardProps {
-  allUsers: GetUsersRanking;
+  allUsers: UsersRanking;
 }
 export function ScoreBoard({ allUsers }: ScoreBoardProps): JSX.Element {
   const { colors } = useTheme();

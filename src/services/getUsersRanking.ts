@@ -2,7 +2,7 @@ import { getApi } from './getApi';
 
 export type RankingType = 'coins' | 'level' | 'rep';
 
-export type GetUsersRanking<H = Record<string, any>> = {
+export type UsersRanking<H = Record<string, any>> = {
   id: string;
   username: string;
   discriminator: string;
@@ -13,8 +13,8 @@ export type GetUsersRanking<H = Record<string, any>> = {
 
 export async function getUsersRanking(
   type: RankingType,
-): Promise<GetUsersRanking> {
-  const { data } = await getApi().get<GetUsersRanking>('ranking', {
+): Promise<UsersRanking> {
+  const { data } = await getApi().get<UsersRanking>('ranking', {
     params: { type },
   });
 

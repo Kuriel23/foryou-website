@@ -4,11 +4,11 @@ import { Box, Flex, Avatar, Text, useTheme, Icon } from '@chakra-ui/react';
 import { CrownSimple } from 'phosphor-react';
 
 import { useRanking } from '@hooks/useRanking';
-import type { GetUsersRanking } from '@services/getUsersRanking';
+import type { UsersRanking } from '@services/getUsersRanking';
 import { reduceString } from '@utils/string';
 
 interface FirstUsersProps {
-  firstUsers: GetUsersRanking;
+  firstUsers: UsersRanking;
 }
 
 function getColor(index: number): string {

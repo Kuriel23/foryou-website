@@ -6,12 +6,12 @@ import { FirstUsers } from './FirstUsers';
 import { ScoreBoard } from './ScoreBoard';
 
 import { useRanking } from '@hooks/useRanking';
-import type { GetUsersRanking } from '@services/getUsersRanking';
+import type { UsersRanking } from '@services/getUsersRanking';
 
 interface RankingProps {
-  usersCoinsRanking: GetUsersRanking;
-  usersLevelRanking: GetUsersRanking;
-  usersRepRanking: GetUsersRanking;
+  usersCoinsRanking: UsersRanking;
+  usersLevelRanking: UsersRanking;
+  usersRepRanking: UsersRanking;
 }
 
 export function Ranking({

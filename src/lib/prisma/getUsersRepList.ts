@@ -2,7 +2,7 @@ import { prisma } from './getPrisma';
 
 import { getUserInfo } from '@lib/discord/getUserInfo';
 
-export type GetUsersRepList = {
+export type UsersRepList = {
   id: string;
   username: string;
   discriminator: string;
@@ -13,7 +13,7 @@ export type GetUsersRepList = {
   };
 }[];
 
-export async function getUsersRepList(): Promise<GetUsersRepList> {
+export async function getUsersRepList(): Promise<UsersRepList> {
   const usersData = await prisma.users.findMany({
     select: {
       id: true,
