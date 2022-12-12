@@ -1,14 +1,30 @@
+import type { GetStaticProps } from 'next';
+
 import { SEO } from '@components/atoms/SEO';
 import { Ranking } from '@components/organisms/Ranking';
 import { DefaultLayout } from '@components/templates/DefaultLayout';
 import { RankingProvider } from '@contexts/RankingContext';
+import { getUsersCoinsList } from '@lib/prisma/getUsersCoinsList';
+import type { UserRankingData } from '@services/getUsersRanking';
 
-export default function RankingPage(): JSX.Element {
+interface RankingPageProps {
+  usersRanking: UserRankingData[];
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const usersRanking = await getUsersCoinsList();
+
+  return { props: { usersRanking } };
+};
+
+export default function RankingPage({
+  usersRanking,
+}: RankingPageProps): JSX.Element {
   return (
     <DefaultLayout>
       <SEO />
 
-      <RankingProvider>
+      <RankingProvider initialData={{ usersRanking }}>
         <Ranking />
       </RankingProvider>
     </DefaultLayout>

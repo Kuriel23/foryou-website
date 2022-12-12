@@ -2,7 +2,7 @@ import { getApi } from './getApi';
 
 export type RankingType = 'coins' | 'level' | 'rep';
 
-export interface User {
+export interface UserRankingData {
   id: string;
   username: string;
   discriminator: string;
@@ -11,12 +11,10 @@ export interface User {
   helpers: Record<string, any>;
 }
 
-export type UsersRanking = User[];
-
 export async function getUsersRanking(
   type: RankingType,
-): Promise<UsersRanking> {
-  const { data } = await getApi().get<UsersRanking>('ranking', {
+): Promise<UserRankingData[]> {
+  const { data } = await getApi().get<UserRankingData[]>('ranking', {
     params: { type },
   });
 

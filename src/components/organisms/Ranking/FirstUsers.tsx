@@ -14,11 +14,11 @@ import { CrownSimple } from 'phosphor-react';
 import { useMemo } from 'react';
 
 import { useRanking } from '@hooks/useRanking';
-import type { User } from '@services/getUsersRanking';
+import type { UserRankingData } from '@services/getUsersRanking';
 import { reduceString } from '@utils/string';
 
 interface UserCardProps {
-  user: User;
+  user: UserRankingData;
   position: number;
 }
 

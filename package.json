@@ -11,9 +11,7 @@
     "lint": "eslint ./ --ext ts,tsx",
     "lint:fix": "eslint ./ --ext ts,tsx --fix",
     "format": "prettier --check ./**/*.{ts,tsx}",
-    "format:fix": "prettier --write ./**/*.{ts,tsx}",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "format:fix": "prettier --write ./**/*.{ts,tsx}"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.2",
