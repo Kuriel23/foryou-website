@@ -5,12 +5,20 @@ import {
   useState,
   type PropsWithChildren,
 } from 'react';
+import { useQuery, useQueryClient } from 'react-query';
 
-import { RankingType } from '@services/getUsersRanking';
+import {
+  getUsersRanking,
+  type RankingType,
+  type UsersRanking,
+} from '@services/getUsersRanking';
 
 export interface RankingContextData {
   rankingType: RankingType;
-  updateRankingType: (type: RankingType) => void;
+  firstUsers?: UsersRanking;
+  allUsers?: UsersRanking;
+  isLoading: boolean;
+  updateRankingType: (type: RankingType) => Promise<void>;
 }
 
 export const RankingContext = createContext<RankingContextData>(
@@ -18,18 +26,35 @@ export const RankingContext = createContext<RankingContextData>(
 );
 
 export function RankingProvider({ children }: PropsWithChildren): JSX.Element {
+  const queryClient = useQueryClient();
+
   const [rankingType, setRankingType] = useState<RankingType>('coins');
 
-  const updateRankingType = useCallback((type: RankingType) => {
-    setRankingType(type);
-  }, []);
+  const { data: usersRanking, isLoading } = useQuery({
+    queryKey: ['usersRanking', rankingType],
+    queryFn: () => getUsersRanking(rankingType),
+  });
+
+  const updateRankingType = useCallback(
+    async (type: RankingType) => {
+      setRankingType(type);
+
+      await queryClient.prefetchQuery(['usersRanking', rankingType], () =>
+        getUsersRanking(rankingType),
+      );
+    },
+    [queryClient, rankingType],
+  );
 
   const value = useMemo(
     () => ({
       rankingType,
+      firstUsers: usersRanking?.slice(0, 3),
+      allUsers: usersRanking?.slice(3, usersRanking?.length),
+      isLoading,
       updateRankingType,
     }),
-    [rankingType, updateRankingType],
+    [rankingType, usersRanking, isLoading, updateRankingType],
   );
 
   return (

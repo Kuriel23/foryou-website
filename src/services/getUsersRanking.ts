@@ -2,14 +2,16 @@ import { getApi } from './getApi';
 
 export type RankingType = 'coins' | 'level' | 'rep';
 
-export type UsersRanking<H = Record<string, any>> = {
+export interface User {
   id: string;
   username: string;
   discriminator: string;
   tag: string;
   avatar: string;
-  helpers: H;
-}[];
+  helpers: Record<string, any>;
+}
+
+export type UsersRanking = User[];
 
 export async function getUsersRanking(
   type: RankingType,
