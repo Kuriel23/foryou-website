@@ -5,18 +5,21 @@ import {
   useState,
   type PropsWithChildren,
 } from 'react';
-import { useQuery, useQueryClient } from 'react-query';
 
 import {
   getUsersRanking,
   type RankingType,
-  type UsersRanking,
+  type UserRankingData,
 } from '@services/getUsersRanking';
+
+interface RankingProviderData {
+  initialData: Record<string, any>;
+}
 
 export interface RankingContextData {
   rankingType: RankingType;
-  firstUsers?: UsersRanking;
-  allUsers?: UsersRanking;
+  firstUsers?: UserRankingData[];
+  allUsers?: UserRankingData[];
   isLoading: boolean;
   updateRankingType: (type: RankingType) => Promise<void>;
 }
@@ -25,36 +28,36 @@ export const RankingContext = createContext<RankingContextData>(
   {} as RankingContextData,
 );
 
-export function RankingProvider({ children }: PropsWithChildren): JSX.Element {
-  const queryClient = useQueryClient();
+export function RankingProvider({
+  initialData,
+  children,
+}: PropsWithChildren<RankingProviderData>): JSX.Element {
+  const [isLoading, setIsLoading] = useState(false);
 
+  const [users, setUsers] = useState<UserRankingData[]>(
+    initialData.usersRanking,
+  );
   const [rankingType, setRankingType] = useState<RankingType>('coins');
 
-  const { data: usersRanking, isLoading } = useQuery({
-    queryKey: ['usersRanking', rankingType],
-    queryFn: () => getUsersRanking(rankingType),
-  });
+  const updateRankingType = useCallback(async (type: RankingType) => {
+    setRankingType(type);
+    setIsLoading(true);
 
-  const updateRankingType = useCallback(
-    async (type: RankingType) => {
-      setRankingType(type);
+    const rankingUsers = await getUsersRanking(type);
 
-      await queryClient.prefetchQuery(['usersRanking', rankingType], () =>
-        getUsersRanking(rankingType),
-      );
-    },
-    [queryClient, rankingType],
-  );
+    setUsers(rankingUsers);
+    setIsLoading(false);
+  }, []);
 
   const value = useMemo(
     () => ({
       rankingType,
-      firstUsers: usersRanking?.slice(0, 3),
-      allUsers: usersRanking?.slice(3, usersRanking?.length),
+      firstUsers: users.slice(0, 3),
+      allUsers: users.slice(3, users.length),
       isLoading,
       updateRankingType,
     }),
-    [rankingType, usersRanking, isLoading, updateRankingType],
+    [rankingType, users, isLoading, updateRankingType],
   );
 
   return (
