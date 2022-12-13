@@ -1,6 +1,5 @@
 import {
   Flex,
-  VStack,
   Box,
   Text,
   Heading,
@@ -8,12 +7,14 @@ import {
   Img,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 export function Information(): JSX.Element {
   const theme = {
     containerBackground: useColorModeValue('gray.100', 'gray.700'),
     textColor: useColorModeValue('gray.700', 'white'),
   };
+  const router = useRouter();
   return (
     <>
       <Flex
@@ -21,50 +22,57 @@ export function Information(): JSX.Element {
         bgRepeat="no-repeat"
         bgSize="cover"
         bgPos="center"
-        filter="blur(5px)"
+        filter="blur(3px)"
         w="100%"
         h="100vh"
       />
       <Box bg="transparent" w="100%" mt="-100vh" zIndex={999}>
         <Box
           bg={theme.containerBackground}
-          w="90%"
+          w="55%"
           h="95vh"
           p="3"
           m="auto"
           borderRadius={12}
+          textAlign="center"
         >
-          <VStack textAlign="center">
+          <Box m="auto" pt="10vh">
             <Img
-              src="/images/illustrations/undraw_artificial_intelligence_re_enpp.svg"
+              src="/images/illustrations/undraw_by_the_road_re_vvs7.svg"
               alt="blob"
               height="340px"
-              position="relative"
-              mb="50px"
+              m="50px auto"
             />
             <Heading
               color={theme.textColor}
               sx={{ span: { color: 'green.300' } }}
+              fontSize="5xl"
+              mb="15px"
             >
               Isto parece ser <span>perigoso</span>!
             </Heading>
 
-            <Text color={theme.textColor}>
-              A simplicidade, o amor e o carinho num só bot. Feito especialmente
-              para os mais diversos otakus do servidor Animes Online Games, com
-              um sistema de economia e reputação viciantes.
+            <Text
+              color={theme.textColor}
+              m="30px auto"
+              maxW="60%"
+              fontSize="xl"
+            >
+              Isto não estava previsto no meu mapa, parece que é melhor
+              voltarmos antes que encontremos alguns perigos dos quais não
+              gostariamos de encarar.
             </Text>
 
             <Button
-              px={10}
-              width="220px"
               borderRadius={12}
               bgColor="green.200"
               color="gray.700"
+              fontSize="xl"
+              onClick={() => router.push('/')}
             >
               Voltar a um lugar seguro
             </Button>
-          </VStack>
+          </Box>
         </Box>
       </Box>
     </>
