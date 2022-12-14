@@ -29,24 +29,24 @@ export function Information(): JSX.Element {
       <Box bg="transparent" w="100%" mt="-100vh" zIndex={999}>
         <Box
           bg={theme.containerBackground}
-          w="55%"
+          w={{ base: '90%', xl: '55%' }}
           h="95vh"
-          p="3"
+          p={{ base: '1', xl: '3' }}
           m="auto"
           borderRadius={12}
           textAlign="center"
         >
-          <Box m="auto" pt="10vh">
+          <Box m="auto" pt={{ base: '5vh', xl: '1vh' }}>
             <Img
               src="/images/illustrations/undraw_by_the_road_re_vvs7.svg"
               alt="blob"
-              height="340px"
-              m="50px auto"
+              height={{ base: '25vh', xl: '35vh' }}
+              m={{ base: '10px auto', xl: '50px auto' }}
             />
             <Heading
               color={theme.textColor}
               sx={{ span: { color: 'green.300' } }}
-              fontSize="5xl"
+              fontSize={{ base: '2xl', xl: '5xl' }}
               mb="15px"
             >
               Isto parece ser <span>perigoso</span>!
@@ -54,9 +54,9 @@ export function Information(): JSX.Element {
 
             <Text
               color={theme.textColor}
-              m="30px auto"
-              maxW="60%"
-              fontSize="xl"
+              m="15px auto"
+              maxW={{ base: '90%', xl: '60%' }}
+              fontSize={{ base: 'md', xl: 'xl' }}
             >
               Isto não estava previsto no meu mapa, parece que é melhor
               voltarmos antes que encontremos alguns perigos dos quais não
@@ -67,7 +67,7 @@ export function Information(): JSX.Element {
               borderRadius={12}
               bgColor="green.200"
               color="gray.700"
-              fontSize="xl"
+              fontSize={{ base: 'md', xl: 'xl' }}
               onClick={() => router.push('/')}
             >
               Voltar a um lugar seguro
