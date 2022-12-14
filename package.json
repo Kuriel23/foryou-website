@@ -19,8 +19,13 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/poppins": "^4.5.10",
+<<<<<<< HEAD
     "@prisma/client": "^4.7.1",
     "@types/node": "18.11.14",
+=======
+    "@prisma/client": "4.7.1",
+    "@types/node": "18.11.15",
+>>>>>>> 799c1878c6647e4a5c6a8a8a82b685963171024c
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
     "axios": "^1.2.1",
