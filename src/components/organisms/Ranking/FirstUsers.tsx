@@ -101,7 +101,7 @@ function UserCard({ user, position }: UserCardProps): JSX.Element {
         {rankingType === 'rep' && (
           <Flex flexDir="column" align="center" color="gray.700" gap={1}>
             <Text fontSize="xl" fontWeight={600}>
-              {user.helpers.rep}
+              {user.helpers.rep.toLocaleString()}
             </Text>
             <Text fontWeight={400}>Reputações</Text>
           </Flex>

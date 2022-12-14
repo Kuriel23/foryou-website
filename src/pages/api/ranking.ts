@@ -5,10 +5,16 @@ import { getUsersLevelList } from '@lib/prisma/getUsersLevelList';
 import { getUsersRepList } from '@lib/prisma/getUsersRepList';
 
 export default async function ranking(
-  req: NextApiRequest,
-  res: NextApiResponse,
+  request: NextApiRequest,
+  response: NextApiResponse,
 ): Promise<void> {
-  let { type = 'coins' } = req.query as Record<
+  if (request.method !== 'GET') {
+    response.status(400).end();
+
+    return;
+  }
+
+  let { type = 'coins' } = request.query as Record<
     'type',
     'coins' | 'level' | 'rep'
   >;
@@ -21,7 +27,7 @@ export default async function ranking(
     case 'coins': {
       const usersCoinsList = await getUsersCoinsList();
 
-      res.json(usersCoinsList);
+      response.json(usersCoinsList);
 
       break;
     }
@@ -29,7 +35,7 @@ export default async function ranking(
     case 'level': {
       const usersLevelList = await getUsersLevelList();
 
-      res.json(usersLevelList);
+      response.json(usersLevelList);
 
       break;
     }
@@ -37,7 +43,7 @@ export default async function ranking(
     case 'rep': {
       const usersRepList = await getUsersRepList();
 
-      res.json(usersRepList);
+      response.json(usersRepList);
 
       break;
     }

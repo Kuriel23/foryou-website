@@ -1,18 +1,14 @@
 import { prisma } from './getPrisma';
 
 import { getUserInfo } from '@lib/discord/getUserInfo';
+import type { UserInfoToObject } from '@lib/discord/structures/UserInfo';
 
-type UsersLevelList = {
-  id: string;
-  username: string;
-  discriminator: string;
-  tag: string;
-  avatar: string;
+type UsersLevelList = (UserInfoToObject & {
   helpers: {
     level: number;
     xp: number;
   };
-}[];
+})[];
 
 export async function getUsersLevelList(): Promise<UsersLevelList> {
   const usersData = await prisma.levels.findMany({
@@ -32,17 +28,12 @@ export async function getUsersLevelList(): Promise<UsersLevelList> {
     usersData.map(async userData => {
       const userInfo = await getUserInfo(userData.userID);
 
-      return {
-        id: userInfo.id,
-        username: userInfo.username,
-        discriminator: userInfo.discriminator,
-        tag: userInfo.tag,
-        avatar: userInfo.displayAvatar,
+      return Object.assign(userInfo as UserInfoToObject, {
         helpers: {
           level: userData.level,
           xp: userData.xp,
         },
-      };
+      });
     }),
   );
 
