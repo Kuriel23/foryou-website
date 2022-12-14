@@ -9,12 +9,11 @@ export function Footer(): JSX.Element {
     <Box bgColor={theme.containerBackground}>
       <Flex
         w="100%"
-        h={20}
-        maxW={1240}
-        px={10}
+        h={{ base: 150, xl: 20 }}
         m="0 auto"
         align="center"
         justify="space-between"
+        px={{ base: '5px', xl: '10px' }}
       >
         <Text as="p">
           Site desenvolvido com muito ❤️ por{' '}
