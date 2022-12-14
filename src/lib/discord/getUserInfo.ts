@@ -1,18 +1,18 @@
 import { Routes, type APIUser } from 'discord-api-types/v10';
 
 import { getRest } from './getRest';
-import { User } from './structures/User';
+import { UserInfo, type UserInfoToObject } from './structures/UserInfo';
 
-export async function getUserInfo(id: string): Promise<User> {
-  const rest = getRest();
+export async function getUserInfo(
+  id: string,
+): Promise<UserInfoToObject | null> {
+  const data = <APIUser>await getRest().get(Routes.user(id));
 
-  try {
-    const data = <APIUser>await rest.get(Routes.user(id));
-
-    const user = new User(data);
-
-    return user;
-  } catch (error) {
-    throw new Error('User not found.');
+  if (!data) {
+    return null;
   }
+
+  const userInfoStructure = new UserInfo(data);
+
+  return userInfoStructure.toObject();
 }

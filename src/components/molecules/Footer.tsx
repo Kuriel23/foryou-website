@@ -9,11 +9,12 @@ export function Footer(): JSX.Element {
     <Box bgColor={theme.containerBackground}>
       <Flex
         w="100%"
-        h={{ base: 150, xl: 20 }}
+        h="140px"
+        maxW={1240}
+        px={10}
         m="0 auto"
         align="center"
         justify="space-between"
-        px={{ base: '5px', xl: '10px' }}
       >
         <Text as="p">
           Site desenvolvido com muito ❤️ por{' '}
@@ -26,10 +27,15 @@ export function Footer(): JSX.Element {
           </Link>
         </Text>
 
-        <Text as="p">
-          Copyright © 2020 - {new Date().getFullYear()} Animes Online Games.
-          Todos os direitos reservados.
-        </Text>
+        <Flex flexDir="column" textAlign="end">
+          <Text as="p">
+            Copyright © 2020 - {new Date().getFullYear()} Animes Online Games.
+          </Text>
+
+          <Text as="p" fontSize="sm" fontWeight="300" color="gray.600">
+            Todos os direitos reservados.
+          </Text>
+        </Flex>
       </Flex>
     </Box>
   );
