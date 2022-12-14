@@ -1,5 +1,12 @@
-import { Component404 } from '@components/organisms/404';
+import { SEO } from '@components/atoms/SEO';
+import { NotFound } from '@components/organisms/NotFound';
 
-export default function Page404(): JSX.Element {
-  return <Component404 />;
+export default function NotFoundPage(): JSX.Element {
+  return (
+    <>
+      <SEO />
+
+      <NotFound />
+    </>
+  );
 }
