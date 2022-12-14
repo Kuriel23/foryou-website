@@ -14,7 +14,10 @@ interface RankingPageProps {
 export const getStaticProps: GetStaticProps = async () => {
   const usersRanking = await getUsersCoinsList();
 
-  return { props: { usersRanking } };
+  return {
+    props: { usersRanking },
+    revalidate: 60,
+  };
 };
 
 export default function RankingPage({
