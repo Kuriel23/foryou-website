@@ -1,9 +1,9 @@
-import { useQueries } from '@tanstack/react-query';
 import type { GetStaticProps } from 'next';
 
 import { SEO } from '@components/atoms/SEO';
 import { Contributors } from '@components/organisms/Contributors';
 import { DefaultLayout } from '@components/templates/DefaultLayout';
+import { useContributors } from '@hooks/useContributors';
 import {
   getContributors,
   type ContributorData,
@@ -25,29 +25,21 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function ContributorsPage({
-  team,
-  contributors,
-}: ContributorsPageProps): JSX.Element {
-  const results = useQueries({
-    queries: [
-      { queryKey: ['team'], queryFn: getTeam, initialData: team },
-      {
-        queryKey: ['contributors'],
-        queryFn: getContributors,
-        initialData: contributors,
-      },
-    ],
+export default function ContributorsPage(
+  props: ContributorsPageProps,
+): JSX.Element {
+  const { team, contributors } = useContributors({
+    team: props.team,
+    contributors: props.contributors,
   });
 
   return (
     <DefaultLayout>
       <SEO />
 
-      <Contributors
-        team={results[0].data as TeamData[]}
-        contributors={results[1].data as ContributorData[]}
-      />
+      <Contributors team={team} contributors={contributors} />
     </DefaultLayout>
   );
 }
+
+/* eslint react/destructuring-assignment: off */
