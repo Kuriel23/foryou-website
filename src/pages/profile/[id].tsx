@@ -14,11 +14,11 @@ export default function ProfilePage(): JSX.Element {
   useEffect(() => {
     async function fetchUser(): Promise<void> {
       try {
-        const { data } = await getApi().get(`/api/profile/${id}`);
+        const { data } = await getApi().get(`/profile/${id}`);
         setUser(data);
         setLoading(false);
       } catch (error) {
-        if (error) setLoading(false);
+        if (error) setLoading(true);
       }
     }
     fetchUser();

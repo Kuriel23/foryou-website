@@ -1,11 +1,11 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, VStack } from '@chakra-ui/react';
 
 import { Banner } from './Banner';
 import { Information } from './Information';
 import { Married } from './Married';
 
 type IntrinsicAttributes = {
-  user: null;
+  user: Record<string, any>;
   loading: boolean;
 };
 
@@ -19,10 +19,13 @@ export function Profile({ user, isLoading }: ProfileProps): JSX.Element {
 
   return (
     <Flex flexDir="column" gap={6}>
-      {user}
       <Banner />
-      <Information />
-      <Married />
+      <Information user={user} />
+      {user?.helpers.casado ? (
+        <Married user={user} />
+      ) : (
+        <VStack mb="20px" justifyContent="center" />
+      )}
     </Flex>
   );
 }

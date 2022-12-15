@@ -6,20 +6,42 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
-export function Married(): JSX.Element {
+type IntrinsicAttributes = {
+  user: Record<string, any>;
+};
+
+interface MarriedProps {
+  user: IntrinsicAttributes['user'] | null | never;
+}
+
+export function Married({ user }: MarriedProps): JSX.Element {
+  const router = useRouter();
   const theme = {
     border: useColorModeValue('gray.700', 'white'),
   };
   return (
     <VStack mb="20px" justifyContent="center">
       <Text color="green.200" size="2xl" as="b">
-        Kuriel#1411 é casado com Izak#1954
+        {user?.tag} é casado com {user?.helpers.casado.tag}
       </Text>
       <HStack>
-        <Avatar size="xl" borderColor={theme.border} borderWidth="3px" />
+        <Avatar
+          src={user?.avatar}
+          size="xl"
+          borderColor={theme.border}
+          borderWidth="3px"
+        />
         <Image src="/images/illustrations/ring.svg" w="120px" />
-        <Avatar size="xl" borderColor={theme.border} borderWidth="3px" />
+        <Avatar
+          src={user?.helpers.casado.avatar}
+          cursor="pointer"
+          onClick={() => router.push(`/profile/${user?.helpers.casado.id}`)}
+          size="xl"
+          borderColor={theme.border}
+          borderWidth="3px"
+        />
       </HStack>
     </VStack>
   );

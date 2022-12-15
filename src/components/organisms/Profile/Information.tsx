@@ -8,10 +8,26 @@ import {
   useColorModeValue,
   useTheme,
   Flex,
+  Tooltip,
 } from '@chakra-ui/react';
-import { ChatText, Door, Money, ShieldCheck, UserPlus } from 'phosphor-react';
+import {
+  ChatText,
+  Door,
+  Money,
+  ShieldCheck,
+  UserPlus,
+  ShieldPlus,
+} from 'phosphor-react';
 
-export function Information(): JSX.Element {
+type IntrinsicAttributes = {
+  user: Record<string, any>;
+};
+
+interface InformationProps {
+  user: IntrinsicAttributes['user'] | null | never;
+}
+
+export function Information({ user }: InformationProps): JSX.Element {
   const { colors } = useTheme();
   const theme = {
     cardBackground: useColorModeValue('gray.700', 'gray.200'),
@@ -21,15 +37,35 @@ export function Information(): JSX.Element {
   return (
     <VStack maxW={1240} px={10} m="0 auto " justify="space-between">
       <Box bg="green.200" w="1240px" p={12} borderRadius={12}>
+        <VStack
+          justify="center"
+          backgroundColor="gray.700"
+          p="3"
+          borderRadius={12}
+          w="max-content"
+          m="auto"
+          mb="10"
+          boxShadow="5px 5px #edf2f7"
+        >
+          <Avatar size="xl" src={user?.avatar} />
+          <Text color="gray.200" size="xl" as="b" align="center">
+            {user?.tag}{' '}
+          </Text>
+          {user?.helpers.rep >= 300 ? (
+            <Tooltip
+              label="O usuário demonstra ser confiável"
+              placement="auto"
+              hasArrow
+            >
+              <ShieldPlus color="green" size={32} />
+            </Tooltip>
+          ) : (
+            <Text />
+          )}
+        </VStack>
         <Heading color="gray.700" textAlign="center" as="h3" size="lg">
           Informações do Usuário
         </Heading>
-        <VStack justify="center" mt="10" mb="10">
-          <Avatar size="xl" />
-          <Text color="gray.700" size="xl" as="b" align="center">
-            Kuriel#1411
-          </Text>
-        </VStack>
         <SimpleGrid columns={2} mt="5" mb="5" spacing="40px">
           <VStack>
             <Flex
@@ -82,7 +118,9 @@ export function Information(): JSX.Element {
               Dinheiro:
             </Heading>
             <Box bg={theme.cardBackground} p={3} borderRadius={12}>
-              <Text color={theme.color}>100.000 animecoins</Text>
+              <Text color={theme.color}>
+                {user?.helpers.animecoins.toLocaleString('pt-BR')} animecoins
+              </Text>
             </Box>
           </VStack>
           <VStack>
@@ -100,7 +138,7 @@ export function Information(): JSX.Element {
               Reputação:
             </Heading>
             <Box bg={theme.cardBackground} p={3} borderRadius={12}>
-              <Text color={theme.color}>100</Text>
+              <Text color={theme.color}>{user?.helpers.rep}</Text>
             </Box>
           </VStack>
         </SimpleGrid>
@@ -119,11 +157,7 @@ export function Information(): JSX.Element {
             Biografia:
           </Heading>
           <Box bg={theme.cardBackground} w="95%" p={12} borderRadius={12}>
-            <Text color={theme.color}>
-              Inicialmente criado em 25 de Junho de 2020, fui feito para
-              facilitar anúncios de lançamento de animes, mas os otakus sempre
-              queriam mais que isso.
-            </Text>
+            <Text color={theme.color}>{user?.helpers.biografia}</Text>
           </Box>
         </VStack>
       </Box>
