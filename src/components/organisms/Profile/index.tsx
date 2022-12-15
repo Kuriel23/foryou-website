@@ -10,7 +10,7 @@ type IntrinsicAttributes = {
 };
 
 interface ProfileProps {
-  user: IntrinsicAttributes['user'];
+  user: IntrinsicAttributes['user'] | null | never;
   isLoading: IntrinsicAttributes['loading'];
 }
 
@@ -21,7 +21,7 @@ export function Profile({ user, isLoading }: ProfileProps): JSX.Element {
     <Flex flexDir="column" gap={6}>
       <Banner />
       <Information user={user} />
-      {user?.helpers.casado ? (
+      {(user?.helpers.casado as string) ? (
         <Married user={user} />
       ) : (
         <VStack mb="20px" justifyContent="center" />
