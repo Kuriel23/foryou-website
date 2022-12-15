@@ -1,7 +1,12 @@
-/** @type {import('next').NextConfig} */
-module.exports = {
+const withPlugins = require('next-compose-plugins');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+module.exports = withPlugins([withBundleAnalyzer], {
   reactStrictMode: true,
   swcMinify: true,
+  productionBrowserSourceMaps: true,
   images: {
     domains: ['panda.animesonlinegames.ml', 'cdn.discordapp.com'],
   },
@@ -14,4 +19,4 @@ module.exports = {
       },
     ];
   },
-};
+});
