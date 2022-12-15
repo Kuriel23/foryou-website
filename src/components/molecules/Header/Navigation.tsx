@@ -17,6 +17,11 @@ const navigation = [
     title: 'Rank',
     href: '/ranking',
   },
+  {
+    name: 'contributors',
+    title: 'Contribuidores',
+    href: '/contributors',
+  },
 ];
 
 export function Navigation(): JSX.Element {
