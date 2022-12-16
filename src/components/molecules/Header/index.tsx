@@ -33,7 +33,6 @@ export function Header(): JSX.Element {
   const router = useRouter();
 
   const { data: session } = useSession();
-
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -86,7 +85,7 @@ export function Header(): JSX.Element {
               <MenuList maxW="160px">
                 <MenuItem
                   onClick={() => {
-                    router.push('/profile/');
+                    router.push('/profile/'+session.user?.id);
                   }}
                   gap="0.3rem"
                 >
