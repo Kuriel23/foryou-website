@@ -1,35 +1,62 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import NextCors from 'nextjs-cors';
 
-import { getUserInfo } from '@lib/discord/getUserInfo';
-import { getUserData } from '@lib/prisma/getUserData';
+import { UserRepository } from '@lib/repositories/UserRepository';
 
-export default async function profile(
+export default async function profileHandler(
   request: NextApiRequest,
   response: NextApiResponse,
 ): Promise<void> {
-  if (request.method !== 'GET') {
-    response.status(400).end();
+  await NextCors(request, response, {
+    methods: ['GET', 'PATCH'],
+    origin: '*',
+    optionsSuccessStatus: 200,
+  });
+
+  const { id: userId } = request.query as Record<'id', string>;
+
+  const userRepository = new UserRepository();
+
+  if (request.method === 'PATCH') {
+    const database = await userRepository.findDatabaseById(userId);
+
+    if (!database) {
+      response.status(400).end();
+
+      return;
+    }
+
+    await userRepository.saveDatabase(userId, request.body);
+
+    response.status(200).end();
 
     return;
   }
 
-  const { id } = request.query as Record<'id', string>;
+  if (request.method === 'GET') {
+    const user = await userRepository.findInfoById(userId);
 
-  const user = await getUserInfo(id);
+    if (!user) {
+      response.status(400).end();
 
-  if (!user) {
-    response.status(400).json({ message: 'User not found.' });
+      return;
+    }
+
+    const database = await userRepository.findDatabaseById(userId);
+
+    if (!database) {
+      response.status(400).end();
+
+      return;
+    }
+
+    response.json({
+      user,
+      database,
+    });
 
     return;
   }
 
-  const helpers = await getUserData(id);
-
-  if (!helpers) {
-    response.status(400).json({ message: 'User not found.' });
-
-    return;
-  }
-
-  response.json(Object.assign(user, { helpers }));
+  response.status(405).end();
 }

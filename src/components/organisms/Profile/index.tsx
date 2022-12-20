@@ -1,55 +1,35 @@
-import {
-  Flex,
-  Heading,
-  VStack,
-  CircularProgress,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
+import { Badges } from './Badges';
 import { Banner } from './Banner';
-import { Information } from './Information';
+import { Biography } from './Biography';
+import { Level } from './Level';
 import { Married } from './Married';
+import { SelectBanner } from './SelectBanner';
+import { Statistics } from './Statistics';
+import { UserInfo } from './UserInfo';
 
-type IntrinsicAttributes = {
-  user: Record<string, any>;
-  loading: boolean;
-};
-
-interface ProfileProps {
-  user: IntrinsicAttributes['user'] | null | never;
-  isLoading: IntrinsicAttributes['loading'];
-}
-
-export function Profile({ user, isLoading }: ProfileProps): JSX.Element {
-  const theme = {
-    color: useColorModeValue('gray.700', 'gray.200'),
-    trackColor: useColorModeValue('gray.200', 'gray.700'),
-  };
-  if (isLoading)
-    return (
-      <VStack m="13.1vh 0" maxH="max-content">
-        <CircularProgress
-          isIndeterminate
-          color="green.200"
-          trackColor={theme.trackColor}
-          capIsRound
-          size="sm"
-        />
-        <Heading size="3xl" textAlign="center" color={theme.color} p="15">
-          Carregando...
-        </Heading>
-      </VStack>
-    );
-
+export function Profile(): JSX.Element {
   return (
-    <Flex flexDir="column" gap={6}>
+    <Flex flexDir="column">
       <Banner />
-      <Information user={user} />
-      {(user?.helpers.casado as string) ? (
-        <Married user={user} />
-      ) : (
-        <VStack mb="20px" justifyContent="center" />
-      )}
+
+      <Flex w="100%" maxW={1240} px={10} py={10} m="0 auto">
+        <Flex w="100%" gap={12}>
+          <Flex flexDir="column" gap={8}>
+            <UserInfo />
+            <Level />
+            <Badges />
+          </Flex>
+
+          <Flex w="100%" position="relative" flexDir="column" gap={8}>
+            <SelectBanner />
+            <Biography />
+            <Statistics />
+            <Married />
+          </Flex>
+        </Flex>
+      </Flex>
     </Flex>
   );
 }

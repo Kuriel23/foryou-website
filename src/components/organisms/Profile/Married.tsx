@@ -1,48 +1,47 @@
-import {
-  Avatar,
-  HStack,
-  VStack,
-  Image,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { useRouter } from 'next/router';
+import { Flex, Text, Avatar, useColorModeValue, Icon } from '@chakra-ui/react';
+import { Heart } from 'phosphor-react';
 
-type IntrinsicAttributes = {
-  user: Record<string, any>;
-};
+import { useProfile } from '@hooks/useProfile';
 
-interface MarriedProps {
-  user: IntrinsicAttributes['user'] | null | never;
-}
+export function Married(): JSX.Element {
+  const { profile } = useProfile();
 
-export function Married({ user }: MarriedProps): JSX.Element {
-  const router = useRouter();
   const theme = {
-    border: useColorModeValue('gray.700', 'white'),
+    cardBackground: useColorModeValue('gray.200', 'gray.700'),
   };
+
   return (
-    <VStack mb="20px" justifyContent="center">
-      <Text color="green.200" size="2xl" as="b">
-        {user?.tag} é casado com {user?.helpers.casado.tag}
-      </Text>
-      <HStack>
-        <Avatar
-          src={user?.avatar}
-          size="xl"
-          borderColor={theme.border}
-          borderWidth="3px"
-        />
-        <Image src="/images/illustrations/ring.svg" w="120px" />
-        <Avatar
-          src={user?.helpers.casado.avatar}
-          cursor="pointer"
-          onClick={() => router.push(`/profile/${user?.helpers.casado.id}`)}
-          size="xl"
-          borderColor={theme.border}
-          borderWidth="3px"
-        />
-      </HStack>
-    </VStack>
+    <Flex
+      w="100%"
+      gap={4}
+      flexDir="column"
+      align="center"
+      p={8}
+      borderRadius={12}
+      bgColor={theme.cardBackground}
+    >
+      {profile?.database.casado ? (
+        <>
+          <Flex w="100%" gap={4} align="center" justify="center">
+            <Avatar src={profile?.user.avatar} w="100px" h="100px" />
+
+            <Icon as={Heart} w="90px" h="90px" weight="fill" color="red.500" />
+
+            <Avatar
+              src={profile?.database.casado?.avatar}
+              w="100px"
+              h="100px"
+            />
+          </Flex>
+
+          <Text as="p">
+            <Text as="strong">{profile?.user.username}</Text> está casado com{' '}
+            <Text as="strong">{profile?.database.casado?.username}</Text>
+          </Text>
+        </>
+      ) : (
+        <Text as="p">Você não se encontra casado no momento.</Text>
+      )}
+    </Flex>
   );
 }

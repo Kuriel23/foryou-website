@@ -6,16 +6,15 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 
-import type { ContributorData } from '@services/getContributors';
-import type { TeamData } from '@services/getTeam';
+import type { MemberStatus, ContributorData } from '@interfaces/services';
 
 interface ContributorsProps {
-  team: TeamData[];
-  contributors: ContributorData[];
+  users: ContributorData[];
 }
 
-function getStatus(status: string | null): string {
+function getStatus(status?: MemberStatus): string {
   switch (status) {
     case 'dnd': {
       return 'red.400';
@@ -40,35 +39,20 @@ function getStatus(status: string | null): string {
   }
 }
 
-export function Contributors({
-  team,
-  contributors,
-}: ContributorsProps): JSX.Element {
+export function Contributors({ users }: ContributorsProps): JSX.Element {
   return (
-    <Flex w="100%" maxW={1240} px={10} pb={10} m="0 auto">
-      <Flex w="100%" flexDir="column" gap={6}>
-        <Heading as="h3" size="md">
-          Nossa Equipe
-        </Heading>
+    <Flex w="100%" maxW={1240} py={12} m="0 auto">
+      <Flex w="100%" align="center" flexDir="column" gap={12}>
+        {users.map(role => (
+          <Flex key={role.id} w="100%" align="center" flexDir="column" gap={8}>
+            <Heading as="h4" size="lg" color={role.hexColor}>
+              {role.name}
+            </Heading>
 
-        <Divider />
-
-        <Flex w="100%" align="center" flexDir="column" gap={6}>
-          {team?.map(role => (
-            <Flex
-              key={role.id}
-              w="100%"
-              align="center"
-              flexDir="column"
-              gap={4}
-            >
-              <Heading as="h4" size="md" color={role.hexColor}>
-                {role.name}
-              </Heading>
-
-              <Flex align="center" gap={6}>
-                {role.members.map(user => (
-                  <Flex key={user.id} flexDir="column" align="center" gap={4}>
+            <Flex align="center" gap={8}>
+              {role.members.map(user => (
+                <Link key={user.id} href={`/profile/${user.id}`}>
+                  <Flex flexDir="column" align="center" gap={4}>
                     <Avatar src={user.avatar} size="2xl" position="relative">
                       <AvatarBadge
                         position="absolute"
@@ -87,43 +71,11 @@ export function Contributors({
                       </Text>
                     </Flex>
                   </Flex>
-                ))}
-              </Flex>
+                </Link>
+              ))}
             </Flex>
-          ))}
-        </Flex>
-
-        <Heading as="h3" size="lg">
-          Contribuidores
-        </Heading>
-
-        <Divider />
-
-        <Flex w="100%" align="center" flexDir="column" gap={6}>
-          <Flex align="center" gap={6}>
-            {contributors?.map(user => (
-              <Flex key={user.id} flexDir="column" align="center" gap={4}>
-                <Avatar src={user.avatar} size="2xl" position="relative">
-                  <AvatarBadge
-                    position="absolute"
-                    right="5px"
-                    boxSize="40px"
-                    bg={getStatus(user.status)}
-                  />
-                </Avatar>
-
-                <Flex>
-                  <Text as="p" fontSize="lg" fontWeight="600">
-                    {user.username}
-                  </Text>
-                  <Text as="span" fontSize="lg" color="gray.600">
-                    #{user.discriminator}
-                  </Text>
-                </Flex>
-              </Flex>
-            ))}
           </Flex>
-        </Flex>
+        ))}
       </Flex>
     </Flex>
   );

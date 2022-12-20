@@ -25,8 +25,8 @@ const navigation = [
   },
   {
     name: 'rank',
-    title: 'Rank',
-    href: '/ranking',
+    title: 'Rankings',
+    href: '/rankings',
   },
   {
     name: 'contributors',

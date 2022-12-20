@@ -3,43 +3,31 @@ import type { GetStaticProps } from 'next';
 import { SEO } from '@components/atoms/SEO';
 import { Contributors } from '@components/organisms/Contributors';
 import { DefaultLayout } from '@components/templates/DefaultLayout';
-import { useContributors } from '@hooks/useContributors';
-import {
-  getContributors,
-  type ContributorData,
-} from '@services/getContributors';
-import { getTeam, type TeamData } from '@services/getTeam';
+import type { ContributorData } from '@interfaces/services';
+import { getContributors } from '@services/methods/getContributors';
 
 interface ContributorsPageProps {
-  team: TeamData[];
-  contributors: ContributorData[];
+  users: ContributorData[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const team = await getTeam();
-  const contributors = await getContributors();
+  const users = await getContributors();
 
   return {
-    props: { team, contributors },
-    revalidate: 60,
+    props: {
+      users,
+    },
   };
 };
 
-export default function ContributorsPage(
-  props: ContributorsPageProps,
-): JSX.Element {
-  const { team, contributors } = useContributors({
-    team: props.team,
-    contributors: props.contributors,
-  });
-
+export default function ContributorsPage({
+  users,
+}: ContributorsPageProps): JSX.Element {
   return (
     <DefaultLayout>
       <SEO />
 
-      <Contributors team={team} contributors={contributors} />
+      <Contributors users={users} />
     </DefaultLayout>
   );
 }
-
-/* eslint react/destructuring-assignment: off */

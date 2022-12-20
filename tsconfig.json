@@ -23,6 +23,8 @@
       "@utils/*": ["utils/*"],
       "@services/*": ["services/*"],
       "@contexts/*": ["contexts/*"],
+      "@data/*": ["data/*"],
+      "@interfaces/*": ["interfaces/*"],
       "@hooks/*": ["hooks/*"]
     },
     "typeRoots": ["src/@types", "node_modules/@types"]

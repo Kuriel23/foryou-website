@@ -6,10 +6,11 @@ import {
   Img,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { useSession } from 'next-auth/react';
+
+import { useSession } from '@hooks/useSession';
 
 export function Main(): JSX.Element {
-  const { data: session } = useSession();
+  const session = useSession();
 
   const theme = {
     containerBackground: useColorModeValue('gray.100', 'gray.700'),
@@ -48,7 +49,7 @@ export function Main(): JSX.Element {
               bgColor="green.200"
               color="gray.700"
             >
-              {session ? 'Se aventurar' : 'Entrar'}
+              {session.status === 'authenticated' ? 'Se aventurar' : 'Entrar'}
             </Button>
           </Flex>
 

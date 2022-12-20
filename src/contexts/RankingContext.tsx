@@ -6,11 +6,8 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-import {
-  getUsersRanking,
-  type RankingType,
-  type UserRankingData,
-} from '@services/getUsersRanking';
+import type { RankingType, UserRankingData } from '@interfaces/services';
+import { getRankings } from '@services/methods/getRankings';
 
 interface RankingProviderData {
   initialData: Record<string, any>;
@@ -34,8 +31,8 @@ export function RankingProvider({
 }: PropsWithChildren<RankingProviderData>): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [users, setUsers] = useState<UserRankingData[]>(
-    initialData.usersRanking,
+  const [rankings, setRankings] = useState<UserRankingData[]>(
+    initialData.rankings,
   );
   const [rankingType, setRankingType] = useState<RankingType>('coins');
 
@@ -43,21 +40,21 @@ export function RankingProvider({
     setRankingType(type);
     setIsLoading(true);
 
-    const rankingUsers = await getUsersRanking(type);
+    const rankingsData = await getRankings(type);
 
-    setUsers(rankingUsers);
+    setRankings(rankingsData);
     setIsLoading(false);
   }, []);
 
   const value = useMemo(
     () => ({
       rankingType,
-      firstUsers: users.slice(0, 3),
-      allUsers: users.slice(3, users.length),
+      firstUsers: rankings.slice(0, 3),
+      allUsers: rankings.slice(3, rankings.length),
       isLoading,
       updateRankingType,
     }),
-    [rankingType, users, isLoading, updateRankingType],
+    [rankingType, rankings, isLoading, updateRankingType],
   );
 
   return (
