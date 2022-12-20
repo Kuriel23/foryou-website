@@ -5,7 +5,7 @@ import {
 } from 'next-auth/react';
 
 type SessionData = SessionContextValue & {
-  data: Session & {
+  data?: Session & {
     user?: {
       id?: string | null;
     };

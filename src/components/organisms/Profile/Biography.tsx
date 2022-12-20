@@ -82,7 +82,7 @@ export function Biography(): JSX.Element {
             Biografia
           </Text>
 
-          {session.data.user?.id === profile?.user.id && (
+          {session.data?.user?.id === profile?.user.id && (
             <Icon
               as={Pencil}
               w="24px"

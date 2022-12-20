@@ -61,7 +61,7 @@ export function SelectBanner(): JSX.Element {
 
   return (
     <>
-      {session.data.user?.id === profile?.user.id && (
+      {session.data?.user?.id === profile?.user.id && (
         <IconButton
           position="absolute"
           right="32px"
