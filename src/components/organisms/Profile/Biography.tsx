@@ -31,8 +31,8 @@ const schema = z.object({
   biografia: z
     .string({ required_error: 'Este campo é obrigatório!' })
     .min(10, { message: 'A biografia deve ser maior que 10 caracteres!' })
-    .max(240, {
-      message: 'A biografia deve ser menor ou igual a 240 caracteres!',
+    .max(700, {
+      message: 'A biografia deve ser menor ou igual a 700 caracteres!',
     }),
 });
 
@@ -70,7 +70,8 @@ export function Biography(): JSX.Element {
       <Flex
         w="100%"
         minH="250px"
-        maxH="500px"
+        maxH="max-content"
+        maxW="950px"
         gap={2}
         p={8}
         flexDir="column"
@@ -92,9 +93,8 @@ export function Biography(): JSX.Element {
             />
           )}
         </Flex>
-
         <Text fontSize="sm" fontWeight="400">
-          {profile?.database.biografia}
+          {profile?.database.biografia.replace('&nbsp;', ' ').substring(0, 700)}
         </Text>
       </Flex>
 

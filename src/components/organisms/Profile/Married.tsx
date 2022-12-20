@@ -40,7 +40,7 @@ export function Married(): JSX.Element {
           </Text>
         </>
       ) : (
-        <Text as="p">Você não se encontra casado no momento.</Text>
+        <Text as="p">Você não se encontra casado(a) no momento.</Text>
       )}
     </Flex>
   );

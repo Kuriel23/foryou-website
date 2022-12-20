@@ -12,7 +12,7 @@ export class UserDatabase {
 
   async getMarried(): Promise<IUserInfo | null> {
     if (
-      this.user.casado.find(v => v === 'Não casado.') ||
+      this.user.casado.find(v => v === 'Solteiro') ||
       !this.user.casado.length
     ) {
       return null;

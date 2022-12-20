@@ -1,4 +1,10 @@
-import { Flex, Text, Progress, useColorModeValue } from '@chakra-ui/react';
+import {
+  Flex,
+  Text,
+  Progress,
+  useColorModeValue,
+  ResponsiveValue,
+} from '@chakra-ui/react';
 
 import { useProfile } from '@hooks/useProfile';
 
@@ -45,7 +51,14 @@ export function Level(): JSX.Element {
           value={percentToNextLevel}
           h="11px"
           borderRadius={12}
-          sx={{ '> div': { bgColor: 'green.300', borderRadius: 12 } }}
+          sx={{
+            '> div': {
+              bgColor:
+                (profile?.database.cor as ResponsiveValue<'green.200'>) ||
+                'green.300',
+              borderRadius: 12,
+            },
+          }}
         />
       </Flex>
 
@@ -53,7 +66,9 @@ export function Level(): JSX.Element {
         w="100px"
         h="70px"
         borderRadius="full"
-        bgColor="green.300"
+        bgColor={
+          (profile?.database.cor as ResponsiveValue<'green.200'>) || 'green.300'
+        }
         align="center"
         justify="center"
         flexDir="column"
