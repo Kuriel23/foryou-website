@@ -35,12 +35,8 @@ import { useSession } from '@hooks/useSession';
 export function Header(): JSX.Element {
   const router = useRouter();
 
-<<<<<<< HEAD
-  const { data: session } = useSession();
-=======
   const session = useSession();
 
->>>>>>> 2239464 (feat: create user page)
   const { colorMode, toggleColorMode } = useColorMode();
 
   const goToProfile = useCallback(() => {
@@ -95,16 +91,7 @@ export function Header(): JSX.Element {
               </MenuButton>
 
               <MenuList maxW="160px">
-<<<<<<< HEAD
-                <MenuItem
-                  onClick={() => {
-                    router.push('/profile/'+session.user?.id);
-                  }}
-                  gap="0.3rem"
-                >
-=======
                 <MenuItem onClick={() => goToProfile()} gap="0.3rem">
->>>>>>> 2239464 (feat: create user page)
                   <Icon as={UserCircle} w="25px" h="25px" />
 
                   <Text as="span" fontWeight="300">

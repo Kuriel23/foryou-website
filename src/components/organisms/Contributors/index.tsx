@@ -1,11 +1,4 @@
-import {
-  Avatar,
-  AvatarBadge,
-  Divider,
-  Flex,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
+import { Avatar, AvatarBadge, Flex, Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 import type { MemberStatus, ContributorData } from '@interfaces/services';
