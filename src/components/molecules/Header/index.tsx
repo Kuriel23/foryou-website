@@ -25,6 +25,7 @@ import {
   Gear,
   Moon,
   Sun,
+  Ticket,
 } from 'phosphor-react';
 import { useCallback } from 'react';
 
@@ -134,6 +135,16 @@ export function Header(): JSX.Element {
                     defaultChecked={colorMode === 'dark'}
                     onFocus={() => toggleColorMode()}
                   />
+                </MenuItem>
+
+                <MenuDivider />
+
+                <MenuItem onClick={() => router.push('/ticket')} gap="0.3rem">
+                  <Icon as={Ticket} w="25px" h="25px" />
+
+                  <Text as="span" fontWeight="300">
+                    Criar Ticket
+                  </Text>
                 </MenuItem>
 
                 <MenuDivider />
