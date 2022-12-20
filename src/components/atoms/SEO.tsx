@@ -6,18 +6,20 @@ import React, { PropsWithChildren } from 'react';
 interface SEOProps {
   title?: string;
   description?: string;
+  icon?: string;
 }
 
 export function SEO({
   title = 'Animes Online Games - Discord Bot',
   description = '',
+  icon = '/favicon.ico',
   children,
 }: PropsWithChildren<SEOProps>): JSX.Element {
   return (
     <Head>
       <title>{title}</title>
 
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href={icon} />
       <link rel="canonical" href="https://panda.animesgamesbot.ml/" />
       <link itemProp="url" href="https://panda.animesgamesbot.ml/" />
       <meta name="description" content={description} />

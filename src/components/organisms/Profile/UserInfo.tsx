@@ -17,6 +17,7 @@ import {
   buildStyles as circularProgressbarBuildStyles,
 } from 'react-circular-progressbar';
 
+import { SEO } from '@components/atoms/SEO';
 import { useProfile } from '@hooks/useProfile';
 
 const ALLOWD_FLAGS = [
@@ -75,6 +76,11 @@ export function UserInfo(): JSX.Element {
       borderRadius={12}
       bgColor={theme.cardBackground}
     >
+      <SEO
+        title={`${profile?.user.tag} - Animes Online Games`}
+        icon={profile?.user.avatar}
+        description={`${profile?.user.tag} tem atualmente cerca de ${profile?.database.rep} reputações, ${profile?.database.animecoins} animecoins e o seu nível é ${profile?.database.level}.`}
+      />
       <Flex flexDir="column" align="center" justify="center" pt={12} px={12}>
         <Box h="190px" w="190px">
           <CircularProgressbarWithChildren
