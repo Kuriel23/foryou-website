@@ -1,8 +1,7 @@
 {
-  "name": "aog",
-  "version": "0.1.0",
+  "name": "aog-web",
+  "version": "0.0.0",
   "private": true,
-  "homepage": "https://animesonlinegames.github.io/web",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
