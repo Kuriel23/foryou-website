@@ -964,6 +964,18 @@
   "resolved" "https://registry.npmjs.org/@chakra-ui/visually-hidden/-/visually-hidden-2.0.13.tgz"
   "version" "2.0.13"
 
+"@discordjs/builders@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@discordjs/builders/-/builders-1.4.0.tgz#b951b5e6ce4e459cd06174ce50dbd51c254c1d47"
+  integrity sha512-nEeTCheTTDw5kO93faM1j8ZJPonAX86qpq/QVoznnSa8WWcCgJpjlu6GylfINTDW6o7zZY0my2SYdxx2mfNwGA==
+  dependencies:
+    "@discordjs/util" "^0.1.0"
+    "@sapphire/shapeshift" "^3.7.1"
+    discord-api-types "^0.37.20"
+    fast-deep-equal "^3.1.3"
+    ts-mixer "^6.0.2"
+    tslib "^2.4.1"
+
 "@discordjs/collection@^1.3.0":
   "integrity" "sha512-ylt2NyZ77bJbRij4h9u/wVy7qYw/aDqQLWnadjvDqW/WoWCxrsX6M3CIw9GVP5xcGCDxsrKj5e0r5evuFYwrKg=="
   "resolved" "https://registry.npmjs.org/@discordjs/collection/-/collection-1.3.0.tgz"
@@ -1132,6 +1144,11 @@
   "integrity" "sha512-LS77jy2o+woymZeWpfZd3M5lNVEzKRX4nqHw+itclYmDgG3sQfXk9Xqqm+HzSpmcVcW47zrrZK3YH0PLWTGVGw=="
   "resolved" "https://registry.npmjs.org/@hitechline/eslint-config/-/eslint-config-2.0.5.tgz"
   "version" "2.0.5"
+
+"@hookform/resolvers@^2.9.10":
+  version "2.9.10"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.9.10.tgz#e7e88942ee34e97b7bc937b0be4694194c9cd420"
+  integrity sha512-JIL1DgJIlH9yuxcNGtyhsWX/PgNltz+5Gr6+8SX9fhXc/hPbEIk6wPI82nhgvp3uUb6ZfAM5mqg/x7KR7NAb+A==
 
 "@humanwhocodes/config-array@^0.11.6":
   "integrity" "sha512-kBbPWzN8oVMLb0hOUYXhmxggL/1cJE6ydvjDIGi9EnAGUyA7cLVKQg+d/Dsm+KZwx2czGHrCmMVLiyg8s5JPKw=="
@@ -1351,6 +1368,14 @@
   "resolved" "https://registry.npmjs.org/@sapphire/async-queue/-/async-queue-1.5.0.tgz"
   "version" "1.5.0"
 
+"@sapphire/shapeshift@^3.7.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/shapeshift/-/shapeshift-3.8.1.tgz#b98dc6a7180f9b38219267917b2e6fa33f9ec656"
+  integrity sha512-xG1oXXBhCjPKbxrRTlox9ddaZTvVpOhYLmKmApD/vIWOV1xEYXnpoFs68zHIZBGbqztq6FrUPNPerIrO1Hqeaw==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    lodash "^4.17.21"
+
 "@sapphire/snowflake@^3.2.2":
   "integrity" "sha512-Hec5N6zEkZuZFLybVKyLFLlcSgYmR6C1/+9NkIhxPwOf6tgX52ndJCSz8ADejmbrNE0VuNCNkpzhRZzenEC9vA=="
   "resolved" "https://registry.npmjs.org/@sapphire/snowflake/-/snowflake-3.3.0.tgz"
@@ -1389,6 +1414,11 @@
   "integrity" "sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ=="
   "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.191.tgz"
   "version" "4.14.191"
+
+"@types/node@*":
+  version "18.11.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.17.tgz#5c009e1d9c38f4a2a9d45c0b0c493fe6cdb4bcb5"
+  integrity sha512-HJSUJmni4BeDHhfzn6nF0sVmd1SMezP7/4F0Lq+aXzmp2xm9O7WXrUtHW/CHlYVtZUbByEvWidHqRtcJXGF2Ng==
 
 "@types/node@18.11.15":
   "integrity" "sha512-VkhBbVo2+2oozlkdHXLrb3zjsRkpdnaU2bXmX8Wgle3PUi569eLRaHGlgETQHR7lLL1w7GiG3h9SnePhxNDecw=="
