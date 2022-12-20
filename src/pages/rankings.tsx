@@ -16,7 +16,11 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const rankings = await rankingRepository.findUsersByCoins();
 
-  return { props: { rankings } };
+  return {
+    props: {
+      rankings,
+    },
+  };
 };
 
 export default function RankingsPage({

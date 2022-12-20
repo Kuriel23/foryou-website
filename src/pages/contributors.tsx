@@ -7,27 +7,27 @@ import type { ContributorData } from '@interfaces/services';
 import { getContributors } from '@services/methods/getContributors';
 
 interface ContributorsPageProps {
-  users: ContributorData[];
+  contributors: ContributorData[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const users = await getContributors();
+  const contributors = await getContributors();
 
   return {
     props: {
-      users,
+      contributors,
     },
   };
 };
 
 export default function ContributorsPage({
-  users,
+  contributors,
 }: ContributorsPageProps): JSX.Element {
   return (
     <DefaultLayout>
       <SEO />
 
-      <Contributors users={users} />
+      <Contributors contributors={contributors} />
     </DefaultLayout>
   );
 }

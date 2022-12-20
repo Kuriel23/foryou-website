@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { MemberStatus, ContributorData } from '@interfaces/services';
 
 interface ContributorsProps {
-  users: ContributorData[];
+  contributors: ContributorData[];
 }
 
 function getStatus(status?: MemberStatus): string {
@@ -32,11 +32,11 @@ function getStatus(status?: MemberStatus): string {
   }
 }
 
-export function Contributors({ users }: ContributorsProps): JSX.Element {
+export function Contributors({ contributors }: ContributorsProps): JSX.Element {
   return (
     <Flex w="100%" maxW={1240} py={12} m="0 auto">
       <Flex w="100%" align="center" flexDir="column" gap={12}>
-        {users.map(role => (
+        {contributors.map(role => (
           <Flex key={role.id} w="100%" align="center" flexDir="column" gap={8}>
             <Heading as="h4" size="lg" color={role.hexColor}>
               {role.name}
