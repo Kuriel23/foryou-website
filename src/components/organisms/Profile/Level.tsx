@@ -44,7 +44,7 @@ export function Level(): JSX.Element {
           color="gray.500"
           textTransform="uppercase"
         >
-          {profile?.database.xp}/{(currentLevel + 1) * (currentLevel + 1) * 100}
+          {currentXp}/{nextLevelXp}
         </Text>
 
         <Progress
