@@ -189,4 +189,10 @@ LojaBanner.ALL = [
     code: 'arcane',
     preview: 'https://i.imgur.com/QCsZoyJ.png?1',
   },
+  {
+    name: 'Keitaro Nagame (Camp Buddy)',
+    custo: 'Exclusivo de Evento Natal',
+    code: 'keitaro',
+    preview: 'https://i.imgur.com/N2VB3fu.jpg?2',
+  },
 ];
