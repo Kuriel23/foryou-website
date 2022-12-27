@@ -94,10 +94,46 @@ LojaBanner.ALL = [
     preview: 'https://i.imgur.com/rC4MDkJ.jpg',
   },
   {
+    name: '"Nosso Amor" (PC Wallpaper)',
+    custo: 30000,
+    code: 'nossoamor',
+    preview: 'https://i.imgur.com/Eck017V.jpg',
+  },
+  {
+    name: 'Arcane (League of Legends)',
+    custo: 100000,
+    code: 'arcane',
+    preview: 'https://i.imgur.com/QCsZoyJ.png?1',
+  },
+  {
+    name: 'Keitaro Nagame (Camp Buddy)',
+    custo: 5000,
+    code: 'keitaro',
+    preview: 'https://i.imgur.com/N2VB3fu.jpg?2',
+  },
+  {
     name: 'Shinobu (Kimetsu No Yaiba)',
     custo: 1000000,
     code: 'shinobu',
     preview: 'https://i.imgur.com/xKK3SSA.jpg',
+  },
+  {
+    name: 'Koalas (PC Wallpaper)',
+    custo: 50000,
+    code: 'koalas',
+    preview: 'https://i.imgur.com/IjTvsCK.jpg',
+  },
+  {
+    name: 'Maki-san (Jujutsu Kaisen)',
+    custo: 700000,
+    code: 'makisan',
+    preview: 'https://i.imgur.com/0JergjB.png',
+  },
+  {
+    name: 'Floresta Noturna (PC Wallpaper)',
+    custo: 300000,
+    code: 'floresta',
+    preview: 'https://i.imgur.com/jOMO3Ju.jpg?1',
   },
   {
     name: 'Douma 1 (Kimetsu No Yaiba)',
@@ -124,12 +160,6 @@ LojaBanner.ALL = [
     preview: 'https://i.imgur.com/gpfAOSj.jpg',
   },
   {
-    name: 'Koalas (PC Wallpaper)',
-    custo: 'Exclusivo de Evento Halloween',
-    code: 'koalas',
-    preview: 'https://i.imgur.com/IjTvsCK.jpg',
-  },
-  {
     name: 'Kirito e Asuna (SAO Alicization)',
     custo: 'Exclusivo de Evento Halloween',
     code: 'saokirito',
@@ -140,18 +170,6 @@ LojaBanner.ALL = [
     custo: 'Exclusivo de Evento Halloween',
     code: 'hantengu',
     preview: 'https://i.imgur.com/cDSeADw.jpg',
-  },
-  {
-    name: 'Maki-san (Jujutsu Kaisen)',
-    custo: 'Exclusivo de Evento Halloween',
-    code: 'makisan',
-    preview: 'https://i.imgur.com/0JergjB.png',
-  },
-  {
-    name: 'Floresta Noturna (PC Wallpaper)',
-    custo: 'Exclusivo de Evento Halloween',
-    code: 'floresta',
-    preview: 'https://i.imgur.com/jOMO3Ju.jpg?1',
   },
   {
     name: 'Rengoku (Kimetsu No Yaiba)',
@@ -176,23 +194,5 @@ LojaBanner.ALL = [
     custo: 'Exclusivo de Evento Halloween',
     code: 'raiden',
     preview: 'https://i.imgur.com/KOzVWrq.png?1',
-  },
-  {
-    name: '"Nosso Amor" (PC Wallpaper)',
-    custo: 'Exclusivo de Evento Halloween',
-    code: 'nossoamor',
-    preview: 'https://i.imgur.com/Eck017V.jpg',
-  },
-  {
-    name: 'Arcane (League of Legends)',
-    custo: 'Exclusivo de Evento Natal',
-    code: 'arcane',
-    preview: 'https://i.imgur.com/QCsZoyJ.png?1',
-  },
-  {
-    name: 'Keitaro Nagame (Camp Buddy)',
-    custo: 'Exclusivo de Evento Natal',
-    code: 'keitaro',
-    preview: 'https://i.imgur.com/N2VB3fu.jpg?2',
   },
 ];
