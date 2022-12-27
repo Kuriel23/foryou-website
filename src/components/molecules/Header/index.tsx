@@ -10,9 +10,7 @@ import {
   MenuList,
   MenuItem,
   Avatar,
-  Switch,
   MenuDivider,
-  useColorMode,
 } from '@chakra-ui/react';
 import { signIn, signOut } from 'next-auth/react';
 import Link from 'next/link';
@@ -22,9 +20,6 @@ import {
   CaretUp,
   SignOut,
   UserCircle,
-  Gear,
-  Moon,
-  Sun,
   Ticket,
 } from 'phosphor-react';
 import { useCallback } from 'react';
@@ -37,8 +32,6 @@ export function Header(): JSX.Element {
   const router = useRouter();
 
   const session = useSession();
-
-  const { colorMode, toggleColorMode } = useColorMode();
 
   const goToProfile = useCallback(() => {
     router.push(`/profile/${session.data.user?.id}`);
@@ -99,45 +92,6 @@ export function Header(): JSX.Element {
                     Meu Perfil
                   </Text>
                 </MenuItem>
-
-                <MenuItem gap="0.3rem">
-                  <Icon as={Gear} w="25px" h="25px" />
-
-                  <Text as="span" fontWeight="300">
-                    Configurações
-                  </Text>
-                </MenuItem>
-
-                <MenuDivider />
-
-                <MenuItem
-                  alignItems="center"
-                  justifyContent="space-between"
-                  _selected={{}}
-                  _focus={{}}
-                  _hover={{}}
-                  _active={{}}
-                  onClick={toggleColorMode}
-                >
-                  <Flex gap="0.3rem">
-                    <Icon
-                      as={colorMode === 'dark' ? Moon : Sun}
-                      w="25px"
-                      h="25px"
-                    />
-
-                    <Text as="span" fontWeight="300">
-                      {colorMode === 'dark' ? 'Light Mode' : 'Dark Mode'}
-                    </Text>
-                  </Flex>
-
-                  <Switch
-                    defaultChecked={colorMode === 'dark'}
-                    onFocus={() => toggleColorMode()}
-                  />
-                </MenuItem>
-
-                <MenuDivider />
 
                 <MenuItem onClick={() => router.push('/ticket')} gap="0.3rem">
                   <Icon as={Ticket} w="25px" h="25px" />

@@ -5,10 +5,15 @@ import { Banner } from './Banner';
 import { Biography } from './Biography';
 import { Level } from './Level';
 import { Married } from './Married';
+import { SelectBanner } from './SelectBanner';
 import { Statistics } from './Statistics';
 import { UserInfo } from './UserInfo';
 
+import { useProfile } from '@hooks/useProfile';
+
 export function Profile(): JSX.Element {
+  const { profile } = useProfile();
+
   return (
     <Flex flexDir="column">
       <Banner />
@@ -22,6 +27,8 @@ export function Profile(): JSX.Element {
           </Flex>
 
           <Flex w="750px" position="relative" flexDir="column" gap={8}>
+            {profile && <SelectBanner />}
+
             <Biography />
             <Statistics />
             <Married />

@@ -1,5 +1,6 @@
-import { Avatar, AvatarBadge, Flex, Heading, Text } from '@chakra-ui/react';
+import { Avatar, AvatarBadge, Badge, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
+import { rgba } from 'polished';
 
 import type { MemberStatus, ContributorData } from '@interfaces/services';
 
@@ -38,9 +39,14 @@ export function Contributors({ contributors }: ContributorsProps): JSX.Element {
       <Flex w="100%" align="center" flexDir="column" gap={12}>
         {contributors.map(role => (
           <Flex key={role.id} w="100%" align="center" flexDir="column" gap={8}>
-            <Heading as="h4" size="lg" color={role.hexColor}>
+            <Badge
+              variant="subtle"
+              fontSize="md"
+              color={role.hexColor}
+              bgColor={rgba(role.hexColor, 0.2)}
+            >
               {role.name}
-            </Heading>
+            </Badge>
 
             <Flex align="center" gap={8}>
               {role.members.map(user => (

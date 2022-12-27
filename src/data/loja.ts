@@ -1,8 +1,42 @@
-export const items = [
+export type LojaBannerType =
+  | {
+      name: string;
+      custo: number;
+      code: string;
+      preview: string;
+    }
+  | {
+      name: string;
+      custo: string;
+      code: string;
+      preview: string;
+    };
+
+export class LojaBanner {
+  static ALL: LojaBannerType[];
+
+  static getBannerByCode(code: string): LojaBannerType | null {
+    const banner = this.ALL.find(b => b.code === code);
+
+    if (!banner) {
+      return null;
+    }
+
+    return banner;
+  }
+}
+
+/**
+ * SE FOR ADICIONAR UM NOVO BANNER
+ * COLOCAR O CODE SEM HÍFEN "-" NO NOME
+ * OBRIGADO!
+ */
+
+LojaBanner.ALL = [
   {
     name: 'Cidade de Noite (Background Padrão)',
     custo: 0,
-    code: 'cidade-noite',
+    code: 'cidadenoite',
     preview: 'https://i.imgur.com/UdskPJa.jpg',
   },
   {
@@ -20,19 +54,19 @@ export const items = [
   {
     name: 'Garota De Máscara (Sem Anime Encontrado)',
     custo: 100000,
-    code: 'garota-mascara',
+    code: 'garotamascara',
     preview: 'https://i.imgur.com/juIxpko.jpg',
   },
   {
     name: 'Goku Black (Dragon Ball Super)',
     custo: 100000,
-    code: 'goku-black',
+    code: 'gokublack',
     preview: 'https://i.imgur.com/0pmlQd5.jpg',
   },
   {
     name: 'Bell Craner (Dungeon ni Deai)',
     custo: 500000,
-    code: 'bell-craner',
+    code: 'bellcraner',
     preview: 'https://i.imgur.com/1m3017k.jpg',
   },
   {
@@ -44,13 +78,13 @@ export const items = [
   {
     name: 'Satoru Gojo (Jujustu Kaisen)',
     custo: 500000,
-    code: 'satoru-gojo',
+    code: 'satorugojo',
     preview: 'https://i.imgur.com/Tsdk7OA.jpg',
   },
   {
     name: 'Tanjiro e Nezuko (Kimetsu No Yaiba)',
     custo: 500000,
-    code: 'tanjiro-nezuko',
+    code: 'tanjironezuko',
     preview: 'https://i.imgur.com/56eKMO9.jpg',
   },
   {
@@ -80,7 +114,7 @@ export const items = [
   {
     name: 'Nakiri Ayame (YouTuber Virtual)',
     custo: 'Exclusivo de Evento para Ganhador',
-    code: 'nakiri-ayame',
+    code: 'nakiriayame',
     preview: 'https://i.imgur.com/JNr41cG.jpg',
   },
   {

@@ -50,7 +50,7 @@ export function ProfileProvider({
         ...profile,
         database: {
           ...profile?.database,
-          biografia: data.biografia,
+          ...data,
         },
       } as any);
     },
@@ -69,9 +69,9 @@ export function ProfileProvider({
   );
 
   useEffect(() => {
-    if (error) {
-      router.push('/');
-    }
+    // if (error) {
+    //   router.push('/');
+    // }
 
     if (profile) {
       updateLoading(false);
