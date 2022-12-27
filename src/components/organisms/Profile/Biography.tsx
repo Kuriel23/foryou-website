@@ -18,10 +18,7 @@ export function Biography(): JSX.Element {
 
   return (
     <Flex
-      w="100%"
       minH="250px"
-      maxH="max-content"
-      maxW="950px"
       gap={2}
       p={8}
       flexDir="column"

@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router';
 import {
   createContext,
   useCallback,
+  useEffect,
   useMemo,
+  useState,
   type PropsWithChildren,
 } from 'react';
 
@@ -29,10 +32,13 @@ export function ProfileProvider({
   profileId,
   children,
 }: PropsWithChildren<ProfileProviderData>): JSX.Element {
+  const router = useRouter();
+
+  const [isLoading, updateLoading] = useState(true);
+
   const {
     data: profile,
     error,
-    isLoading,
     mutate,
   } = useFetch<ProfileData>(`profile/${profileId}`);
 
@@ -61,6 +67,16 @@ export function ProfileProvider({
     }),
     [profile, error, isLoading, updateProfile],
   );
+
+  useEffect(() => {
+    if (error) {
+      router.push('/');
+    }
+
+    if (profile) {
+      updateLoading(false);
+    }
+  }, [error, router, profile]);
 
   return (
     <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>

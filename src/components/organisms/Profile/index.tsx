@@ -21,7 +21,7 @@ export function Profile(): JSX.Element {
             <Badges />
           </Flex>
 
-          <Flex w="100%" position="relative" flexDir="column" gap={8}>
+          <Flex w="750px" position="relative" flexDir="column" gap={8}>
             <Biography />
             <Statistics />
             <Married />
