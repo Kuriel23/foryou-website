@@ -1,10 +1,18 @@
-import { Flex, Grid, Icon, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  Flex,
+  Grid,
+  Icon,
+  Skeleton,
+  SkeletonCircle,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { ChartLineUp, Coins, Medal } from 'phosphor-react';
 
 import { useProfile } from '@hooks/useProfile';
 
 export function Statistics(): JSX.Element {
-  const { profile } = useProfile();
+  const { profile, isLoading } = useProfile();
 
   const theme = {
     cardBackground: useColorModeValue('gray.200', 'gray.700'),
@@ -20,16 +28,46 @@ export function Statistics(): JSX.Element {
         borderRadius={12}
         bgColor={theme.cardBackground}
       >
-        <Icon as={Coins} w="50px" h="50px" weight="fill" color="yellow.300" />
+        {isLoading ? (
+          <SkeletonCircle
+            h="50px"
+            w="50px"
+            startColor="gray.300"
+            endColor="gray.400"
+          />
+        ) : (
+          <Icon as={Coins} w="50px" h="50px" weight="fill" color="yellow.300" />
+        )}
 
         <Flex flexDir="column">
-          <Text fontSize="2xl" fontWeight="bold" textTransform="uppercase">
-            {profile?.database.animecoins.toLocaleString()}
-          </Text>
+          {isLoading ? (
+            <>
+              <Skeleton
+                h="20px"
+                w="150px"
+                mb={2}
+                startColor="gray.300"
+                endColor="gray.400"
+              />
 
-          <Text fontSize="sm" fontWeight="400" textTransform="uppercase">
-            Coins
-          </Text>
+              <Skeleton
+                h="20px"
+                w="50px"
+                startColor="gray.300"
+                endColor="gray.400"
+              />
+            </>
+          ) : (
+            <>
+              <Text fontSize="2xl" fontWeight="bold" textTransform="uppercase">
+                {profile?.database.animecoins.toLocaleString()}
+              </Text>
+
+              <Text fontSize="sm" fontWeight="400" textTransform="uppercase">
+                Coins
+              </Text>
+            </>
+          )}
         </Flex>
       </Flex>
 
@@ -41,22 +79,52 @@ export function Statistics(): JSX.Element {
         borderRadius={12}
         bgColor={theme.cardBackground}
       >
-        <Icon
-          as={ChartLineUp}
-          w="50px"
-          h="50px"
-          weight="fill"
-          color="blue.300"
-        />
+        {isLoading ? (
+          <SkeletonCircle
+            h="50px"
+            w="50px"
+            startColor="gray.300"
+            endColor="gray.400"
+          />
+        ) : (
+          <Icon
+            as={ChartLineUp}
+            w="50px"
+            h="50px"
+            weight="fill"
+            color="blue.300"
+          />
+        )}
 
         <Flex flexDir="column">
-          <Text fontSize="sm" fontWeight="400" textTransform="uppercase">
-            Nível
-          </Text>
+          {isLoading ? (
+            <>
+              <Skeleton
+                h="20px"
+                w="60px"
+                mb={2}
+                startColor="gray.300"
+                endColor="gray.400"
+              />
 
-          <Text fontSize="2xl" fontWeight="bold" textTransform="uppercase">
-            {profile?.database.level.toLocaleString()}
-          </Text>
+              <Skeleton
+                h="20px"
+                w="30px"
+                startColor="gray.300"
+                endColor="gray.400"
+              />
+            </>
+          ) : (
+            <>
+              <Text fontSize="sm" fontWeight="400" textTransform="uppercase">
+                Nível
+              </Text>
+
+              <Text fontSize="2xl" fontWeight="bold" textTransform="uppercase">
+                {profile?.database.level.toLocaleString()}
+              </Text>
+            </>
+          )}
         </Flex>
       </Flex>
 
@@ -68,16 +136,46 @@ export function Statistics(): JSX.Element {
         borderRadius={12}
         bgColor={theme.cardBackground}
       >
-        <Icon as={Medal} w="50px" h="50px" weight="fill" color="red.300" />
+        {isLoading ? (
+          <SkeletonCircle
+            h="50px"
+            w="50px"
+            startColor="gray.300"
+            endColor="gray.400"
+          />
+        ) : (
+          <Icon as={Medal} w="50px" h="50px" weight="fill" color="red.300" />
+        )}
 
         <Flex flexDir="column">
-          <Text fontSize="2xl" fontWeight="bold" textTransform="uppercase">
-            {profile?.database.rep.toLocaleString()}
-          </Text>
+          {isLoading ? (
+            <>
+              <Skeleton
+                h="20px"
+                w="150px"
+                mb={2}
+                startColor="gray.300"
+                endColor="gray.400"
+              />
 
-          <Text fontSize="sm" fontWeight="400" textTransform="uppercase">
-            Reputações
-          </Text>
+              <Skeleton
+                h="20px"
+                w="50px"
+                startColor="gray.300"
+                endColor="gray.400"
+              />
+            </>
+          ) : (
+            <>
+              <Text fontSize="2xl" fontWeight="bold" textTransform="uppercase">
+                {profile?.database.rep.toLocaleString()}
+              </Text>
+
+              <Text fontSize="sm" fontWeight="400" textTransform="uppercase">
+                Reputações
+              </Text>
+            </>
+          )}
         </Flex>
       </Flex>
     </Grid>

@@ -1,10 +1,20 @@
-import { Flex, Text, Avatar, useColorModeValue, Icon } from '@chakra-ui/react';
+/* eslint-disable no-nested-ternary */
+
+import {
+  Flex,
+  Text,
+  Avatar,
+  useColorModeValue,
+  Icon,
+  Skeleton,
+  SkeletonCircle,
+} from '@chakra-ui/react';
 import { Heart } from 'phosphor-react';
 
 import { useProfile } from '@hooks/useProfile';
 
 export function Married(): JSX.Element {
-  const { profile } = useProfile();
+  const { profile, isLoading } = useProfile();
 
   const theme = {
     cardBackground: useColorModeValue('gray.200', 'gray.700'),
@@ -20,7 +30,39 @@ export function Married(): JSX.Element {
       borderRadius={12}
       bgColor={theme.cardBackground}
     >
-      {profile?.database.casado ? (
+      {isLoading ? (
+        <>
+          <Flex w="100%" gap={4} align="center" justify="center">
+            <SkeletonCircle
+              w="100px"
+              h="100px"
+              startColor="gray.300"
+              endColor="gray.400"
+            />
+
+            <SkeletonCircle
+              w="70px"
+              h="70px"
+              startColor="gray.300"
+              endColor="gray.400"
+            />
+
+            <SkeletonCircle
+              w="100px"
+              h="100px"
+              startColor="gray.300"
+              endColor="gray.400"
+            />
+          </Flex>
+
+          <Skeleton
+            h="20px"
+            w="200px"
+            startColor="gray.300"
+            endColor="gray.400"
+          />
+        </>
+      ) : profile?.database.casado ? (
         <>
           <Flex w="100%" gap={4} align="center" justify="center">
             <Avatar src={profile?.user.avatar} w="100px" h="100px" />

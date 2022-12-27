@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+
 import 'react-circular-progressbar/dist/styles.css';
 
 import {
@@ -10,6 +12,8 @@ import {
   useTheme,
   useColorMode,
   useColorModeValue,
+  SkeletonCircle,
+  Skeleton,
 } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import {
@@ -27,7 +31,7 @@ const ALLOWD_FLAGS = [
 ];
 
 export function UserInfo(): JSX.Element {
-  const { profile } = useProfile();
+  const { profile, isLoading } = useProfile();
 
   const { colors } = useTheme();
   const { colorMode } = useColorMode();
@@ -50,7 +54,6 @@ export function UserInfo(): JSX.Element {
       profile?.user.publicFlags?.map(name => {
         const flag = ALLOWD_FLAGS.find(flg => flg.flagName === name);
 
-        // eslint-disable-next-line react/jsx-no-useless-fragment
         if (!flag) return <></>;
 
         return (
@@ -76,32 +79,64 @@ export function UserInfo(): JSX.Element {
       bgColor={theme.cardBackground}
     >
       <Flex flexDir="column" align="center" justify="center" pt={12} px={12}>
-        <Box h="190px" w="190px">
-          <CircularProgressbarWithChildren
-            value={percentToNextLevel}
-            strokeWidth={4}
-            styles={circularProgressbarBuildStyles({
-              rotation: 0.5,
-              pathColor: profile?.database.cor || 'green.300',
-              trailColor:
-                colorMode === 'dark' ? colors.gray['600'] : colors.gray['300'],
-            })}
-          >
-            <Avatar src={profile?.user.avatar} h="150px" w="150px" />
-          </CircularProgressbarWithChildren>
-        </Box>
+        {isLoading ? (
+          <SkeletonCircle
+            w="190px"
+            h="190px"
+            startColor="gray.300"
+            endColor="gray.400"
+          />
+        ) : (
+          <Box h="190px" w="190px">
+            <CircularProgressbarWithChildren
+              value={percentToNextLevel}
+              strokeWidth={4}
+              styles={circularProgressbarBuildStyles({
+                rotation: 0.5,
+                pathColor: profile?.database.cor || 'green.300',
+                trailColor:
+                  colorMode === 'dark'
+                    ? colors.gray['600']
+                    : colors.gray['300'],
+              })}
+            >
+              <Avatar src={profile?.user.avatar} h="150px" w="150px" />
+            </CircularProgressbarWithChildren>
+          </Box>
+        )}
 
         <Flex mt={4} align="flex-end">
-          <Text fontWeight="bold" fontSize="2xl">
-            {profile?.user.username}
-          </Text>
-          <Text lineHeight="2" color="gray.500">
-            #{profile?.user.discriminator}
-          </Text>
+          {isLoading ? (
+            <Skeleton
+              h="22px"
+              w="100px"
+              startColor="gray.300"
+              endColor="gray.400"
+            />
+          ) : (
+            <>
+              <Text fontWeight="bold" fontSize="2xl">
+                {profile?.user.username}
+              </Text>
+              <Text lineHeight="2" color="gray.500">
+                #{profile?.user.discriminator}
+              </Text>
+            </>
+          )}
         </Flex>
 
         <Flex align="center" gap={0}>
-          {userFlags}
+          {isLoading ? (
+            <Skeleton
+              h="20px"
+              w="50px"
+              mt="8px"
+              startColor="gray.300"
+              endColor="gray.400"
+            />
+          ) : (
+            userFlags
+          )}
         </Flex>
       </Flex>
 
@@ -113,16 +148,27 @@ export function UserInfo(): JSX.Element {
         }
       />
 
-      <Text
-        pt={2}
-        pb={6}
-        fontSize="sm"
-        color="gray.500"
-        fontWeight="bold"
-        textTransform="uppercase"
-      >
-        Membro desde 2022
-      </Text>
+      {isLoading ? (
+        <Flex pt={2} pb={6}>
+          <Skeleton
+            h="20px"
+            w="150px"
+            startColor="gray.300"
+            endColor="gray.400"
+          />
+        </Flex>
+      ) : (
+        <Text
+          pt={2}
+          pb={6}
+          fontSize="sm"
+          color="gray.500"
+          fontWeight="bold"
+          textTransform="uppercase"
+        >
+          Membro desde 2022
+        </Text>
+      )}
     </Flex>
   );
 }
