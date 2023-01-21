@@ -21,7 +21,7 @@ export default function App({
     <SessionProvider session={session}>
       <ChakraProvider theme={theme}>
         <NextNProgress
-          color="var(--chakra-colors-green-200)"
+          color="var(--chakra-colors-orange-200)"
           startPosition={0.3}
           stopDelayMs={200}
           height={3}

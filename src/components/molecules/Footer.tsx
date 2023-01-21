@@ -54,7 +54,7 @@ export function Footer(): JSX.Element {
 
             <IconButton
               ml={6}
-              colorScheme="green"
+              colorScheme="orange"
               aria-label="Search database"
               size="lg"
               icon={

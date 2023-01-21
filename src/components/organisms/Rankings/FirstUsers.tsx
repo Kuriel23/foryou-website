@@ -27,7 +27,7 @@ interface UserCardShimmerProps {
 }
 
 function getColor(index: number): string {
-  return index === 1 ? 'yellow.200' : index === 2 ? 'gray.200' : 'orange.200';
+  return index === 1 ? 'yellow.200' : index === 2 ? 'gray.200' : 'orange.400';
 }
 
 function UserCard({ ranking, position }: UserCardProps): JSX.Element {
@@ -130,37 +130,37 @@ function UserCardShimmer({ position }: UserCardShimmerProps): JSX.Element {
         <SkeletonCircle
           w="100px"
           h="100px"
-          startColor="green.300"
-          endColor="green.400"
+          startColor="orange.300"
+          endColor="orange.400"
         />
 
         <Skeleton
           h="15px"
           w="100%"
-          startColor="green.300"
-          endColor="green.400"
+          startColor="orange.300"
+          endColor="orange.400"
         />
 
         <Skeleton
           h="15px"
           w="80%"
-          startColor="green.300"
-          endColor="green.400"
+          startColor="orange.300"
+          endColor="orange.400"
         />
 
         <Skeleton
           h="15px"
           w="60%"
-          startColor="green.300"
-          endColor="green.400"
+          startColor="orange.300"
+          endColor="orange.400"
         />
       </Flex>
 
       <Skeleton
         w="90px"
         h={position === 1 ? '200px' : position === 2 ? '140px' : '80px'}
-        startColor="green.300"
-        endColor="green.400"
+        startColor="orange.300"
+        endColor="orange.400"
       />
     </Flex>
   );
@@ -202,7 +202,7 @@ export function FirstUsers(): JSX.Element {
   }, [firstUsers, isLoading]);
 
   return (
-    <Box bgColor="green.200">
+    <Box bgColor="orange.200">
       <Flex w="100%" maxW={1240} px={10} m="0 auto">
         {usersElements}
       </Flex>

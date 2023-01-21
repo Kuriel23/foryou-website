@@ -54,11 +54,11 @@ export function Header(): JSX.Element {
             w={8}
             h={8}
             borderRadius="full"
-            bgColor="green.200"
+            bgColor="orange.200"
           />
 
           <Heading fontWeight={600} fontSize="3xl">
-            AOG
+            For You
           </Heading>
         </Flex>
       </Link>
@@ -75,7 +75,7 @@ export function Header(): JSX.Element {
                     src={session.data?.user?.image?.toString()}
                     w={10}
                     h={10}
-                    bgColor="green.200"
+                    bgColor="orange.200"
                   />
 
                   <Text fontWeight={600}>{session.data?.user?.name}</Text>

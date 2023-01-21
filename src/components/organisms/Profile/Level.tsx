@@ -82,8 +82,8 @@ export function Level(): JSX.Element {
               sx={{
                 '> div': {
                   bgColor:
-                    (profile?.database.cor as ResponsiveValue<'green.200'>) ||
-                    'green.300',
+                    (profile?.database.cor as ResponsiveValue<'orange.200'>) ||
+                    'orange.300',
                   borderRadius: 12,
                 },
               }}
@@ -105,8 +105,8 @@ export function Level(): JSX.Element {
           h="70px"
           borderRadius="full"
           bgColor={
-            (profile?.database.cor as ResponsiveValue<'green.200'>) ||
-            'green.300'
+            (profile?.database.cor as ResponsiveValue<'orange.200'>) ||
+            'orange.300'
           }
           align="center"
           justify="center"

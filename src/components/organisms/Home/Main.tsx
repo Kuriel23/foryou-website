@@ -31,22 +31,22 @@ export function Main(): JSX.Element {
           <Flex flexDir="column" align="flex-start" maxW={400} gap={6}>
             <Heading
               color={theme.textColor}
-              sx={{ span: { color: 'green.300' } }}
+              sx={{ span: { color: 'orange.300' } }}
             >
               Um <span>simples</span> bot <span>otaku</span> do Discord
             </Heading>
 
             <Text color={theme.textColor}>
               A simplicidade, o amor e o carinho num só bot. Feito especialmente
-              para os mais diversos otakus do servidor Animes Online Games, com
-              um sistema de economia e reputação viciantes.
+              para os mais diversos otakus e gamers do servidor For You, com um
+              sistema de economia e reputação viciantes.
             </Text>
 
             <Button
               px={10}
               width="150px"
               borderRadius={12}
-              bgColor="green.200"
+              bgColor="orange.200"
               color="gray.700"
             >
               {session.status === 'authenticated' ? 'Se aventurar' : 'Entrar'}

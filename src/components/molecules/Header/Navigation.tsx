@@ -29,7 +29,7 @@ export function Navigation(): JSX.Element {
     <HStack spacing={6}>
       {navigation.map(item => (
         <Link href={item.href} key={item.name}>
-          <Text transition="0.2s all" _hover={{ color: 'green.200' }}>
+          <Text transition="0.2s all" _hover={{ color: 'orange.200' }}>
             {item.title}
           </Text>
         </Link>

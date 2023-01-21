@@ -93,7 +93,7 @@ export function UserInfo(): JSX.Element {
               strokeWidth={4}
               styles={circularProgressbarBuildStyles({
                 rotation: 0.5,
-                pathColor: profile?.database.cor || 'green.300',
+                pathColor: profile?.database.cor || 'orange.300',
                 trailColor:
                   colorMode === 'dark'
                     ? colors.gray['600']

@@ -68,29 +68,34 @@ function UserCard({ ranking, position }: UserCardProps): JSX.Element {
 function UserCardShimmer(): JSX.Element {
   return (
     <Flex w="100%" align="center" gap={4}>
-      <Skeleton h="20px" w="20px" startColor="green.300" endColor="green.400" />
+      <Skeleton
+        h="20px"
+        w="20px"
+        startColor="orange.300"
+        endColor="orange.400"
+      />
 
       <Flex align="center" gap={6}>
         <SkeletonCircle
           w="65px"
           h="65px"
-          startColor="green.300"
-          endColor="green.400"
+          startColor="orange.300"
+          endColor="orange.400"
         />
 
         <Flex flexDir="column" gap={2}>
           <Skeleton
             h="20px"
             w="120px"
-            startColor="green.300"
-            endColor="green.400"
+            startColor="orange.300"
+            endColor="orange.400"
           />
 
           <Skeleton
             h="15px"
             w="40px"
-            startColor="green.300"
-            endColor="green.400"
+            startColor="orange.300"
+            endColor="orange.400"
           />
         </Flex>
       </Flex>

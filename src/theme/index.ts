@@ -5,7 +5,7 @@ export function customScrollBar(
   colorMode: 'light' | 'dark',
   props: Record<string, any> = {},
 ): Record<string, any> {
-  const scrollbarFirstColor = 'green.500';
+  const scrollbarFirstColor = 'orange.500';
   const scrollbarSecondColor = colorMode === 'light' ? 'gray.200' : 'gray.700';
 
   return {
@@ -29,7 +29,7 @@ export const theme = extendTheme({
     Progress: {
       baseStyle: {
         filledTrack: {
-          bg: 'green.200',
+          bg: 'orange.200',
         },
       },
     },

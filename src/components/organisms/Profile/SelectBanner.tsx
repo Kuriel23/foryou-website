@@ -132,7 +132,7 @@ export function SelectBanner(): JSX.Element {
                               ...(bannerSelected === bannerCode && {
                                 borderWidth: '4px',
                                 borderStyle: 'solid',
-                                borderColor: 'green.500',
+                                borderColor: 'orange.500',
                               }),
                             }}
                             onClick={() =>
@@ -147,7 +147,7 @@ export function SelectBanner(): JSX.Element {
                               justify="center"
                               sx={{
                                 ...(bannerSelected === bannerCode && {
-                                  bgColor: rgba(colors.green[500], 0.6),
+                                  bgColor: rgba(colors.orange[500], 0.6),
                                 }),
                               }}
                             >

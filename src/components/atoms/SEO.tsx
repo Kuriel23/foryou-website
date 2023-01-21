@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = 'Animes Online Games - Discord Bot',
+  title = 'For You - Discord Bot & Community',
   description = '',
   icon = '/favicon.ico',
   children,

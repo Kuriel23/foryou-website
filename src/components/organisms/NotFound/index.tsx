@@ -43,7 +43,7 @@ export function NotFound(): JSX.Element {
 
           <Heading
             color={theme.textColor}
-            sx={{ span: { color: 'green.300' } }}
+            sx={{ span: { color: 'orange.300' } }}
             fontSize={{ base: '2xl', xl: '5xl' }}
             mb="15px"
           >
@@ -63,7 +63,7 @@ export function NotFound(): JSX.Element {
 
           <Button
             borderRadius={12}
-            bgColor="green.200"
+            bgColor="orange.200"
             color="gray.700"
             fontSize={{ base: 'md', xl: 'xl' }}
             onClick={() => router.push('/')}

@@ -12,7 +12,7 @@ export function Categories(): JSX.Element {
         p={12}
         gap={8}
         borderRadius={12}
-        bgColor="green.200"
+        bgColor="orange.200"
       >
         <Flex flexDir="column" gap={2}>
           <Heading as="h3" size="lg" color="gray.700">
@@ -89,8 +89,8 @@ export function Categories(): JSX.Element {
 
             <Text fontSize="sm" color="gray.700">
               Informação é mais que tudo e como este se trata de um bot para um
-              servidor com suporte a site de animes, facilitamos as informações
-              sobre animes, tempo e entre outros.
+              servidor com suporte a site de notícias de jogos e animes, que tal
+              facilitar a informação?
             </Text>
           </Flex>
         </SimpleGrid>

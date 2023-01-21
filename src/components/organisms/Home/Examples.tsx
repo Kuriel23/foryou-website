@@ -52,7 +52,7 @@ export function Examples(): JSX.Element {
                 as="h3"
                 size="xl"
                 color={theme.textColor}
-                sx={{ span: { color: 'green.300' } }}
+                sx={{ span: { color: 'orange.300' } }}
               >
                 O <span>entretenimento</span> é tudo, ainda mais com fofura
               </Heading>
@@ -74,9 +74,9 @@ export function Examples(): JSX.Element {
                 as="h3"
                 size="xl"
                 color={theme.textColor}
-                sx={{ span: { color: 'green.300' } }}
+                sx={{ span: { color: 'orange.300' } }}
               >
-                Ser rico em <span>animecoins</span>, claro!
+                Ser rico em <span>moedas</span>, claro!
               </Heading>
 
               <Text color={theme.textColor}>
@@ -110,19 +110,18 @@ export function Examples(): JSX.Element {
                 as="h3"
                 size="xl"
                 color={theme.textColor}
-                sx={{ span: { color: 'green.300' } }}
+                sx={{ span: { color: 'orange.300' } }}
               >
-                A <span>informação</span> é importante, principalmente para
-                Otakus
+                A <span>informação</span> é importante!
               </Heading>
 
               <Text color={theme.textColor}>
                 A informação é a base do mundo, sem ela seria quase impossível
                 de sobreviver neste mundo informado, principalmente as novas
                 tecnologias facilitam o recebimento de informação. Mas você é um
-                otaku, logo gosta de ficar informado quanto a comandos como o de
-                anime nos quais informam episódios, status, gêneros e até
-                informa se está disponível no website do Animes Online Games.
+                otaku ou gamer, logo gosta de ficar informado quanto a notícias
+                como a gente utiliza um sistema automático de noticiar notícias
+                novas.
               </Text>
             </Flex>
           </Flex>

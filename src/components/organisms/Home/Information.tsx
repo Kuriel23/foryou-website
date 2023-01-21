@@ -50,14 +50,14 @@ export function Information(): JSX.Element {
               as="h3"
               size="lg"
               color={theme.textColor}
-              sx={{ span: { color: 'green.300' } }}
+              sx={{ span: { color: 'orange.300' } }}
             >
               O <span>início</span> de tudo
             </Heading>
 
             <Text maxW="800px" color={theme.textColor}>
-              Inicialmente criado em 25 de Junho de 2020, fui feito para
-              facilitar anúncios de lançamento de animes, mas os otakus sempre
+              Inicialmente criado em 8 de Junho de 2022, fui feito para
+              facilitar os sistemas do próprio servidor, mas os membros sempre
               queriam mais que isso.
             </Text>
           </Flex>
@@ -84,7 +84,7 @@ export function Information(): JSX.Element {
               as="h3"
               size="lg"
               color={theme.textColor}
-              sx={{ span: { color: 'green.300' } }}
+              sx={{ span: { color: 'orange.300' } }}
             >
               A <span>expansão</span>{' '}
               <Heading as="s" size="lg" color={theme.textColor}>
@@ -93,8 +93,9 @@ export function Information(): JSX.Element {
             </Heading>
 
             <Text maxW="800px" color={theme.textColor}>
-              Ao longo do tempo, fui sendo melhorado e com mais funções, um
-              bem-vindo, economia, busca de informações do website e muito mais.
+              Ao longo do tempo, fui sendo melhorado e com mais funções, uma
+              economia, informar notícias, entretenimento, parcerias e muito
+              mais.
             </Text>
           </Flex>
         </Flex>
