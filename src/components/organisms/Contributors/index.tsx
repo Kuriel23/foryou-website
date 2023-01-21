@@ -42,8 +42,8 @@ export function Contributors({ contributors }: ContributorsProps): JSX.Element {
             <Badge
               variant="subtle"
               fontSize="md"
-              color={role.hexColor}
-              bgColor={rgba(role.hexColor, 0.2)}
+              color={role.hexColor.replace('#000000', 'orange')}
+              bgColor={rgba(role.hexColor.replace('#000000', 'orange'), 0.2)}
             >
               {role.name}
             </Badge>
