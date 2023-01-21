@@ -43,8 +43,7 @@ export function Footer(): JSX.Element {
           <Flex>
             <Flex flexDir="column" textAlign="end">
               <Text as="p">
-                Copyright © 2020 - {new Date().getFullYear()} Animes Online
-                Games.
+                Copyright © 2020 - {new Date().getFullYear()} For You.
               </Text>
 
               <Text as="p" fontSize="sm" fontWeight="300" color="gray.600">
