@@ -31,7 +31,7 @@ export function Footer(): JSX.Element {
         <Flex w="100%" align="center" justify="space-between">
           <Text as="p">
             Site desenvolvido com muito ❤️ por{' '}
-            <Link href="https://izak.tech/" fontWeight="bold" isExternal>
+            <Link href="https://izakdvlpr.com/" fontWeight="bold" isExternal>
               Izak
             </Link>{' '}
             e{' '}
