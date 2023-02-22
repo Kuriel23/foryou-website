@@ -60,7 +60,7 @@ export function Statistics(): JSX.Element {
           ) : (
             <>
               <Text fontSize="2xl" fontWeight="bold" textTransform="uppercase">
-                {profile?.database.coins.toLocaleString()}
+                {profile?.database && profile?.database?.coins.toLocaleString()}
               </Text>
 
               <Text fontSize="sm" fontWeight="400" textTransform="uppercase">
