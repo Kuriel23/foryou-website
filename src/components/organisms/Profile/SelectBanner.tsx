@@ -107,9 +107,7 @@ export function SelectBanner(): JSX.Element {
                 >
                   {profile?.database.loja &&
                     Object.entries(profile.database.loja)
-                      .filter(
-                        ([_, bannerStatus]) => bannerStatus === 'Comprado.',
-                      )
+                      .filter(([_, bannerStatus]) => bannerStatus)
                       .map(([bannerCode], index) => {
                         const position = index + 1;
 
