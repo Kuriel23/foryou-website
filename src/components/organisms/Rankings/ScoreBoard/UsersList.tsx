@@ -36,7 +36,7 @@ function UserCard({ ranking, position }: UserCardProps): JSX.Element {
           {rankingType === 'coins' && (
             <Flex align="center" gap={1}>
               <Text fontWeight={600}>
-                {ranking.database.animecoins.toLocaleString()}
+                {ranking.database.coins.toLocaleString()}
               </Text>
               <Text fontWeight={400}>Coins</Text>
             </Flex>

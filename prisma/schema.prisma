@@ -7,11 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-type GuildsCrimeschedule {
-  id       String   @map("_id")
-  schedule DateTime @db.Date
-}
-
 type GuildsDailyschedule {
   id       String   @map("_id")
   schedule DateTime @db.Date
@@ -22,86 +17,66 @@ type GuildsRepschedule {
   schedule DateTime @db.Date
 }
 
-type GuildsRobschedule {
+type GuildsWorkschedule {
   id       String   @map("_id")
   schedule DateTime @db.Date
 }
 
 type UsersConfig {
-  notificarcrime     Boolean?
-  notificardaily     Boolean?
-  notificarep        Boolean?
-  notificarob        Boolean?
-  notificarwork      Boolean?
-  protecaoraspadinha String?
-  protecaoroleta     String?
+  notificarcrime Boolean
+  notificardaily Boolean
+  notificarep    Boolean
+  notificarob    Boolean
+  notificarwork  Boolean
 }
 
 type UsersLoja {
-  akaza         String?
-  akazoficial   String?
-  arcane        String?
-  bartsimpson   String?
-  bellcraner    String
-  cidadenoite   String
-  cybergirl     String?
-  douma1        String?
-  floresta      String?
-  garotamascara String
-  gokublack     String
-  hantengu      String?
-  kanna         String
-  keitaro       String?
-  koalas        String?
-  makisan       String?
-  megumin       String
-  nakiriayame   String
-  nossoamor     String?
-  raiden        String?
-  rengoku       String?
-  saokirito     String?
-  satorugojo    String
-  shinobu       String
-  space         String?
-  supersaiyajin String?
-  tanjironezuko String
+  akaza         Boolean
+  akazoficial   Boolean
+  arcane        Boolean
+  bartsimpson   Boolean
+  bellcraner    Boolean
+  cidadenoite   Boolean
+  cybergirl     Boolean
+  douma1        Boolean
+  floresta      Boolean
+  garotamascara Boolean
+  gokublack     Boolean
+  hantengu      Boolean
+  kanna         Boolean
+  keitaro       Boolean
+  koalas        Boolean
+  makisan       Boolean
+  megumin       Boolean
+  nakiriayame   Boolean
+  nossoamor     Boolean
+  raiden        Boolean
+  rengoku       Boolean
+  saokirito     Boolean
+  satorugojo    Boolean
+  shinobu       Boolean
+  space         Boolean
+  supersaiyajin Boolean
+  tanjironezuko Boolean
 }
 
-type UsersMedalhas {
-  natalv1 Boolean
-}
-
-type UsersPunishments {
-  autobot String[]
-  mutes   String[]
-}
-
-model baninfos {
-  id     String   @id @map("_id")
-  v      Int      @map("__v")
-  autor  String
-  banido String
-  data   String
-  motivo String
-  provas String[]
+type UsersTransactions {
+  id       String   @map("_id") @db.ObjectId
+  money    Int
+  reason   String
+  received Boolean
+  time     DateTime @db.Date
 }
 
 model guilds {
-  id              String                @id @map("_id")
-  v               Int                   @map("__v")
-  crimeschedule   GuildsCrimeschedule[]
-  dailyschedule   GuildsDailyschedule[]
-  diadocalendario String
-  lancadata       String
-  lancahdata      String
-  manutencao      Boolean
-  newsdata        String
-  notifylanca     Boolean
-  repschedule     GuildsRepschedule[]
-  robschedule     GuildsRobschedule[]
-  /// Could not determine type: the field only had null or empty values in the sample set.
-  workschedule    Int?
-  ytdata          String
+  id            String                @id @map("_id")
+  v             Int                   @map("__v")
+  crimeschedule Int?
+  dailyschedule GuildsDailyschedule[]
+  repschedule   GuildsRepschedule[]
+  robschedule   Int?
+  text          String[]
+  workschedule  GuildsWorkschedule[]
 }
 
 model halloweens {
@@ -120,27 +95,37 @@ model levels {
   xp          Int
 }
 
+model news {
+  id       String @id @map("_id")
+  v        Int    @map("__v")
+  newsdata String
+}
+
 model users {
-  id                String           @id @map("_id")
-  v                 Int              @map("__v")
-  /// Multiple data types found: Float: 9.5%, Int: 90.5% out of 599 sampled entries
-  animecoins        Int
+  id                String              @id @map("_id")
+  v                 Int                 @map("__v")
   biografia         String
-  casado            String[]
-  /// Multiple data types found: Float: 17.1%, Int: 82.9% out of 345 sampled entries
-  clonaCooldown     Int?
+  casado            String
+  clonaCooldown     Int
+  coins             Int
   config            UsersConfig
-  cor               String?
-  coratm            String?
-  crimeCooldown     Int?
+  cor               String
+  coratm            String
+  crimeCooldown     Int
   dailyCooldown     Int
-  dinsujo           Int?
+  dinsujo           Int
   equipado          String
   loja              UsersLoja
-  medalhas          UsersMedalhas?
-  punishments       UsersPunishments
+  medalhas          String[]
   rep               Int
   repCooldown       Int
   roubarCooldown    Int
   trabalharCooldown Int
+  transactions      UsersTransactions[]
+}
+
+model vips {
+  id     String @id @map("_id")
+  v      Int    @map("__v")
+  roleid String
 }

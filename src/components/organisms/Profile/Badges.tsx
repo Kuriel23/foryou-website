@@ -2,7 +2,6 @@ import {
   Flex,
   Text,
   Grid,
-  Img,
   useColorModeValue,
   Skeleton,
 } from '@chakra-ui/react';
@@ -73,24 +72,7 @@ export function Badges(): JSX.Element {
           ))
         ) : (
           <>
-            <Flex
-              w="66px"
-              h="66px"
-              align="center"
-              justify="center"
-              borderRadius={16}
-              bgColor={theme.badgeBackground}
-            >
-              {profile?.database.medalhas?.natalv1 && (
-                <Img
-                  src="/images/badges/natalv1.png"
-                  alt="natalv1"
-                  height="40px"
-                />
-              )}
-            </Flex>
-
-            {Array.from(Array(3).keys()).map(id => (
+            {Array.from(Array(4).keys()).map(id => (
               <Flex
                 key={id}
                 w="66px"

@@ -1,10 +1,5 @@
-/**
- * FONTS
- *
- * https://fontsource.org/fonts/poppins
- */
-
 import '@fontsource/poppins';
+
 import { ChakraProvider } from '@chakra-ui/react';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';

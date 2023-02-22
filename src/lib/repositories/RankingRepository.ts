@@ -10,10 +10,10 @@ export class RankingRepository {
     const usersData = await prisma.users.findMany({
       select: {
         id: true,
-        animecoins: true,
+        coins: true,
       },
       orderBy: {
-        animecoins: 'desc',
+        coins: 'desc',
       },
       take: RANKING_LIMIT_OF_USERS,
     });

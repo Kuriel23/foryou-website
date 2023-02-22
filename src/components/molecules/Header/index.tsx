@@ -20,7 +20,7 @@ import {
   CaretUp,
   SignOut,
   UserCircle,
-  Ticket,
+  Storefront,
 } from 'phosphor-react';
 import { useCallback } from 'react';
 
@@ -93,11 +93,11 @@ export function Header(): JSX.Element {
                   </Text>
                 </MenuItem>
 
-                <MenuItem onClick={() => router.push('/ticket')} gap="0.3rem">
-                  <Icon as={Ticket} w="25px" h="25px" />
+                <MenuItem gap="0.3rem">
+                  <Icon as={Storefront} w="25px" h="25px" />
 
                   <Text as="span" fontWeight="300">
-                    Criar Ticket
+                    Loja
                   </Text>
                 </MenuItem>
 

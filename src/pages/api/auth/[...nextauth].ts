@@ -15,12 +15,14 @@ export const authOptions: NextAuthOptions = {
       if (session?.user) {
         session.user.id = token.sub;
       }
+
       return session;
     },
     jwt: async ({ user, token }: any) => {
       if (user) {
         token.sub = user.id;
       }
+
       return token;
     },
   },
