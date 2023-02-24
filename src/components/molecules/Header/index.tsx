@@ -37,6 +37,10 @@ export function Header(): JSX.Element {
     router.push(`/profile/${session.data.user?.id}`);
   }, [router, session?.data?.user?.id]);
 
+  const goToShop = useCallback(() => {
+    router.push(`/shop`);
+  }, [router]);
+
   return (
     <Flex
       w="100%"
@@ -93,7 +97,7 @@ export function Header(): JSX.Element {
                   </Text>
                 </MenuItem>
 
-                <MenuItem gap="0.3rem">
+                <MenuItem onClick={() => goToShop()} gap="0.3rem">
                   <Icon as={Storefront} w="25px" h="25px" />
 
                   <Text as="span" fontWeight="300">

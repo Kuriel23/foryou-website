@@ -1,16 +1,9 @@
-export type LojaBannerType =
-  | {
-      name: string;
-      custo: number;
-      code: string;
-      preview: string;
-    }
-  | {
-      name: string;
-      custo: string;
-      code: string;
-      preview: string;
-    };
+export type LojaBannerType = {
+  name: string;
+  custo: number;
+  code: string;
+  preview: string;
+};
 
 export class LojaBanner {
   static ALL: LojaBannerType[];
@@ -106,12 +99,6 @@ LojaBanner.ALL = [
     preview: 'https://i.imgur.com/QCsZoyJ.png?1',
   },
   {
-    name: 'Keitaro Nagame (Camp Buddy)',
-    custo: 5000,
-    code: 'keitaro',
-    preview: 'https://i.imgur.com/N2VB3fu.jpg?2',
-  },
-  {
     name: 'Shinobu (Kimetsu No Yaiba)',
     custo: 1000000,
     code: 'shinobu',
@@ -137,61 +124,61 @@ LojaBanner.ALL = [
   },
   {
     name: 'Douma 1 (Kimetsu No Yaiba)',
-    custo: 'Exclusivo de Evento para Ganhador',
+    custo: 500000,
     code: 'douma1',
     preview: 'https://i.imgur.com/YKskJgC.jpg',
   },
   {
     name: 'Espaço com um Cachorro (PC Wallpaper)',
-    custo: 'Exclusivo de Evento para Ganhador',
+    custo: 300000,
     code: 'space',
     preview: 'https://i.imgur.com/9HScJcx.jpg',
   },
   {
     name: 'Nakiri Ayame (YouTuber Virtual)',
-    custo: 'Exclusivo de Evento para Ganhador',
+    custo: 100000,
     code: 'nakiriayame',
     preview: 'https://i.imgur.com/JNr41cG.jpg',
   },
   {
     name: '3º Akaza (Kimetsu No Yaiba)',
-    custo: 'Exclusivo de Evento Halloween',
+    custo: 600000,
     code: 'akazoficial',
     preview: 'https://i.imgur.com/gpfAOSj.jpg',
   },
   {
     name: 'Kirito e Asuna (SAO Alicization)',
-    custo: 'Exclusivo de Evento Halloween',
+    custo: 600000,
     code: 'saokirito',
     preview: 'https://i.imgur.com/7lc8a1w.jpg',
   },
   {
     name: 'Hantengu (Kimetsu no Yaiba)',
-    custo: 'Exclusivo de Evento Halloween',
+    custo: 500000,
     code: 'hantengu',
     preview: 'https://i.imgur.com/cDSeADw.jpg',
   },
   {
     name: 'Rengoku (Kimetsu No Yaiba)',
-    custo: 'Exclusivo de Evento Halloween',
+    custo: 450000,
     code: 'rengoku',
     preview: 'https://i.imgur.com/8pqm9b8.jpg',
   },
   {
     name: 'Bart Simpson (The Simpsons)',
-    custo: 'Exclusivo de Evento Halloween',
+    custo: 300000,
     code: 'bartsimpson',
     preview: 'https://i.imgur.com/uqlUjhG.jpg',
   },
   {
     name: 'Super Saiyajin Blue (Dragon Ball)',
-    custo: 'Exclusivo de Evento Halloween',
+    custo: 500000,
     code: 'supersaiyajin',
     preview: 'https://i.imgur.com/R2AzoXT.jpg',
   },
   {
     name: 'Raiden Shogun (Genshin Impact)',
-    custo: 'Exclusivo de Evento Halloween',
+    custo: 400000,
     code: 'raiden',
     preview: 'https://i.imgur.com/KOzVWrq.png?1',
   },
