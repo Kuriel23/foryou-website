@@ -3,7 +3,7 @@ import NextCors from 'nextjs-cors';
 
 import { RankingRepository } from '@lib/repositories/RankingRepository';
 
-export default async function rankingsHandler(
+export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse,
 ): Promise<void> {

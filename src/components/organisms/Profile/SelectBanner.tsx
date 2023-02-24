@@ -24,7 +24,7 @@ import { rgba } from 'polished';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { LojaBanner, type LojaBannerType } from '@data/loja';
+import { Shop, type ShopType } from '@data/shop';
 import { useProfile } from '@hooks/useProfile';
 import { useSession } from '@hooks/useSession';
 import { customScrollBar } from '@theme';
@@ -111,9 +111,9 @@ export function SelectBanner(): JSX.Element {
                       .map(([bannerCode], index) => {
                         const position = index + 1;
 
-                        const banner = LojaBanner.getBannerByCode(
+                        const banner = Shop.getBannerByCode(
                           bannerCode,
-                        ) as LojaBannerType;
+                        ) as ShopType;
 
                         return (
                           <Flex

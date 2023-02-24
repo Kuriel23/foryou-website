@@ -1,15 +1,15 @@
-export type LojaBannerType = {
+export type ShopType = {
   name: string;
   custo: number;
   code: string;
   preview: string;
 };
 
-export class LojaBanner {
-  static ALL: LojaBannerType[];
+export class Shop {
+  static Banners: ShopType[];
 
-  static getBannerByCode(code: string): LojaBannerType | null {
-    const banner = this.ALL.find(b => b.code === code);
+  static getBannerByCode(code: string): ShopType | null {
+    const banner = this.Banners.find(b => b.code === code);
 
     if (!banner) {
       return null;
@@ -19,13 +19,7 @@ export class LojaBanner {
   }
 }
 
-/**
- * SE FOR ADICIONAR UM NOVO BANNER
- * COLOCAR O CODE SEM HÍFEN "-" NO NOME
- * OBRIGADO!
- */
-
-LojaBanner.ALL = [
+Shop.Banners = [
   {
     name: 'Cidade de Noite (Background Padrão)',
     custo: 0,

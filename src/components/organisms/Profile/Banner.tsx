@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 
-import { LojaBanner } from '@data/loja';
+import { Shop } from '@data/shop';
 import { useProfile } from '@hooks/useProfile';
 
 export function Banner(): JSX.Element {
@@ -16,9 +16,7 @@ export function Banner(): JSX.Element {
         <Box
           w="100%"
           h="400px"
-          bgImage={
-            LojaBanner.getBannerByCode(profile.database.equipado)?.preview
-          }
+          bgImage={Shop.getBannerByCode(profile.database.equipado)?.preview}
           bgRepeat="no-repeat"
           bgSize="cover"
           bgPos="center"

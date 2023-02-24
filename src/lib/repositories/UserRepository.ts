@@ -1,3 +1,4 @@
+import { Prisma } from '@prisma/client';
 import { Routes, type APIUser } from 'discord-api-types/v10';
 
 import { discord } from '../discord';
@@ -56,7 +57,10 @@ export class UserRepository {
     return userDatabase.toObject();
   }
 
-  async saveDatabase(userId: string, data: Record<string, any>): Promise<void> {
+  async saveDatabase(
+    userId: string,
+    data: Prisma.usersUpdateInput | Prisma.usersUncheckedUpdateInput,
+  ): Promise<void> {
     await prisma.users.update({
       where: {
         id: userId,

@@ -3,7 +3,7 @@ import NextCors from 'nextjs-cors';
 
 import { UserRepository } from '@lib/repositories/UserRepository';
 
-export default async function profileHandler(
+export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse,
 ): Promise<void> {
