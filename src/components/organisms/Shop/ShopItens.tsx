@@ -9,15 +9,15 @@ import {
 } from '@chakra-ui/react';
 import { Coins, ShoppingCartSimple } from 'phosphor-react';
 
-import { LojaBanner, LojaBannerType } from '@data/loja';
+import { Shop, ShopType } from '@data/shop';
 
 export function ShopItens(): JSX.Element {
   return (
     <Grid templateColumns="repeat(4, 1fr)" gap={6}>
-      {LojaBanner.ALL.sort((a: LojaBannerType, b: LojaBannerType) =>
+      {Shop.Banners.sort((a: ShopType, b: ShopType) =>
         a.name.localeCompare(b.name),
       )
-        .sort((a: LojaBannerType, b: LojaBannerType) => a.custo - b.custo)
+        .sort((a: ShopType, b: ShopType) => a.custo - b.custo)
         .map(({ name, preview, custo, code }) => (
           <GridItem
             key={code}
