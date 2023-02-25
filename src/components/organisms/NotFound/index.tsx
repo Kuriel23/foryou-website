@@ -19,7 +19,7 @@ export function NotFound(): JSX.Element {
 
   return (
     <Flex
-      bgImage="https://i.imgur.com/URGcI2z.jpeg"
+      bgImage="https://i.imgur.com/8Ms8lMR.png"
       bgRepeat="no-repeat"
       bgSize="cover"
       bgPos="center"
