@@ -13,12 +13,31 @@ import {
 } from '@chakra-ui/react';
 import { CaretDown } from 'phosphor-react';
 
+import {
+  setValorSelecionado,
+  setCategory,
+  setSearch,
+} from '@contexts/ShopContext';
+
 export function Sort(): JSX.Element {
+  const handleValorSelecionado = (valor: string): void => {
+    setValorSelecionado(valor);
+  };
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setCategory(event.target.value);
+  };
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    setSearch(event.target.value);
+  };
   return (
     <HStack w="100%">
       <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem my="10px" colSpan={2}>
-          <Text>Foram encontrados x produtos</Text>
+          <Text>Foram encontrados X produtos</Text>
         </GridItem>
         <GridItem colEnd={6}>
           <HStack>
@@ -26,6 +45,7 @@ export function Sort(): JSX.Element {
               variant="flushed"
               maxW="30%"
               placeholder="Pesquise aqui..."
+              onChange={handleInputChange}
             />
             <Select
               variant="filled"
@@ -33,10 +53,11 @@ export function Sort(): JSX.Element {
               maxW="35%"
               borderRadius="25px"
               bg="gray.700"
+              onChange={handleCategoryChange}
             >
               <option value="vips">Assinaturas</option>
             </Select>
-            <Menu>
+            <Menu isLazy>
               <MenuButton
                 color="white"
                 bg="gray.700"
@@ -53,11 +74,31 @@ export function Sort(): JSX.Element {
                   color="gray.300"
                 />
               </MenuButton>
-              <MenuList>
-                <MenuItem>Preços baixos</MenuItem>
-                <MenuItem>Preços altos</MenuItem>
-                <MenuItem>A a Z</MenuItem>
-                <MenuItem>Z a A</MenuItem>
+              <MenuList defaultValue="priceasc">
+                <MenuItem
+                  value="priceasc"
+                  onClick={() => handleValorSelecionado('priceasc')}
+                >
+                  Preços baixos
+                </MenuItem>
+                <MenuItem
+                  value="pricedesc"
+                  onClick={() => handleValorSelecionado('pricedesc')}
+                >
+                  Preços altos
+                </MenuItem>
+                <MenuItem
+                  value="asc"
+                  onClick={() => handleValorSelecionado('asc')}
+                >
+                  A a Z
+                </MenuItem>
+                <MenuItem
+                  value="desc"
+                  onClick={() => handleValorSelecionado('desc')}
+                >
+                  Z a A
+                </MenuItem>
               </MenuList>
             </Menu>
           </HStack>

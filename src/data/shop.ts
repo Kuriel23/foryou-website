@@ -8,6 +8,8 @@ export type ShopType = {
 export class Shop {
   static Banners: ShopType[];
 
+  static Vips: ShopType[];
+
   static getBannerByCode(code: string): ShopType | null {
     const banner = this.Banners.find(b => b.code === code);
 
@@ -175,5 +177,26 @@ Shop.Banners = [
     custo: 400000,
     code: 'raiden',
     preview: 'https://i.imgur.com/KOzVWrq.png?1',
+  },
+];
+
+Shop.Vips = [
+  {
+    name: 'Vip Cloud',
+    custo: 1000000,
+    code: 'cloud',
+    preview: 'https://i.imgur.com/1m3017k.jpg',
+  },
+  {
+    name: 'Vip Moon',
+    custo: 10000000,
+    code: 'moon',
+    preview: 'https://i.imgur.com/1m3017k.jpg',
+  },
+  {
+    name: 'Vip Sun',
+    custo: 50000000,
+    code: 'sun',
+    preview: 'https://i.imgur.com/1m3017k.jpg',
   },
 ];
