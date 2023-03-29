@@ -21,7 +21,7 @@
     "@hookform/resolvers": "^2.9.10",
     "@notionhq/client": "^2.2.3",
     "@prisma/client": "4.11.0",
-    "@types/node": "18.14.6",
+    "@types/node": "18.15.11",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "axios": "^1.2.1",
