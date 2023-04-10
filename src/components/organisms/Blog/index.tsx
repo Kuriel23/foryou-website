@@ -1,8 +1,10 @@
-import { Flex } from '@chakra-ui/react';
+import { Text, Image } from '@chakra-ui/react';
 
 export function Blog(): JSX.Element {
   return (
-    <Flex>
-    </Flex>
+    <Text color="white">
+      <Image src="./logo.png" width="100px" h="100px" />
+      Em breve...
+    </Text>
   );
 }
