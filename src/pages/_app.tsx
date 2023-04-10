@@ -1,8 +1,8 @@
 import '@fontsource/poppins';
 
 import { ChakraProvider } from '@chakra-ui/react';
-import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
 import NextNProgress from 'nextjs-progressbar';
 
 import { theme } from '@theme';

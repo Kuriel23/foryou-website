@@ -12,9 +12,9 @@ import {
   Avatar,
   MenuDivider,
 } from '@chakra-ui/react';
-import { signIn, signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { signIn, signOut } from 'next-auth/react';
 import {
   CaretDown,
   CaretUp,

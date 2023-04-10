@@ -1,7 +1,7 @@
 import type { users } from '@prisma/client';
 
-import { UserRepository } from '../repositories/UserRepository';
 import { IUserInfo } from './UserInfo';
+import { UserRepository } from '../repositories/UserRepository';
 
 export type IUserDatabase = Omit<users, 'casado'> & {
   casado: IUserInfo | null;
