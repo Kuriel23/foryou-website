@@ -4,13 +4,16 @@
 
 O website For You é um site onde a comunidade Discord, bot e website estão todos conectados para um maior entretenimento a quem pertence da família For You.
 
+## Requisitos
+
+- Node
+- Yarn
+
 ## Instalação
 
-Use o [node](https://nodejs.org/en/) para usar o site.
-
 ```bash
-npm i
-npm run dev
+yarn
+yarn dev
 ```
 
 ## Contribuindo
