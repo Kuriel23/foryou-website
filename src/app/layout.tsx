@@ -15,6 +15,17 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: 'For You - Discord Bot & Community',
+  description:
+    'Conheça o For You, um bot do Discord e comunidade que oferece recursos incríveis para melhorar sua experiência no Discord. Junte-se à nossa comunidade e descubra tudo o que o For You pode fazer por você!',
+  themeColor: '#ed8936',
+  openGraph: {
+    images: ['/logo.png'],
+    url: '/',
+    type: 'website',
+  },
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
