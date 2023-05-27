@@ -2,7 +2,6 @@
   "name": "foryou-website",
   "version": "2.0.0",
   "private": true,
-  "packageManager": "yarn@3.5.1",
   "scripts": {
     "fix": "yarn prettier:fix && yarn eslint:fix",
     "eslint": "eslint ./ --ext \"js,ts,jsx,tsx\"",
