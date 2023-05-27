@@ -178,12 +178,6 @@ Shop.Banners = [
     code: 'raiden',
     preview: 'https://i.imgur.com/KOzVWrq.png?1',
   },
-  {
-    name: 'Mitsuha (Your Name)',
-    custo: 800000,
-    code: 'kiminonawa',
-    preview: 'https://i.imgur.com/EVG5KWh.png',
-  },
 ];
 
 Shop.Vips = [
