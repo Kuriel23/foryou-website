@@ -2,13 +2,12 @@
 
 import { Moon, Sun } from '@phosphor-icons/react';
 
+import useLocalStorage from '@/hooks/useLocalStorage';
+
 export function PageFooter(): JSX.Element {
+  const [value, setValue] = useLocalStorage('theme', '');
   function toggleColorMode(): void {
-    return localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ? localStorage.setItem('theme', 'light')
-      : localStorage.setItem('theme', 'dark');
+    return value === 'dark' || !value ? setValue('light') : setValue('dark');
   }
 
   return (
@@ -50,7 +49,7 @@ export function PageFooter(): JSX.Element {
                 className="ml-6 bg-orange-500 text-white dark:text-gray-800 w-12 h-12 flex justify-center rounded-lg"
                 onClick={toggleColorMode}
               >
-                {localStorage.getItem('theme') === 'dark' ? (
+                {value === 'dark' ? (
                   <Moon size={24} weight="light" className="my-auto" />
                 ) : (
                   <Sun size={24} weight="light" className="my-auto" />
