@@ -17,7 +17,7 @@ export function PageHeader(): JSX.Element {
 
         <HeaderProfile
           username="izakdvlpr"
-          avatarURL="https://cdn.discordapp.com/avatars/461273822360895491/d1e4bfb7472f6d28db12e0dc57e5c039.png"
+          avatarURL="https://cdn.discordapp.com/avatars/882761234271834142/47873b3e2166727d41c2dc6e94b1a160.jpg?size=512"
         />
       </div>
     </header>
