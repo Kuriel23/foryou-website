@@ -12,7 +12,7 @@ export function PageFooter(): JSX.Element {
 
   return (
     <footer>
-      <div className="bg-gray-700 dark:bg-gray-200">
+      <div className="dark:bg-gray-700 bg-gray-200">
         <div className="w-100 p-10 gap-8 max-w-[1240px] px-0 mx-auto flex flex-col">
           <div className="w-100 flex items-center justify-between">
             <p className="text-black dark:text-white">
