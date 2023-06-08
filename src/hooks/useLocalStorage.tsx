@@ -7,6 +7,9 @@ type UseLocalStorage<T> = (key: string, initialValue: T) => [T, SetValue<T>];
 
 const useLocalStorage: UseLocalStorage<string> = (key, initialValue) => {
   const [state, setState] = useState(() => {
+    if (typeof window === 'undefined') {
+      return initialValue;
+    }
     const value = window.localStorage.getItem(key);
     return value ? JSON.parse(value) : initialValue;
   });
