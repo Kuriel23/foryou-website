@@ -36,7 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
       <body className={roboto.className}>{children}</body>
     </html>
   ) : (
-    <html lang="pt-BR" className="dark bg-gray-800">
+    <html lang="pt-BR" className="bg-white">
       <body className={roboto.className}>{children}</body>
     </html>
   );
