@@ -12,7 +12,7 @@ export function HeaderNavigationItem({
   return (
     <Link
       href={route}
-      className="text-lg font-light transition-colors hover:text-orange-400"
+      className="text-lg font-light transition-colors hover:text-orange-400 text-black dark:text-white"
     >
       {name}
     </Link>

@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function HeaderLogo(): JSX.Element {
   return (
-    <div className="flex items-center">
+    <a className="flex items-center" href="/">
       <Image
         src="/logo.png"
         alt="logo"
@@ -11,7 +11,9 @@ export function HeaderLogo(): JSX.Element {
         className="rounded-full bg-orange-400"
       />
 
-      <h1 className="ml-2 text-3xl font-semibold">For You</h1>
-    </div>
+      <h1 className="ml-2 text-3xl font-semibold text-black dark:text-white">
+        For You
+      </h1>
+    </a>
   );
 }

@@ -12,7 +12,7 @@ export function FooterDarkMode(): JSX.Element {
   return (
     <button
       type="button"
-      className="ml-6 bg-orange-500 text-white dark:text-gray-800 w-12 h-12 flex justify-center rounded-lg"
+      className="ml-6 bg-orange-500 dark:bg-orange-200 text-white dark:text-gray-800 w-12 h-12 flex justify-center rounded-lg"
       onClick={toggleColorMode}
     >
       {value === 'dark' ? (

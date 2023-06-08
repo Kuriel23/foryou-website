@@ -22,7 +22,7 @@ export function HeaderProfile({
         className="rounded-full bg-orange-400"
       />
 
-      <span className="inline-flex ml-2 text-lg font-medium">
+      <span className="inline-flex ml-2 text-lg font-medium text-black dark:text-white">
         {username} <CaretDown size={16} weight="light" />
       </span>
     </div>
