@@ -1,5 +1,5 @@
-import { FooterCopyright } from '../molecules/FooterCopyright';
-import { FooterCredits } from '../molecules/FooterCredits';
+import { FooterCopyright } from '../molecules/Footer/FooterCopyright';
+import { FooterCredits } from '../molecules/Footer/FooterCredits';
 
 export function PageFooter(): JSX.Element {
   return (

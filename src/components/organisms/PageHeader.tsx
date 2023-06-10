@@ -1,6 +1,6 @@
-import { HeaderLogo } from '../molecules/HeaderLogo';
-import { HeaderNavigationItem } from '../molecules/HeaderNavigationItem';
-import { HeaderProfile } from '../molecules/HeaderProfile';
+import { HeaderLogo } from '../molecules/Header/HeaderLogo';
+import { HeaderNavigationItem } from '../molecules/Header/HeaderNavigationItem';
+import { HeaderProfile } from '../molecules/Header/HeaderProfile';
 
 export function PageHeader(): JSX.Element {
   return (
