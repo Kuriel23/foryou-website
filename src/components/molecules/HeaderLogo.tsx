@@ -11,9 +11,7 @@ export function HeaderLogo(): JSX.Element {
         className="rounded-full bg-orange-400"
       />
 
-      <h1 className="ml-2 text-3xl font-semibold text-black dark:text-white">
-        For You
-      </h1>
+      <h1 className="ml-2 text-3xl font-semibold text-white">For You</h1>
     </a>
   );
 }

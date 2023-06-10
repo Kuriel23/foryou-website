@@ -29,14 +29,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
-  const darkMode =
-    typeof window !== 'undefined' ? localStorage.getItem('theme') ?? '' : '';
-  return darkMode.length > 1 ? (
-    <html lang="pt-BR" className="dark bg-white">
-      <body className={roboto.className}>{children}</body>
-    </html>
-  ) : (
-    <html lang="pt-BR" className="bg-white">
+  return (
+    <html lang="pt-BR" className="bg-gray-800">
       <body className={roboto.className}>{children}</body>
     </html>
   );

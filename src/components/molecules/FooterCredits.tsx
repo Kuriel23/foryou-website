@@ -1,6 +1,6 @@
 export function FooterCredits(): JSX.Element {
   return (
-    <p className="text-black dark:text-white">
+    <p className="text-white">
       Site desenvolvido com muito ❤️ por
       <a
         href="https://izakdvlpr.com/"
