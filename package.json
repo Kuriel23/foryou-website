@@ -20,7 +20,7 @@
     "@fontsource/poppins": "^4.5.10",
     "@hookform/resolvers": "^2.9.10",
     "@notionhq/client": "^2.2.3",
-    "@prisma/client": "^4.12.0",
+    "@prisma/client": "^5.0.0",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.34",
     "@types/react-dom": "18.0.11",
@@ -47,6 +47,6 @@
   "devDependencies": {
     "@muoosic/eslint-config": "0.0.1",
     "prettier": "^2.8.7",
-    "prisma": "^4.12.0"
+    "prisma": "^5.0.0"
   }
 }
